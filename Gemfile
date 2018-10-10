@@ -67,3 +67,4 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'devise'
 gem "aws-sdk-s3", require: false
 gem 'popper_js'
+gem 'sprockets', '~>3.7.2'
