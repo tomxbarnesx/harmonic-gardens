@@ -1,0 +1,18 @@
+// Place all the styles related to the shifts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.day {
+    height: 9em;
+    width: 14%;
+    border: 1px solid #ddd;
+
+}
+
+.today {
+    background-color: rgb(199, 255, 192);;
+}
+
+.next-month {
+    background: #DDD;
+}
