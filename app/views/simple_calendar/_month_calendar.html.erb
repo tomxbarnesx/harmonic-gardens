@@ -25,7 +25,7 @@
                 <% block.call day, sorted_events.fetch(day, []) %>
               <% end %>
               <br>
-              <span class="add-shift add-<%= day %>">✚ Add</span>
+              <%= link_to '✚ Add', new_shift_path, remote: true, class: "ajax-add add-#{day}" %>
             <% end %>
           <% end %>
         </tr>

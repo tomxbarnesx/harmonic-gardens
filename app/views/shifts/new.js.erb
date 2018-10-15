@@ -1,0 +1,10 @@
+console.log('Mama, we made it.');
+
+var val;
+
+var form = document.getElementById('add-form');
+
+form.innerHTML = "<%= j (render 'form') %>";
+var date = document.getElementById('date-field');
+date.value = sessionStorage.getItem("date");
+form.style.display = "block";
