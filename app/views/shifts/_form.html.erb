@@ -1,9 +1,5 @@
 <h2>Add Hours</h2>
-<%= form_for @shift, remote: true do |form| %>
-    <div class="form-group">
-        <label>Date: </label>
-        <%= form.date_field :date, placeholder: "Date", :id => 'date-field', class: "form-control form-control-lg"%>
-    </div>
+<%= form_for @shift, local: true do |form| %>
     <div class="form-group">
         <label>Client: </label>
         <%= collection_select(:shift, :client_id, Client.all, :id, :full_name, {}, {:class=>'form-control form-control-lg'}) %>
@@ -12,11 +8,11 @@
     <div><%= form.hidden_field :user_id, :value => current_user.id %></div>
     <div class="form-group">
         <label>Start Time: </label>
-        <%= form.time_field :start_time, placeholder: "Start Time", :id => 'start_time', class: "form-control form-control-lg" %>
+        <%= form.datetime_field :start_time, placeholder: "Start Time", :id => 'start_time', class: "form-control form-control-lg" %>
     </div>
     <div class="form-group">
         <label>End Time: </label>
-        <%= form.time_field :end_time, placeholder: "End Time", :id => 'end_time', class: "form-control form-control-lg" %>
+        <%= form.datetime_field :end_time, placeholder: "End Time", :id => 'end_time', class: "form-control form-control-lg" %>
     </div>
     <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-dark" %>
 <% end %>

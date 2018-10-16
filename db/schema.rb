@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2018_10_16_200509) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer "client_id"
-    t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

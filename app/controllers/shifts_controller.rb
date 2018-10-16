@@ -10,6 +10,14 @@ class ShiftsController < ApplicationController
 
     def create
         @shift = Shift.create(shift_params)
+
+        if @shift.save
+            flash[:notice] = "Hours logged successfully."
+            redirect_to "/shifts"
+        else
+            flash[:error] = "We encountered an error logging your hours"
+            render 'new'
+        end
     end
 
 private
