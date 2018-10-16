@@ -1,5 +1,12 @@
-<%= month_calendar do |date| %>
+<%= month_calendar events: @shifts do |date, shifts| %>
   <%= date.day %>
+
+  <% shifts.each do |shift| %>
+    <div class="shift-block">
+      <%= shift.client.abbrv_name %><br>
+      Hours: <%= shift.time_elapsed %>
+    </div>
+  <% end %>
 <% end %>
 
 <div id="add-form" style="display:none;">
