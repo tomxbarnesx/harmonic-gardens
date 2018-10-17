@@ -2,14 +2,19 @@
   <%= date.day %>
 
   <% shifts.each do |shift| %>
-    <div class="shift-block">
-      <%= shift.client.abbrv_name %><br>
-      Hours: <%= shift.time_elapsed %>
-    </div>
+    <a href="/shifts/<%=shift.id%>" data-remote="true" class="shift-check">
+      <div class="shift-block">
+        <%= shift.client.abbrv_name %><br>
+        Hours: <%= shift.time_elapsed %>
+      </div>
+    </a>
   <% end %>
 <% end %>
 
 <div id="add-form" style="display:none;">
+</div>
+
+<div id="shift-card-container" style="display:none;">
 </div>
 
 <script>

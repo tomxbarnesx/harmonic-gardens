@@ -8,6 +8,10 @@ class ShiftsController < ApplicationController
         @shift = Shift.new
     end
 
+    def show
+        @shift = Shift.find(params[:id]) 
+    end
+
     def create
         @shift = Shift.create(shift_params)
 

@@ -1,0 +1,16 @@
+<div class="card shift-card">
+  <div class="shift-card-body align-middle">
+    <h5 class="card-title"><span class="date-code"><%= @shift.just_date %></span>: <%= @shift.user.full_name%></h5>
+    <p class="card-text"><strong>Client: </strong><%= @shift.client.full_name %><br>
+    <strong>Start: </strong><%= @shift.simple_start %><br>
+    <strong>End: </strong><%= @shift.simple_end %><br>
+    <strong>Total Hours: </strong><%= @shift.time_elapsed %></p>
+    <a href="#" class="btn btn-success">Edit</a>
+    <a href="#" class="btn btn-success">Delete</a>
+  </div>
+  <div>
+      <img class="card-img house-img" src="https://www.shareicon.net/data/256x256/2015/11/08/668668_home_512x512.png" alt="Card image cap">
+  </div>
+  <div id="close-tab">X</div>
+</div>
+

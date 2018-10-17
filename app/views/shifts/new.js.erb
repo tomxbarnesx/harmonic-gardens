@@ -5,8 +5,6 @@ var val;
 var form = document.getElementById('add-form');
 
 form.innerHTML = "<%= j (render 'form') %>";
-<%# var date = document.getElementById('date-field');
-date.value = sessionStorage.getItem("date"); %>
 var startTime = document.getElementById('start_time');
 var endTime = document.getElementById('end_time');
 date = sessionStorage.getItem("date");

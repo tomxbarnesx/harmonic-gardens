@@ -22,3 +22,43 @@
     padding: .2em;
     background-color: rgb(230, 169, 161);
 }
+
+.card.shift-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 70%; 
+    margin: 0 auto;
+    position: relative;
+}
+
+.card-img.house-img {
+    padding: 1em;
+}
+
+.shift-card-body {
+    margin: 2em;
+    width: 60%;
+    font-size: 135%;
+}
+
+.date-code {
+    background-color: rgb(230, 169, 161); 
+    border-radius: .3em;
+    padding: .15em;
+}
+
+#close-tab {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 175%;
+}
+
+#add-form {
+    width: 96%;
+    padding: 3%;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: .25rem;
+}
