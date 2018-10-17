@@ -5,8 +5,8 @@
     <strong>Start: </strong><%= @shift.simple_start %><br>
     <strong>End: </strong><%= @shift.simple_end %><br>
     <strong>Total Hours: </strong><%= @shift.time_elapsed %></p>
-    <a href="#" class="btn btn-success">Edit</a>
-    <a href="#" class="btn btn-success">Delete</a>
+    <%= link_to 'Edit', edit_shift_path, remote: true, class: "btn btn-success" %>
+    <%= link_to 'Delete', shift_path, method: :delete, class: "btn btn-success" %>
   </div>
   <div>
       <img class="card-img house-img" src="https://www.shareicon.net/data/256x256/2015/11/08/668668_home_512x512.png" alt="Card image cap">

@@ -21,7 +21,7 @@
     $('a').click(function(e) {
         var target = $(e.target);
         if (target.context.attributes["class"].value.slice(0, 8) == "ajax-add") {
-            val = target.context.attributes["class"].value.slice(13)
+            var val = target.context.attributes["class"].value.slice(13)
             sessionStorage.setItem("date", val);
         };
         console.log(target);
