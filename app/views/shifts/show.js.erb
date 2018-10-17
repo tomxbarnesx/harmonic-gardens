@@ -1,0 +1,22 @@
+console.log("Checking the scene");
+
+var card = document.getElementById('shift-card-container');
+
+card.innerHTML = "<%= j (render 'card') %>";
+card.style.display = "block";
+
+var close = document.getElementById("close-tab");
+
+close.addEventListener("click", function(){
+    card.style.display = "none";
+})
+
+$(document).on('click', function handler(e){
+    console.log("I ran");
+    var container = $('#shift-card-container');
+
+    if ((!container.is(e.target) && container.has(e.target).length === 0)) {
+        container.hide();
+        container.off('click', handler);
+    }
+});

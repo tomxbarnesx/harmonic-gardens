@@ -1,0 +1,7 @@
+console.log('We\'re editting');
+var form = document.getElementById('add-form');
+var card = document.getElementById('shift-card-container');
+$("#add-form").empty();
+$("#shift-card-container").empty();
+form.innerHTML = "<%= j (render 'edit') %>";
+form.style.display = "block";
