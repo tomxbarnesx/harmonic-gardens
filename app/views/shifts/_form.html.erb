@@ -5,7 +5,13 @@
         <%= collection_select(:shift, :client_id, Client.all, :id, :full_name, {}, {:class=>'form-control form-control-lg'}) %>
     </div>
     <%# Be AWARE: THE HIDDEN FIELD IS SET TO TAKE THE CURRENT_USER. UPDATE IF YOU WANT TO HAVE OTHER USERS TO UPDATE OTHER PEOPLE'S TIMESHEETS%>
+    <% if has_role?("Admin") || has_role?("Foreman") %>
+    <div class="form-group">
+        <label>Employee: </label>
+        <%= collection_select(:shift, :user_id, User.all, :id, :full_name, {}, {:class=>'form-control form-control-lg'}) %>
+    <% else %>
     <div><%= form.hidden_field :user_id, :value => current_user.id %></div>
+    <% end %>
     <div class="form-group">
         <label>Start Time: </label>
         <%= form.datetime_field :start_time, placeholder: "Start Time", :id => 'start_time', class: "form-control form-control-lg" %>
