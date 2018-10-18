@@ -1,11 +1,11 @@
 class ShiftsController < ApplicationController
     before_action :authenticate_user!
     def index
-        @shifts = Shift.where(user_id: current_user.id)
-    end
-
-    def master
-        @shifts = Shift.all
+        if current_user.user_access == "Admin" || current_user.user_access == "Foreman"
+            @shifts = Shift.all
+        else
+            @shifts = Shift.where(user_id: current_user.id)
+        end
     end
 
     def show

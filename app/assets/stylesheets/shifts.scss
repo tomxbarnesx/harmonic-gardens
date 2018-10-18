@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .day {
-    height: 9em;
+    height: 10em;
     width: 14%;
     border: 1px solid #ddd;
 
@@ -15,6 +15,10 @@
 
 .next-month {
     background: #DDD;
+}
+
+.table td {
+    padding: .3rem !important;
 }
 
 .shift-block {

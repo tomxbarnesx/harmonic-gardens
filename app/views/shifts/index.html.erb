@@ -4,7 +4,7 @@
   <% shifts.each do |shift| %>
     <a href="/shifts/<%=shift.id%>" data-remote="true" class="shift-check">
       <div class="shift-block">
-        <%= shift.client.abbrv_name %><br>
+        <%= shift.client.last_name %> (<%= shift.user.last_name %>)<br>
         Hours: <%= shift.time_elapsed %>
       </div>
     </a>
