@@ -5,6 +5,5 @@ Rails.application.routes.draw do
   root to: "pages#landing"
 
   resources :shifts
-  get '/shifts/master' => 'shift#master', as: :shift_master
-
+  resources :clients
 end

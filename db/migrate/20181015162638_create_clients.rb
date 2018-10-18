@@ -5,6 +5,7 @@ class CreateClients < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.string :address
       t.string :email
+      t.boolean :active, default: true
 
       t.timestamps
     end
