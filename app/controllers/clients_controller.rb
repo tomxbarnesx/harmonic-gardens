@@ -5,49 +5,49 @@ class ClientsController < ApplicationController
     end
 
     def show
-
+        @client = Client.find(params[:id])
     end
 
     def new
-    
+        @client = Client.new
     end
 
     def edit
-        @shift = Shift.find(params[:id])
+        @client = Client.find(params[:id])
     end
 
     def create
-        @shift = Shift.create(shift_params)
+        @client = Client.create(client_params)
 
-        if @shift.save
-            flash[:notice] = "Hours logged successfully."
-            redirect_to "/shifts"
+        if @client.save
+            flash[:notice] = "Client added."
+            redirect_to "/clients"
         else
-            flash[:error] = "We encountered an error logging your hours"
+            flash[:error] = "We encountered an error creating your new client."
             render 'new'
         end
     end
 
     def update
-        @shift = Shift.find(params[:id])
+        @client = Client.find(params[:id])
 
-        if @shift.update(shift_params)
-            redirect_to "/shifts"
+        if @client.update(client_params)
+            redirect_to "/client"
         else
             render 'edit'
         end
     end
 
     def destroy
-        @shift = Shift.find(params[:id])
-        @shift.destroy
-        redirect_to "/shifts"
+        @client = Client.find(params[:id])
+        @client.destroy
+        flash[:notice] = "Client successfully deleted"
     end
 
 private
     
-    def shift_params
-        params.require(:shift).permit(:start_time, :end_time, :date, :client_id, :user_id);
+    def client_params
+        params.require(:client).permit(:first_name, :last_name, :address, :email, :active);
     end
 
 end
