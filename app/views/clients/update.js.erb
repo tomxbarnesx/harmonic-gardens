@@ -1,1 +1,2 @@
-$('#edit_client_<%= @client.id %>').replaceWith('<%= j render partial: "client_card", locals: {client: @client} %>');
+$('#edit_client_<%= @client.id %>').replaceWith('<div id="client-card"></div>');
+$("#client-card").append('<%= j render partial: "client_card", locals: {client: @client} %>' );
