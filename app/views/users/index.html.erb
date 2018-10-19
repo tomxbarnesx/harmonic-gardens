@@ -1,0 +1,18 @@
+<h1>Users</h1>
+<%= link_to 'Add New', new_user_path, class: "btn btn-success" %>
+<table id="datatable" data-turbolinks="false" class="display">
+    <thead>
+        <tr class="table-header">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Access</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= render "user_list" %>
+    </tbody>
+</table>

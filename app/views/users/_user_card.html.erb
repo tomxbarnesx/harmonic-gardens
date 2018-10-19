@@ -1,0 +1,5 @@
+<h1><%= @user.full_name %></h1>
+<p>Username: <%= @user.username %></p>
+<p>Email: <%= @user.email %></p>
+<p>Access: <%= @user.user_access %></p>
+<%= link_to 'Edit', edit_user_path(@user), remote:true, class: "btn btn-success" %>

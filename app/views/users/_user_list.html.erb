@@ -1,0 +1,13 @@
+<% @users.each do |u| %>
+    <tr id="user-<%= u.id %>">
+        <td><%= u.first_name %></td>
+        <td><%= u.last_name %></td>
+        <td><%= u.email %></td>
+        <td><%= u.username %></td>
+        <td><%= u.user_access %></td>
+        <td><%= link_to 'View', user_path(u) %></td>
+        <td><%= link_to 'Delete', user_path(u),
+              method: :delete, remote:true,
+              data: { confirm: 'Are you sure? This cannot be reversed.' } %></td>
+    </tr>
+<% end %>
