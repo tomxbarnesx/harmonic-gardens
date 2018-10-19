@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   resources :shifts
   resources :clients
+  resources :users
 end

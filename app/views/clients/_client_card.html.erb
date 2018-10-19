@@ -1,0 +1,6 @@
+<h1><%= @client.full_name %></h1>
+<p>Email: <%= @client.email %></p>
+<p>Address: <%= @client.address %></p>
+<p>Home Phone: <%= number_to_phone(@client.home_phone, area_code: true) %></p>
+<p>Cell Phone: <%= number_to_phone(@client.cell_phone, area_code: true) %></p>
+<%= link_to 'Edit', edit_client_path(@client), remote:true, class: "btn btn-success" %>

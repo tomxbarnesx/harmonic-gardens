@@ -30,12 +30,7 @@ class ClientsController < ApplicationController
 
     def update
         @client = Client.find(params[:id])
-
-        if @client.update(client_params)
-            redirect_to "/client"
-        else
-            render 'edit'
-        end
+        @client.update(client_params)
     end
 
     def destroy

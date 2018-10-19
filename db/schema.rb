@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2018_10_16_200509) do
     t.string "last_name"
     t.string "address"
     t.string "email"
+    t.bigint "home_phone"
+    t.bigint "cell_phone"
     t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

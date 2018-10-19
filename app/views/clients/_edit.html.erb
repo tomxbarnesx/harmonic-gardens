@@ -1,0 +1,27 @@
+<%= form_for @client, remote: true do |form| %>
+    <div class="form-group">
+        <label>First Name: </label>
+        <%= form.text_field :first_name, placeholder: "First Name", class: 'form-control form-control-lg' %>
+    </div>
+    <div class="form-group">
+        <label>Last Name: </label>
+        <%= form.text_field :last_name, placeholder: "First Name", class: 'form-control form-control-lg' %>
+    </div>
+    <div class="form-group">
+        <label>Address: </label>
+        <%= form.text_field :address, placeholder: "Address", class: "form-control form-control-lg" %>
+    </div>
+    <div class="form-group">
+        <label>Email: </label>
+        <%= form.text_field :email, placeholder: "Email", class: "form-control form-control-lg" %>
+    </div>
+    <div class="form-group">
+        <label>Home Phone: </label>
+        <%= form.number_field :home_phone, placeholder: "Home Phone", class: "form-control form-control-lg" %>
+    </div>
+    <div class="form-group">
+        <label>Cell Phone: </label>
+        <%= form.number_field :cell_phone, placeholder: "Cell Phone", class: "form-control form-control-lg" %>
+    </div>
+    <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-dark" %>
+<% end %>
