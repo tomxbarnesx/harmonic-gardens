@@ -1,0 +1,2 @@
+$('#edit_user_<%= @user.id %>').replaceWith('<div id="user-card"></div>');
+$("#user-card").append('<%= j render partial: "user_card", locals: {user: @user} %>' );

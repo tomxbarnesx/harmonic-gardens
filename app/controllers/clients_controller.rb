@@ -37,6 +37,7 @@ class ClientsController < ApplicationController
         @client = Client.find(params[:id])
         @client.destroy
         flash[:notice] = "Client successfully deleted"
+        render :js => "window.location = '#{clients_path}'"
     end
 
 private

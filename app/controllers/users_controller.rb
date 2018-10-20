@@ -36,6 +36,13 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @user.destroy
         flash[:notice] = "User successfully deleted"
+        render :js => "window.location = '#{users_path}'"
+    end
+
+    def edit_access
+        if has_role?("Admin") || has_role?("Foreman") && @user.user_access == "Worker"
+            return "link_to 'Edit', edit_user_path(@user), remote:true, class: 'btn btn-success'"
+        end
     end
 
 private

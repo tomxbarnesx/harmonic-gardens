@@ -5,5 +5,6 @@ class AddUserColumns < ActiveRecord::Migration[5.2]
     add_column :users, :user_access, :string
     add_column :users, :username, :string
     add_column :users, :hourly_rate, :integer
+    add_index :users, :username, unique: true
   end
 end
