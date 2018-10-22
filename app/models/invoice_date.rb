@@ -1,0 +1,2 @@
+class InvoiceDate < ApplicationRecord
+end
