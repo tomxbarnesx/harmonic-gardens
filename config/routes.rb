@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :shifts
   resources :clients
   resources :users
-  resources :invoices
+  resources :invoices do
+    resources :invoice_dates
+  end
 end

@@ -3,15 +3,15 @@
 <div>
     <table id="datatable" data-turbolinks="false" class="display">
         <thead>
-            <th>Client Name</th>
+            <th>Client</th>
             <th>Address</th>
             <th>Start Date</th>
-            <th>Subtotal</th>
+            <th>Current Total</th>
             <th>Options</th>
             <th></th>
         </thead>
         <tbody>
-            <% render 'active-invoices'%>
+            <%= render 'active_invoices'%>
         <tbody>
     </table>
 </div>

@@ -1,0 +1,14 @@
+<h2><%= @invoice.client.full_name %></h2>
+<br>
+<p><%= @invoice.client.address%></p>
+<p><%= number_to_phone(@invoice.client.home_phone, area_code: true) %></p>
+<p><%= @invoice.client.email %></p>
+<div class="invoice-body">
+    <div class="description-header">
+        <h4>Description</h4>
+    </div>
+    <div class="invoice-date-master">
+        <%= render 'invoice_dates' %>
+        <%= link_to 'Add Date', new_invoice_invoice_date_path(@invoice), remote:true, class: "btn btn-success" %>
+    </div>
+</div>

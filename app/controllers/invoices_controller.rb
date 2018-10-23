@@ -4,7 +4,7 @@ class InvoicesController < ApplicationController
     end
 
     def show
-        
+        @invoice = Invoice.find(params[:id])
     end
 
     def new
@@ -12,7 +12,15 @@ class InvoicesController < ApplicationController
     end
 
     def create
-        @invoice = Invoice.new(invoice_params)
+        @invoice = Invoice.create(invoice_params)
+
+        if @invoice.save
+            flash[:notice] = "Invoice successfully created"
+            redirect_to "/invoices"
+        else
+            flash[:error] = "We an encountered an error creating your invoice"
+            render 'new'
+        end
     end
 
     def edit
@@ -21,6 +29,11 @@ class InvoicesController < ApplicationController
 
     def update
 
+    end
+
+private
+    def invoice_params
+        params.require(:invoice).permit(:client_id, :master_desc, :total_cost, :active);
     end
 
 end

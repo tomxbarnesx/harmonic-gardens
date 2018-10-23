@@ -31,15 +31,15 @@ ActiveRecord::Schema.define(version: 2018_10_23_001450) do
     t.integer "invoice_id"
     t.date "date"
     t.string "description"
-    t.decimal "subtotal", precision: 10, scale: 2
+    t.decimal "subtotal", precision: 10, scale: 2, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "invoices", force: :cascade do |t|
     t.integer "client_id"
-    t.date "start_date"
-    t.integer "total_cost"
+    t.integer "total_cost", default: 0
+    t.boolean "active", default: true
     t.string "master_desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

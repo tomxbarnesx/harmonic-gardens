@@ -1,10 +1,10 @@
 console.log('Mama, we made it.');
 
 var form = document.getElementById('add-form');
-
-form.innerHTML = "<%= j (render 'form') %>";
 var startTime = document.getElementById('start_time');
 var endTime = document.getElementById('end_time');
+
+form.innerHTML = "<%= j (render 'form') %>";
 date = sessionStorage.getItem("date");
 startTime.value = `${date}T00:00`
 endTime.value = `${date}T00:00`
