@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shift_id: 1
+  invoice_id: 1
+
+two:
+  shift_id: 1
+  invoice_id: 1

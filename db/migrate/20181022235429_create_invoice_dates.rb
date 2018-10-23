@@ -4,7 +4,7 @@ class CreateInvoiceDates < ActiveRecord::Migration[5.2]
       t.integer :invoice_id
       t.date :date
       t.string :description
-      t.decimal :subtotal
+      t.decimal :subtotal, precision: 10, scale: 2
 
       t.timestamps
     end
