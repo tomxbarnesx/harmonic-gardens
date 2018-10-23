@@ -1,11 +1,13 @@
 <h1>Active Invoices</h1>
-<h5>View Closed Invoices</h2>
+<%= link_to 'Add New', new_invoice_path, class: "btn btn-success" %>
 <div>
-    <table>
+    <table id="datatable" data-turbolinks="false" class="display">
         <thead>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Client Name</th>
+            <th>Address</th>
+            <th>Start Date</th>
+            <th>Subtotal</th>
+            <th>Options</th>
             <th></th>
         </thead>
         <tbody>
@@ -13,4 +15,5 @@
         <tbody>
     </table>
 </div>
+<h5>View Closed Invoices</h5>
             

@@ -1,0 +1,12 @@
+<% @invoices.each do |i| %>
+    <tr id="invoice-<%= i.id %>">
+        <td><%= i.client.full_name %></td>
+        <td><%= i.client.address %></td>
+        <td><%= i.created_at %></td>
+        <td><%= i.total_cost %></td>
+        <td><%= link_to 'View', invoice_path(i) %></td>
+        <td><%= link_to 'Delete', invoice_path(i),
+              method: :delete, remote:true,
+              data: { confirm: 'Are you sure? This cannot be reversed.' } %></td>
+    </tr>
+<% end %>
