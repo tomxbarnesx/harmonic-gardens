@@ -1,4 +1,4 @@
 class Client < ApplicationRecord
     has_one :invoice
-    has_one :shift
+    has_many :shifts
 end

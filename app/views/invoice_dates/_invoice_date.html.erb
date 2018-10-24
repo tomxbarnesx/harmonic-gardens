@@ -4,5 +4,6 @@
     <div id="invoice-shift-container-<%= idate.id %>">
     <%# render partial: 'shift_dates/shift_date', collection: idate.shift_dates, as: :sdate %>
     <%= link_to 'Attach Shift', new_invoice_date_shift_date_path(idate), remote:true, class: "btn btn-success" %>
+    </div>
     <%# render partial: 'material_dates/material_date', collection: idate.shift_dates, as: :sdate %>
 </div>

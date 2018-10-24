@@ -5,7 +5,7 @@ class InvoiceDatesController < ApplicationController
     end
 
     def create
-        @invoice_date = Invoice.invoice_date.create(invoice_date_params)
+        @invoice_date = InvoiceDate.create(invoice_date_params)
     end
 
 private
