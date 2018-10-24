@@ -1,0 +1,2 @@
+class ShiftDatesController < ApplicationController
+end

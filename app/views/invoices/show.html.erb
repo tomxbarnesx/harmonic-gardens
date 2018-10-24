@@ -8,7 +8,7 @@
         <h4>Description</h4>
     </div>
     <div class="invoice-date-master">
-        <%= render 'invoice_dates' %>
+        <%= render partial: 'invoice_dates/invoice_date', collection: @invoice.invoice_dates, as: :idate  %>
         <%= link_to 'Add Date', new_invoice_invoice_date_path(@invoice), remote:true, class: "btn btn-success" %>
     </div>
 </div>
