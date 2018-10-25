@@ -1,0 +1,5 @@
+<div class="invoice-shift-options">
+    <%= link_to 'Attach Shift', new_invoice_date_shift_date_path(idate), remote:true, class: "btn btn-success" %>
+    <%= link_to 'Add Materials', new_invoice_date_materials_date_path(idate), remote:true, class: "btn btn-success" %>
+    <%= link_to 'Delete Date', invoice_date_path(idate), method: :delete, remote:true, class: "btn btn-danger" %>
+</div>
