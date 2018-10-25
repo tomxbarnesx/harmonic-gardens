@@ -1,3 +1,20 @@
 // Place all the styles related to the invoice_dates controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.invoice-date-card {
+    width: 97%;
+    padding: 1% 2% 1% 2%;
+    margin: 1% auto;
+    border: 1px solid #d3d3d3;
+}
+
+.invoice-shift-options {
+    margin-top: 1%;
+}
+
+.shift-container {
+    border-left: 3px solid #d3d3d3;
+    margin-top: 1%;
+    padding: 2%;
+}

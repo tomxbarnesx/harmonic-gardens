@@ -1,3 +1,4 @@
+<div class="close-container"><a href="#" class="close">&times;</a></div>
 <%= form_for [@invoice_date, @shift_date], remote: true do |form| %>
     <div class="form-group">
         <label>Shift: </label>
@@ -7,3 +8,9 @@
     <div><%= form.hidden_field :invoice_date_id, :value => @invoice_date.id %></div>
     <%= form.submit "Submit", :id=>'invoice-date-submit', class: "btn btn-dark" %>
 <% end %>
+
+<script>
+$(document).on("click", ".close" , function(){
+    $("#invoice-shift-container-<%= @invoice_date.id %>").empty().append("<%= j (render 'shift_date') %>")
+});
+</script>

@@ -1,8 +1,17 @@
-<h2><%= @invoice.client.full_name %></h2>
-<br>
-<p><%= @invoice.client.address%></p>
-<p><%= number_to_phone(@invoice.client.home_phone, area_code: true) %></p>
-<p><%= @invoice.client.email %></p>
+<div class="invoice-header container">
+    <div class="row justify-content-between">
+        <div class="invoice-client-info col-9">
+            <h3><%= @invoice.client.full_name %></h3>
+            <%= @invoice.client.address%><br>
+            <%= number_to_phone(@invoice.client.home_phone, area_code: true) %><br>
+            <%= @invoice.client.email %>
+        </div>
+        <div class="col-3">
+            <p><strong>Invoice Number: </strong><%= @invoice.id %></p>
+            <p><strong>Date: </strong><%= @invoice.just_date %></p>
+        </div>
+    </div>
+</div>
 <div class="invoice-body">
     <div class="description-header">
         <h4>Description</h4>
