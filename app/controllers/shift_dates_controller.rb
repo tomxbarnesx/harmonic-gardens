@@ -1,5 +1,6 @@
 class ShiftDatesController < ApplicationController
     def new
+        @invoice_date = InvoiceDate.find(params[:invoice_date_id])
         @shift_date = ShiftDate.new
     end
 
@@ -16,7 +17,7 @@ class ShiftDatesController < ApplicationController
 private
 
     def shift_date_params
-        params.require(:invoice).permit(:shift_id, :invoice_date_id);
+        params.require(:shift_date).permit(:shift_id, :invoice_date_id);
     end
 
 end

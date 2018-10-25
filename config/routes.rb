@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   resources :materials
   
   resources :invoices do
-    resources :invoice_dates
+    resources :invoice_dates, shallow: true do 
+      resources :shift_dates
+      resources :materials_dates
+    end
   end
-
-  resources :shift_dates
-  resources :materials_dates
   
 end
