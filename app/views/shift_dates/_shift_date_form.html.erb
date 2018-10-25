@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div id="shift-date-form-container">
     <div class="close-container"><a href="#" class="close">&times;</a></div>
     <%= form_for [@invoice, @invoice_date, @shift_date], remote: true do |form| %>
@@ -15,6 +16,21 @@
 $(document).on("click", ".close" , function(){
     $("#shift-date-form-container").remove();
     $("#invoice-shift-container-<%= @invoice_date.id %>")
+=======
+<div class="close-container"><a href="#" class="close">&times;</a></div>
+<%= form_for [@invoice_date, @shift_date], remote: true do |form| %>
+    <div class="form-group">
+        <label>Shift: </label>
+        <%= collection_select(:shift_date, :shift_id, Shift.where(date: @invoice_date.date), :id, :full_name_hours, {}, {:class=>'form-control form-control-lg'})  %>
+        <%# form.select :shift_id, options_for_select(shift_dates_to_select.to_s), {}, :class => "form-control" %>
+    </div>
+    <div><%= form.hidden_field :invoice_date_id, :value => @invoice_date.id %></div>
+    <%= form.submit "Submit", :id=>'invoice-date-submit', class: "btn btn-dark" %>
+<% end %>
+
+<script>
+$(document).on("click", ".close" , function(){
+    $("#invoice-shift-container-<%= @invoice_date.id %>").empty().append("<%= j (render 'shift_date') %>")
+>>>>>>> parent of 80aa52b... still working on the ajax close feature within shift_date_form
 });
 </script>
-
