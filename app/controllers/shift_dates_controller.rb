@@ -5,7 +5,7 @@ class ShiftDatesController < ApplicationController
     end
 
     def create
-        @invoice_date = InvoiceDate.shift_date.create(shift_date_params)
+        @shift_date = ShiftDate.create(shift_date_params)
     end
 
 private
