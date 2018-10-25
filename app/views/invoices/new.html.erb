@@ -3,7 +3,7 @@
     <%= form_for @invoice, local: true do |form| %>
         <div class="form-group">
             <label>Client: </label>
-            <%= collection_select(:invoice, :client_id, Client.all, :id, :full_name, {}, {:class=>'form-control form-control-lg'}) %>
+            <%= collection_select(:invoice, :client_id, Client.order('last_name ASC'), :id, :full_name, {}, {:class=>'form-control form-control-lg'}) %>
         </div>
         <div class="form-group">
             <label>Description: (optional)</label>

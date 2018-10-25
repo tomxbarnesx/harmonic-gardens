@@ -8,6 +8,12 @@ class ShiftDatesController < ApplicationController
         @shift_date = ShiftDate.create(shift_date_params)
     end
 
+    def destroy
+        @shift_date = ShiftDate.find(params[:id])
+        @shift_date.destroy
+        flash[:notice] = "Date successfully deleted"
+    end
+
 private
 
     def shift_date_params

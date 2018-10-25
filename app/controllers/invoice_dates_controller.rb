@@ -8,6 +8,12 @@ class InvoiceDatesController < ApplicationController
         @invoice_date = InvoiceDate.create(invoice_date_params)
     end
 
+    def destroy
+        @invoice_date = InvoiceDate.find(params[:id])
+        @invoice_date.destroy
+        flash[:notice] = "Date successfully deleted"
+    end
+
 private
     def invoice_date_params
         params.require(:invoice_date).permit(:invoice_id, :date, :description, :subtotal);
