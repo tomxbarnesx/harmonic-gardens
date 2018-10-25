@@ -13,6 +13,10 @@
     <div><%= form.hidden_field :user_id, :value => current_user.id %></div>
     <% end %>
     <div class="form-group">
+        <label>Date: </label>
+        <%= form.date_field :date, placeholder: "Date", :id => 'shift_date', class: "form-control form-control-lg" %>
+    </div>
+    <div class="form-group">
         <label>Start Time: </label>
         <%= form.datetime_field :start_time, placeholder: "Start Time", :id => 'start_time', class: "form-control form-control-lg" %>
     </div>

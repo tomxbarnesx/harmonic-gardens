@@ -1,7 +1,8 @@
 <%= form_for [@invoice_date, @shift_date], remote: true do |form| %>
     <div class="form-group">
         <label>Shift: </label>
-        <%= form.select :shift_id, options_for_select(shift_dates_to_select.to_s), {}, :class => "form-control" %>
+        <%= collection_select(:shift_date, :shift_id, Shift.where(date: @invoice_date.date), :id, :full_name_hours, {}, {:class=>'form-control form-control-lg'})  %>
+        <%# form.select :shift_id, options_for_select(shift_dates_to_select.to_s), {}, :class => "form-control" %>
     </div>
     <div><%= form.hidden_field :invoice_date_id, :value => @invoice_date.id %></div>
     <%= form.submit "Submit", :id=>'invoice-date-submit', class: "btn btn-dark" %>

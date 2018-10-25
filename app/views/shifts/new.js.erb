@@ -8,10 +8,12 @@ form.innerHTML = "<%= j (render 'form') %>";
 <%# Set its values. These need to stay here %>
 var startTime = document.getElementById('start_time');
 var endTime = document.getElementById('end_time');
-
+var dateField = document.getElementById('shift_date');
 date = sessionStorage.getItem("date");
-startTime.value = `${date}T00:00`
-endTime.value = `${date}T00:00`
+
+startTime.value = `${date}T00:00`;
+endTime.value = `${date}T00:00`;
+dateField.value = date;
 form.style.display = "block";
 
 $(document).on('click', function handler(e){

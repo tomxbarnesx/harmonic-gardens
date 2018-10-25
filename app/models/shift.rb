@@ -18,5 +18,9 @@ class Shift < ApplicationRecord
     def simple_end
         return end_time.to_s[11..15]
     end
+
+    def full_name_hours
+        return self.user.first_name + ' ' + self.user.last_name + ' - ' + self.time_elapsed.to_s
+    end
 end
 
