@@ -1,6 +1,6 @@
 <div id="shift-date-form-container">
     <div class="close-container"><a href="#" class="close">&times;</a></div>
-    <%= form_for [@invoice_date, @shift_date], remote: true do |form| %>
+    <%= form_for [@invoice, @invoice_date, @shift_date], remote: true do |form| %>
         <div class="form-group">
             <label>Shift: </label>
             <%= collection_select(:shift_date, :shift_id, Shift.where(date: @invoice_date.date), :id, :full_name_hours, {}, {:class=>'form-control form-control-lg'})  %>
@@ -14,7 +14,7 @@
 <script>
 $(document).on("click", ".close" , function(){
     $("#shift-date-form-container").remove();
-    $("#invoice-shift-container-<%= @invoice_date.id %>").
+    $("#invoice-shift-container-<%= @invoice_date.id %>")
 });
 </script>
 

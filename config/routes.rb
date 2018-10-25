@@ -13,9 +13,7 @@ Rails.application.routes.draw do
     resources :invoice_dates
   end
 
-  resources :invoice_dates do
-    resources :shift_dates
-    resources :materials_dates
-  end
+  resources :shift_dates
+  resources :materials_dates
   
 end
