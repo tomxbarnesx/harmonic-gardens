@@ -5,6 +5,7 @@ class InvoicesController < ApplicationController
 
     def show
         @invoice = Invoice.find(params[:id])
+        @invoice_dates = @invoice.invoice_dates
     end
 
     def new

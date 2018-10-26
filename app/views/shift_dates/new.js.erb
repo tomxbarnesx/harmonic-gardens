@@ -1,1 +1,2 @@
-$("#invoice-shift-container-<%= @invoice_date.id %>").empty().append("<%= j (render 'shift_date_form') %>")
+$("#invoice-shift-listings-<%= @invoice_date.id %>").hide();
+$("#invoice-shift-container-<%= @invoice_date.id %>").append("<%= j (render 'shift_date_form') %>");

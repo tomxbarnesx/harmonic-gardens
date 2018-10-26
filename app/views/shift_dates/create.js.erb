@@ -1,0 +1,3 @@
+$("#active-shift-attach").remove();
+$("#invoice-shift-listings-<%= @shift_date.invoice_date.id %>").prepend("<p><%= @shift_date.shift.user.full_name %> — Hours: <%= @shift_date.shift.time_elapsed %> x $<%= @shift_date.user.hourly_rate %>/hour </p>");
+$("#invoice-shift-listings-<%= @shift_date.invoice_date.id %>").show();

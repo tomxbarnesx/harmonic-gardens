@@ -1,3 +1,5 @@
 console.log('Mama, we\'re golden.');
-$(".invoice-date-master").empty().append("<%= j render :partial => 'invoice_dates/invoice_date', :locals => { :idate => @invoice_date } %>")
+$("#invoice-form-container").remove();
+$(".invoice-date-master").show();
+$("#add-button-target").before("<%= j render :partial => 'invoice_dates/invoice_date', :locals => { :invoice_date => @invoice_date } %>");
 <%# Fix this form display madness %>

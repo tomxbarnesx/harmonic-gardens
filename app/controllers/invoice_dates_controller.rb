@@ -1,4 +1,9 @@
 class InvoiceDatesController < ApplicationController
+    def show
+        @invoice_date = InvoiceDate.find(params[:id])
+        @shift_dates = @invoice_dates.shift_dates
+    end
+    
     def new
         @invoice = Invoice.find(params[:invoice_id])
         @invoice_date = InvoiceDate.new
