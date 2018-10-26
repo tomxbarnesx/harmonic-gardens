@@ -1,3 +1,12 @@
 $("#active-shift-attach").remove();
-$("#invoice-shift-listings-<%= @shift_date.invoice_date.id %>").prepend("<p><%= @shift_date.shift.user.full_name %> — Hours: <%= @shift_date.shift.time_elapsed %> x $<%= @shift_date.user.hourly_rate %>/hour </p>");
+$("#tbody-<%= @shift_date.invoice_date.id%>").prepend("<tr id='shift-date-<%= @shift_date.id %>'>
+                    <td><%= @shift_date.shift.user.full_name %></td>
+                    <td><%= @shift_date.shift.time_elapsed %></td>
+                    <td>$<%= @shift_date.user.hourly_rate %>/hour</td>
+                    <td>$</td>
+                    <td><%= link_to 'Delete', shift_date_path(@shift_date),
+                        method: :delete, remote:true,
+                        data: { confirm: 'Are you sure? This cannot be reversed.' } %></td>
+                </tr>");
+
 $("#invoice-shift-listings-<%= @shift_date.invoice_date.id %>").show();

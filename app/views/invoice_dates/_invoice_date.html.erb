@@ -3,9 +3,28 @@
     <%= invoice_date.description %>
     <div id="invoice-shift-container-<%= invoice_date.id %>" class="shift-container">
         <div id="invoice-shift-listings-<%= invoice_date.id %>">
+            <table class="table table-striped">
+                <thead>
+                    <th>Name</th>
+                    <th>Hours</th>
+                    <th>Rate</th>
+                    <th>Total</th>
+                    <th></th>
+                </thead>
+                <tbody id="tbody-<%= invoice_date.id%>">
             <% invoice_date.shift_dates.each do |shift_date| %>
-                <p><%= shift_date.shift.user.full_name %> — Hours: <%= shift_date.shift.time_elapsed %> x $<%= shift_date.user.hourly_rate %>/hour </p>
+                <tr id="shift-date-<%= shift_date.id %>">
+                    <td><%= shift_date.shift.user.full_name %></td>
+                    <td><%= shift_date.shift.time_elapsed %></td>
+                    <td>$<%= shift_date.user.hourly_rate %>/hour</td>
+                    <td><%= number_to_currency(shift_date.hour_calc) %></td>
+                    <td><%= link_to 'Delete', shift_date_path(shift_date),
+                        method: :delete, remote:true,
+                        data: { confirm: 'Are you sure? This cannot be reversed.' } %></td>
+                </tr>
             <% end %>
+                </tbody>
+            </table>
             <%= link_to 'Attach Shift', new_invoice_date_shift_date_path(invoice_date), remote:true, class: "btn btn-success" %>
             <%= link_to 'Add Materials', new_invoice_date_materials_date_path(invoice_date), remote:true, class: "btn btn-success" %>
             <%= link_to 'Delete Date', invoice_date_path(invoice_date), method: :delete, remote:true, class: "btn btn-danger" %>
