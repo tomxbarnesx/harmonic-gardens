@@ -22,5 +22,6 @@ class Shift < ApplicationRecord
     def full_name_hours
         return self.user.first_name + ' ' + self.user.last_name + ' - ' + self.time_elapsed.to_s
     end
+
 end
 
