@@ -20,14 +20,14 @@
                     <td><%= number_to_currency(shift_date.hour_calc) %></td>
                     <td><%= link_to 'Delete', shift_date_path(shift_date),
                         method: :delete, remote:true,
-                        data: { confirm: 'Are you sure? This cannot be reversed.' } %></td>
+                        data: { confirm: 'Are you sure?' } %></td>
                 </tr>
             <% end %>
                 </tbody>
             </table>
             <%= link_to 'Attach Shift', new_invoice_date_shift_date_path(invoice_date), remote:true, class: "btn btn-success" %>
             <%= link_to 'Add Materials', new_invoice_date_materials_date_path(invoice_date), remote:true, class: "btn btn-success" %>
-            <%= link_to 'Delete Date', invoice_date_path(invoice_date), method: :delete, remote:true, class: "btn btn-danger" %>
+            <%= link_to 'Delete Date', invoice_date_path(invoice_date), method: :delete, remote:true, data: { confirm: 'Are you sure? This cannot be undone.' }, class: "btn btn-danger" %>
         </div>
     </div>
     <%# render partial: 'material_dates/material_date', collection: idate.shift_dates, as: :sdate %>

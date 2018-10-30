@@ -8,17 +8,31 @@
             </div>
             <div class="col">
                 <label>Last Name: </label>
-                <%= form.text_field :last_name, placeholder: "First Name", class: 'form-control form-control-lg' %>
+                <%= form.text_field :last_name, placeholder: "Last Name", class: 'form-control form-control-lg' %>
             </div>
         </div>
         <div class="form-group">
             <label>Address: </label>
             <%= form.text_field :address, placeholder: "Address", class: "form-control form-control-lg" %>
         </div>
+        <div class="row form-group">
+            <div class="col">
+                <label>Home Phone:</label>
+                <%= form.text_field :home_phone, class: 'form-control form-control-lg' %>
+            </div>
+            <div class="col">
+                <label>Cell Phone:</label>
+                <%= form.text_field :cell_phone, class: 'form-control form-control-lg' %>
+            </div>
+        </div>
         <div class="form-group">
             <label>Email: </label>
             <%= form.email_field :email, placeholder: "Email", class: "form-control form-control-lg" %>
         </div>
-        <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-dark" %>
+        <div class="form-group">
+            <label>House Photo:</label>
+            <%= form.file_field :house_pic %>
+        </div>
+        <%= form.submit "Submit", :id=>'client-submit', class: "btn btn-dark" %>
     <% end %>
 </div>

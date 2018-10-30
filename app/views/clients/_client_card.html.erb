@@ -1,3 +1,8 @@
+<% if @client.house_pic.attached? %>
+<%= image_tag @client.house_pic, options = {width: "100%", class: "image-fluid"} %>
+<% else %>
+<%= image_tag "home_placeholder.png"%>
+<% end %>
 <h1><%= @client.full_name %></h1>
 <p>Email: <%= @client.email %></p>
 <p>Address: <%= @client.address %></p>

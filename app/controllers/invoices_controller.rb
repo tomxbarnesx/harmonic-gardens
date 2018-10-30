@@ -5,7 +5,7 @@ class InvoicesController < ApplicationController
 
     def show
         @invoice = Invoice.find(params[:id])
-        @invoice_dates = @invoice.invoice_dates
+        @invoice_dates = @invoice.invoice_dates.sort_by &:date
     end
 
     def new

@@ -1,3 +1,23 @@
-<h1>Landing page</h1>
-<a href="/shifts"><p>Log Hours</p></a>
-<p>View Timesheets</p>
+<div id="landing-options" class="d-flex flex-column align-items-center">
+    <h1 class="greeting">Welcome, <%= current_user.full_name %></h1>
+    <div class="landing-img">
+        <a href="/shifts">
+        <%= image_tag("calendar-icon.png", width: "325", alt: "Calendar icon", id: "calendar-icon") %>
+        </a>
+    </div>
+    <a href="/shifts"><h2>Log Hours</h2></a>
+    <a href="/invoices">
+    <div class="landing-img">
+        <a href="/invoices">
+            <%= image_tag("invoice-icon2.png", width: "350", alt: "Invoice icon") %>
+        </a>
+    </div>
+    <a href="/invoices"><h2>Check Invoices</h2></a>
+    <a href="/users">
+    <div class="landing-img">
+        <a href="/users">
+            <%= image_tag("abstract-user-flat-2.svg", width: "350", alt: "User icon") %>
+        </a>
+    </div>
+    <a href="/users"><h2>Manage Users</h2></a>
+</div>

@@ -17,7 +17,7 @@ class ClientsController < ApplicationController
     end
 
     def create
-        @client = Client.create(client_params)
+        @client = Client.create!(client_params)
 
         if @client.save
             flash[:notice] = "Client added."
@@ -43,7 +43,7 @@ class ClientsController < ApplicationController
 private
     
     def client_params
-        params.require(:client).permit(:first_name, :last_name, :address, :email, :active, :home_phone, :cell_phone);
+        params.require(:client).permit(:first_name, :last_name, :address, :email, :active, :home_phone, :cell_phone, :house_pic);
     end
 
 end
