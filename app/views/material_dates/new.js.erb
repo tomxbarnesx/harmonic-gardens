@@ -1,0 +1,2 @@
+$("#invoice-material-listings-<%= @invoice_date.id %>").hide();
+$("#invoice-material-container-<%= @invoice_date.id %>").append("<%= j (render 'material_date_form') %>");

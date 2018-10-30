@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :invoices do
     resources :invoice_dates, shallow: true do 
       resources :shift_dates
-      resources :materials_dates
+      resources :material_dates
     end
   end
   

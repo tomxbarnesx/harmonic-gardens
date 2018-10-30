@@ -3,6 +3,6 @@ class MaterialDate < ApplicationRecord
     belongs_to :material
 
     def instant_total
-        return self.cost * self.quantity
+        return self.material.cost * self.quantity
     end
 end
