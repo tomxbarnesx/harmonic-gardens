@@ -1,0 +1,18 @@
+<div id="active-material-attach">
+    <div class="close-container"><a class="close">&times;</a></div>
+    <%= form_for [@invoice_date, @material_date], remote: true do |form| %>
+        <div class="form-group">
+            <label>Item: </label>
+            <%= collection_select(:material_date, :material_id, Material.all, :id, :name, {}, {:class=>'form-control form-control-lg'})  %>
+        </div>
+        <div><%= form.hidden_field :invoice_date_id, :value => @invoice_date.id %></div>
+        <%= form.submit "Submit", :id=>'material-date-submit', class: "btn btn-dark" %>
+    <% end %>
+</div>
+
+<script>
+$(document).on("click", ".close", function(){
+    $("#active-material-attach").remove();
+    $("#invoice-material-listings-<%= @invoice_date.id %>").show();
+});
+</script>

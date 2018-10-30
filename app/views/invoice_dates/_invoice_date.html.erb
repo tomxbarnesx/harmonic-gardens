@@ -1,7 +1,7 @@
 <div class="invoice-date-card" id="invoice-card-<%= invoice_date.id %>">
     <h4><%= invoice_date.date %></h4>
     <%= invoice_date.description %>
-    <div id="invoice-shift-container-<%= invoice_date.id %>" class="shift-container">
+    <div id="invoice-shift-container-<%= invoice_date.id %>" class="invoice-clip-container">
         <h5>Shifts</h5>
         <div id="invoice-shift-listings-<%= invoice_date.id %>">
             <table class="table table-striped">
@@ -29,12 +29,12 @@
             <%= link_to 'Attach Shift', new_invoice_date_shift_date_path(invoice_date), remote:true, class: "btn btn-success" %>
         </div>
     </div>
-    <div id="invoice-material-container-<%= invoice_date.id %>" class="material-container">
+    <div id="invoice-material-container-<%= invoice_date.id %>" class="invoice-clip-container">
         <h5>Materials</h5>
         <div id="invoice-material-listings-<%= invoice_date.id %>">
             <table class="table table-striped">
                 <thead>
-                    <th>Material</th>
+                    <th>Type</th>
                     <th>Cost Per</th>
                     <th>Quantity</th>
                     <th>Total</th>
@@ -42,7 +42,7 @@
                 </thead>
                 <tbody id="tbody-<%= invoice_date.id%>">
             <% invoice_date.material_dates.each do |mat_date| %>
-                <tr id="shift-date-<%= shift_date.id %>">
+                <tr id="material-date-<%= mat_date.id %>">
                     <td><%= mat_date.material.type %></td>
                     <td><%= mat_date.cost %></td>
                     <td><%= mat_date.quantity %></td>
@@ -52,9 +52,10 @@
                         data: { confirm: 'Are you sure?' } %></td>
                 </tr>
             <% end %>
+                </tbody>
+            </table>
+            <%= link_to 'Add Materials', new_invoice_date_materials_date_path(invoice_date), remote:true, class: "btn btn-success" %>
         </div>
     </div>
-    <%= link_to 'Add Materials', new_invoice_date_materials_date_path(invoice_date), remote:true, class: "btn btn-success" %>
     <%= link_to 'Delete Date', invoice_date_path(invoice_date), method: :delete, remote:true, data: { confirm: 'Are you sure? This cannot be undone.' }, class: "btn btn-danger" %>
-    <%# render partial: 'material_dates/material_date', collection: idate.shift_dates, as: :sdate %>
 </div>

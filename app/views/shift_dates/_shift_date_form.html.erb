@@ -7,7 +7,7 @@
             <%# form.select :shift_id, options_for_select(shift_dates_to_select.to_s), {}, :class => "form-control" %>
         </div>
         <div><%= form.hidden_field :invoice_date_id, :value => @invoice_date.id %></div>
-        <%= form.submit "Submit", :id=>'invoice-date-submit', class: "btn btn-dark" %>
+        <%= form.submit "Submit", :id=>'shift-date-submit', class: "btn btn-dark" %>
     <% end %>
 </div>
 

@@ -1,3 +1,11 @@
 // Place all the styles related to the materials controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#active-material-attach {
+    width: 96%;
+    padding: 3%;
+    margin: 1.5em auto;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: .25rem;
+}
