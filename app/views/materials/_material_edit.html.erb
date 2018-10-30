@@ -1,0 +1,9 @@
+<div id="edit-material-<%=@material.id %>">
+    <%= form_for @material, remote: true do |form| %>
+        <tr>
+            <%= form.text_field :name, placeholder: "Enter material name", class: 'form-control form-control-lg' %>
+            <%= form.number_field :cost, placeholder: "Cost per unit", step: 0.01, class: 'form-control form-control-lg' %>
+            <%= form.submit "Submit" %>
+        <% end %>
+    </div>
+</div>

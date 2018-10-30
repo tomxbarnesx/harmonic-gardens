@@ -1,4 +1,8 @@
 class MaterialDate < ApplicationRecord
     belongs_to :invoice_date
-    has_one :material
+    belongs_to :material
+
+    def instant_total
+        return self.cost * self.quantity
+    end
 end

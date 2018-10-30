@@ -1,0 +1,25 @@
+<div id="active-material-attach">
+    <div class="close-container"><a class="close">&times;</a></div>
+    <%= form_for @material, local: true do |form| %>
+    <div class="form-row">
+        <div class="col-auto">
+            <label class="sr-only">Type: </label>
+            <%= form.text_field :name, placeholder: "Enter material name", class: 'form-control form-control-lg'%>
+        </div>
+        <div class="col-auto">
+            <label class="sr-only">Cost: </label>
+            <%= form.number_field :cost, placeholder: "Cost per unit", step: 0.01, class: 'form-control form-control-lg' %>
+        </div>
+        <div class="col-auto">
+            <%= form.submit "Submit", :id=>'materials-submit', class: "btn btn-dark" %>
+        </div>
+    </div>
+    <% end %>
+</div>
+
+<script>
+$(document).on("click", ".close", function(){
+    $("#active-material-attach").remove();
+    $("#material-add").show();
+});
+</script>
