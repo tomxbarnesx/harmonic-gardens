@@ -11,6 +11,7 @@ class ShiftDatesController < ApplicationController
 
     def create
         @shift_date = ShiftDate.create(shift_date_params)
+        @invoice_date = InvoiceDate.find(params[:invoice_date_id])
     end
 
     def destroy

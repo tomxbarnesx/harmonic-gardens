@@ -11,6 +11,7 @@ class MaterialDatesController < ApplicationController
 
     def create
         @material_date = MaterialDate.create(material_date_params)
+        @invoice_date = InvoiceDate.find(params[:invoice_date_id])
     end
 
     def destroy
