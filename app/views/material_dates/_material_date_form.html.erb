@@ -20,5 +20,6 @@
 $(document).on("click", ".close", function(){
     $("#active-material-attach").remove();
     $("#invoice-material-listings-<%= @invoice_date.id %>").show();
+    $(".material-add-btn").show();
 });
 </script>

@@ -16,6 +16,7 @@ class MaterialDatesController < ApplicationController
 
     def destroy
         @material_date = MaterialDate.find(params[:id])
+        @invoice_date = @material_date.invoice_date
         @material_date.destroy
         flash[:notice] = "Materials successfully deleted"
     end

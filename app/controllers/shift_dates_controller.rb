@@ -16,6 +16,7 @@ class ShiftDatesController < ApplicationController
 
     def destroy
         @shift_date = ShiftDate.find(params[:id])
+        @invoice_date = @shift_date.invoice_date
         @shift_date.destroy
         flash[:notice] = "Shift date successfully deleted"
     end

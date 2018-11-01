@@ -3,3 +3,4 @@ $("#tbody-shift-<%= @shift_date.invoice_date.id%>-total").before('<tr id="shift-
 $("#tbody-shift-<%= @shift_date.invoice_date.id%>-total").empty().append("<%= j (render "invoice_dates/shift_date", invoice_date: @invoice_date) %>");
 $("#tbody-daily-total-<%= @shift_date.invoice_date.id%>").empty().append("<%= j (render "invoice_dates/daily_total", invoice_date: @invoice_date) %>");
 $("#invoice-shift-listings-<%= @shift_date.invoice_date.id %>").show();
+$(".shift-add-btn").show();

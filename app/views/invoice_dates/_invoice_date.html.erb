@@ -4,7 +4,7 @@
     <div id="invoice-shift-container-<%= invoice_date.id %>" class="invoice-clip-container">
         <div class="d-flex align-items-baseline">
             <h5 class="col-1">Shifts</h5>
-            <%= link_to 'Add', new_invoice_date_shift_date_path(invoice_date), remote:true, class: "btn-sm btn-success offset-1" %>
+            <%= link_to 'Add', new_invoice_date_shift_date_path(invoice_date), remote:true, class: "btn-sm btn-success offset-1 shift-add-btn" %>
         </div>
         <div id="invoice-shift-listings-<%= invoice_date.id %>">
             <table class="table table-striped">
@@ -36,7 +36,7 @@
     </div>
     <div id="invoice-material-container-<%= invoice_date.id %>" class="invoice-clip-container">
         <div class="d-flex align-items-baseline">
-            <h5 class="col-1">Materials</h5><%= link_to 'Add', new_invoice_date_material_date_path(invoice_date), remote:true, class: "btn-sm btn-success offset-1" %>
+            <h5 class="col-1">Materials</h5><%= link_to 'Add', new_invoice_date_material_date_path(invoice_date), remote:true, class: "btn-sm btn-success offset-1 material-add-btn" %>
         </div>
         <div id="invoice-material-listings-<%= invoice_date.id %>">
             <table class="table table-striped">

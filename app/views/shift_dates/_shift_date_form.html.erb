@@ -15,5 +15,6 @@
 $(document).on("click", ".close", function(){
     $("#active-shift-attach").remove();
     $("#invoice-shift-listings-<%= @invoice_date.id %>").show();
+    $(".shift-add-btn").show();
 });
 </script>
