@@ -1,1 +1,2 @@
 $('#material-date-<%= @material_date.id %>').fadeOut(300);
+$("#tbody-daily-total-<%= @material_date.invoice_date.id%>").empty().append("<%= j (render "invoice_dates/daily_total", invoice_date: @invoice_date) %>");

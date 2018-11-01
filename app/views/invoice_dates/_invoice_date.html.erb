@@ -2,7 +2,10 @@
     <h4><%= invoice_date.date %></h4>
     <%= invoice_date.description %>
     <div id="invoice-shift-container-<%= invoice_date.id %>" class="invoice-clip-container">
-        <h5>Shifts</h5>
+        <div class="d-flex align-items-baseline">
+            <h5 class="col-1">Shifts</h5>
+            <%= link_to 'Add', new_invoice_date_shift_date_path(invoice_date), remote:true, class: "btn-sm btn-success offset-1" %>
+        </div>
         <div id="invoice-shift-listings-<%= invoice_date.id %>">
             <table class="table table-striped">
                 <thead>
@@ -29,11 +32,12 @@
                     </tr>
                 </tbody>
             </table>
-            <%= link_to 'Attach Shift', new_invoice_date_shift_date_path(invoice_date), remote:true, class: "btn btn-success" %>
         </div>
     </div>
     <div id="invoice-material-container-<%= invoice_date.id %>" class="invoice-clip-container">
-        <h5>Materials</h5>
+        <div class="d-flex align-items-baseline">
+            <h5 class="col-1">Materials</h5><%= link_to 'Add', new_invoice_date_material_date_path(invoice_date), remote:true, class: "btn-sm btn-success offset-1" %>
+        </div>
         <div id="invoice-material-listings-<%= invoice_date.id %>">
             <table class="table table-striped">
                 <thead>
@@ -58,9 +62,11 @@
                     <tr id="tbody-material-<%= invoice_date.id %>-total" class="total-row">
                         <%= render "invoice_dates/material_date", invoice_date: invoice_date %>
                     </tr>
+                    <tr id="tbody-daily-total-<%= invoice_date.id %>" class="daily-total-row">
+                        <%= render "invoice_dates/daily_total", invoice_date: invoice_date %>
+                    </tr>
                 </tbody>
             </table>
-            <%= link_to 'Add Materials', new_invoice_date_material_date_path(invoice_date), remote:true, class: "btn btn-success" %>
         </div>
     </div>
     <%= link_to 'Delete Date', invoice_date_path(invoice_date), method: :delete, remote:true, data: { confirm: 'Are you sure? This cannot be undone.' }, class: "btn btn-danger" %>
