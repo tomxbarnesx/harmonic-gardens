@@ -12,16 +12,14 @@
                 <thead>
                     <th>Name</th>
                     <th>Hours</th>
-                    <th>Rate</th>
-                    <th>Totals</th>
+                    <th>Total</th>
                     <th></th>
                 </thead>
                 <tbody id="tbody-shift-<%= invoice_date.id%>">
             <% invoice_date.shift_dates.each do |shift_date| %>
                     <tr id="shift-date-<%= shift_date.id %>">
                         <td><%= shift_date.shift.user.full_name %></td>
-                        <td><%= shift_date.shift.time_elapsed %></td>
-                        <td>$<%= shift_date.user.hourly_rate %>/hour</td>
+                        <td><%= shift_date.shift.time_elapsed %> @ $<%= shift_date.user.hourly_rate %>/h</td>
                         <td><%= number_to_currency(shift_date.hour_calc) %></td>
                         <td><%= link_to 'Delete', shift_date_path(shift_date),
                             method: :delete, remote:true,
@@ -43,17 +41,15 @@
             <table class="table table-striped">
                 <thead>
                     <th>Type</th>
-                    <th>Cost Per</th>
-                    <th>Quantity</th>
-                    <th>Totals</th>
+                    <th>Cost</th>
+                    <th>Total</th>
                     <th></th>
                 </thead>
                 <tbody id="tbody-material-<%= invoice_date.id%>">
             <% invoice_date.material_dates.each do |mat_date| %>
                     <tr id="material-date-<%= mat_date.id %>">
                         <td><%= mat_date.material.name %></td>
-                        <td><%= number_to_currency(mat_date.material.cost) %></td>
-                        <td><%= mat_date.quantity %></td>
+                        <td><%= number_to_currency(mat_date.material.cost) %> x <%= mat_date.quantity %></td>
                         <td><%= number_to_currency(mat_date.instant_total) %></td>
                         <td><%= link_to 'Delete', material_date_path(mat_date),
                             method: :delete, remote:true,
@@ -70,5 +66,5 @@
             </table>
         </div>
     </div>
-    <%= link_to 'Delete Date', invoice_date_path(invoice_date), method: :delete, remote:true, data: { confirm: 'Are you sure? This cannot be undone.' }, class: "btn btn-danger" %>
+    <%= link_to 'Delete Date', invoice_date_path(invoice_date), method: :delete, remote:true, data: { confirm: 'Are you sure? This cannot be undone.' }, class: "btn-sm btn-danger button-target" %>
 </div>

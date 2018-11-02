@@ -2,11 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.table {
+    font-size: 90% !important;
+}
+
+
+
 .invoice-date-card {
-    width: 97%;
-    padding: 1% 2% 1% 2%;
-    margin: 1% auto;
-    border: 1px solid #d3d3d3;
+    width: 100%;
+    border: none;
+    margin-bottom: 1em;
+    padding-bottom: 2%;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+@media (min-width: 576px) {
+    .invoice-date-card {
+        width: 97%;
+        padding: 1% 2% 1% 2%;
+        margin: 1% auto;
+        border: 1px solid #d3d3d3;
+    }
+
+    .table {
+        font-size: 100% !important;
+    }
 }
 
 .invoice-shift-options {
