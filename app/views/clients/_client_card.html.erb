@@ -1,8 +1,11 @@
+<div class="col-md-4">
 <% if @client.house_pic.attached? %>
-<%= image_tag @client.house_pic, options = {width: "100%", class: "image-fluid"} %>
+<%= image_tag @client.house_pic, options = {width: "100%"} %>
 <% else %>
 <%= image_tag "home_placeholder.png"%>
 <% end %>
+</div>
+<div class="col-md-4">
 <h1><%= @client.full_name %></h1>
 <p>Email: <%= @client.email %></p>
 <p>Address: <%= @client.address %></p>
@@ -10,5 +13,6 @@
 <p>Cell Phone: <%= number_to_phone(@client.cell_phone, area_code: true) %></p>
 <%= link_to 'Edit', edit_client_path(@client), remote:true, class: "btn btn-success" %>
 <%= link_to 'Delete', client_path(@client),
-              method: :delete, remote: true,
-              data: { confirm: 'Are you sure? This cannot be reversed.' }, class: 'btn btn-success' %>
+            method: :delete, remote: true,
+            data: { confirm: 'Are you sure? This cannot be reversed.' }, class: 'btn btn-success' %>
+</div>

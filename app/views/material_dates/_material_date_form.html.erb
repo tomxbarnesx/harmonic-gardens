@@ -2,12 +2,12 @@
     <div class="close-container"><a class="close">&times;</a></div>
     <%= form_for [@invoice_date, @material_date], remote: true do |form| %>
         <div class="form-row">
-            <div class="col">
+            <div class="col-md-4">
                 <label>Item: </label>
                 <%= collection_select(:material_date, :material_id, Material.order(name: :asc), :id, :name, {}, {:class=>'form-control form-control-lg'})  %>
             </div>
             <div><%= form.hidden_field :invoice_date_id, :value => @invoice_date.id %></div>
-            <div class="col">
+            <div class="col-md-4">
                 <label>Quantity: </label>
                 <%= form.number_field :quantity, placeholder: "Quantity", class: "form-control form-control-lg"  %>
             </div>

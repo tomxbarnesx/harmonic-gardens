@@ -36,3 +36,15 @@
     margin-left: 1.5%;
     margin-bottom: 1.5%;
 }
+
+@media (min-width: 768px){
+    .container {
+        max-width: 52em !important;
+    }
+}
+
+@media (min-width: 992px){
+    .container {
+        max-width: 75em !important;
+    }
+}
