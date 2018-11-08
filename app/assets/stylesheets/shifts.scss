@@ -68,8 +68,18 @@
 }
 
 #calendar-container{
-    margin-top:1em;
+    margin-top: 1em;
+    position: relative;
 }
+
+.calendar-heading {
+    margin-left: .5em;
+}
+
+// #shift-btn-add {
+//     position: absolute;
+//     right: 5%;
+// }
 
 
 @media (max-width: 575.98px){
@@ -81,4 +91,10 @@
     .table thead th {
         height: 1em;
     }
+
+    // #shift-btn-add {
+    //     position: absolute;
+    //     right: 5%;
+    //     top: -3%;
+    // }
 }
