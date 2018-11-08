@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root to: "pages#landing"
 
   resources :shifts
+  get 'shifts/day_log/:date', to: 'shifts#day_log'
+
   resources :clients
   resources :users
   resources :materials

@@ -12,6 +12,14 @@ class ShiftsController < ApplicationController
         @shift = Shift.find(params[:id]) 
     end
 
+    def day_log
+        if current_user.user_access == "Admin" || current_user.user_access == "Foreman"
+            @shifts = Shift.where(date: params[:date])
+        else
+            @shifts = Shift.where(date: params[:date]).where(user_id: current_user.id)
+        end
+    end
+
     def new
         @shift = Shift.new
     end

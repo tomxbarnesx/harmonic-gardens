@@ -1,6 +1,8 @@
 <div id="calendar-container">
   <%= month_calendar events: @shifts do |date, shifts| %>
+    <a href="/shifts/day_log/<%= date %>" data-remote="true" class="shift-check">
     <%= date.day %>
+    </a>
     <%# REMOVED SHIFT VIZ %>
   <% end %>
 </div>

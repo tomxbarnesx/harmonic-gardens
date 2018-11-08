@@ -84,8 +84,9 @@
 
 @media (max-width: 575.98px){
     .table th, .table td {
-        max-width: 1.5em !important;
-        height: 4em;
+        max-width: 1em !important;
+        height: 3em;
+        text-align: center;
     }
 
     .table thead th {
