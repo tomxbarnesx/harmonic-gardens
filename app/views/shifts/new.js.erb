@@ -1,9 +1,8 @@
-console.log('Mama, we made it.');
-
 <%# Set and display the FORM %>
 var form = document.getElementById('add-form');
 
-form.innerHTML = "<%= j (render 'form') %>";
+$("#calendar-container").hide();
+$("#add-form").append("<%= j (render 'form') %>")
 
 <%# Set its values. These need to stay here %>
 var startTime = document.getElementById('start_time');
@@ -16,11 +15,11 @@ endTime.value = `${date}T00:00`;
 dateField.value = date;
 form.style.display = "block";
 
-$(document).on('click', function handler(e){
+<%#$(document).on('click', function handler(e){
     var container = $('#add-form');
 
     if ((!container.is(e.target) && container.has(e.target).length === 0)) {
         container.hide();
         container.off('click', handler);
     }
-});
+});%>

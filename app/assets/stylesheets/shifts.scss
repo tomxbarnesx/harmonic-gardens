@@ -66,3 +66,19 @@
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: .25rem;
 }
+
+#calendar-container{
+    margin-top:1em;
+}
+
+
+@media (max-width: 575.98px){
+    .table th, .table td {
+        max-width: 1.5em !important;
+        height: 4em;
+    }
+
+    .table thead th {
+        height: 1em;
+    }
+}

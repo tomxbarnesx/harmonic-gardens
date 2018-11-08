@@ -1,28 +1,37 @@
-<h2>Add Hours</h2>
-<%= form_for @shift, local: true do |form| %>
-    <div class="form-group">
-        <label>Client: </label>
-        <%= collection_select(:shift, :client_id, Client.order('last_name ASC'), :id, :full_name, {}, {:class=>'form-control form-control-lg'}) %>
-    </div>
-    <%# Be AWARE: THE HIDDEN FIELD IS SET TO TAKE THE CURRENT_USER. UPDATE IF YOU WANT TO HAVE OTHER USERS TO UPDATE OTHER PEOPLE'S TIMESHEETS%>
-    <% if has_role?("Admin") || has_role?("Foreman") %>
-    <div class="form-group">
-        <label>Employee: </label>
-        <%= collection_select(:shift, :user_id, User.order('last_name ASC'), :id, :full_name, {}, {:class=>'form-control form-control-lg'}) %>
-    <% else %>
-    <div><%= form.hidden_field :user_id, :value => current_user.id %></div>
+<div id="active-shift-add">
+    <div class="close-container"><a class="close">&times;</a></div>
+    <h4>Add Hours</h4>
+    <%= form_for @shift, local: true do |form| %>
+        <div class="form-group">
+            <label>Client: </label>
+            <%= collection_select(:shift, :client_id, Client.order('last_name ASC'), :id, :full_name, {}, {:class=>'form-control'}) %>
+        </div>
+        <%# Be AWARE: THE HIDDEN FIELD IS SET TO TAKE THE CURRENT_USER. UPDATE IF YOU WANT TO HAVE OTHER USERS TO UPDATE OTHER PEOPLE'S TIMESHEETS%>
+        <% if has_role?("Admin") || has_role?("Foreman") %>
+        <div class="form-group">
+            <label>Employee: </label>
+            <%= collection_select(:shift, :user_id, User.order('last_name ASC'), :id, :full_name, {}, {:class=>'form-control'}) %>
+        <% else %>
+        <div><%= form.hidden_field :user_id, :value => current_user.id %></div>
+        <% end %>
+        <div><%= form.hidden_field :date, placeholder: "Date", :id => 'shift_date' %></div>
+        </div>
+        <div class="form-group">
+            <label>Start Time: </label>
+            <%= form.datetime_field :start_time, placeholder: "Start Time", :id => 'start_time', class: "form-control" %>
+        </div>
+        <div class="form-group">
+            <label>End Time: </label>
+            <%= form.datetime_field :end_time, placeholder: "End Time", :id => 'end_time', class: "form-control" %>
+        </div>
+        <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-dark" %>
     <% end %>
-    <div class="form-group">
-        <label>Date: </label>
-        <%= form.date_field :date, placeholder: "Date", :id => 'shift_date', class: "form-control form-control-lg" %>
-    </div>
-    <div class="form-group">
-        <label>Start Time: </label>
-        <%= form.datetime_field :start_time, placeholder: "Start Time", :id => 'start_time', class: "form-control form-control-lg" %>
-    </div>
-    <div class="form-group">
-        <label>End Time: </label>
-        <%= form.datetime_field :end_time, placeholder: "End Time", :id => 'end_time', class: "form-control form-control-lg" %>
-    </div>
-    <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-dark" %>
-<% end %>
+</div>
+
+<script>
+$(document).on("click", ".close", function(){
+    $("#active-shift-add").remove();
+    $("#add-form").css("display", "none")
+    $("#calendar-container").show();
+});
+</script>
