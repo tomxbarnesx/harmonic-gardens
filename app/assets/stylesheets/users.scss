@@ -9,3 +9,29 @@
     border-radius: .25rem;
     padding: 3%;
 }
+
+#user-card {
+    border: 1px solid #d3d3d3;
+    border-radius: .25rem;
+    padding: 3%;
+    // box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.125);
+}
+
+
+#user-shift-table {
+    margin-top: 2em;
+    border-left: 3px solid #d3d3d3;
+    padding: 1% 2%;
+
+}
+
+@media (max-width: 575.98px) { 
+    #user-page {
+        padding-left: 0em;
+        padding-right: 0em;
+    }   
+
+    #shift-header {
+        padding-left: 3%;
+    }
+}
