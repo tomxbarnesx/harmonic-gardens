@@ -4,10 +4,16 @@
 
 
 .landing-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 4em;
-    margin-bottom: 1em;
 }
 
 #calendar-icon {
     filter: contrast(150%);
+}
+
+.img-sizing {
+    width: 100%;
 }
