@@ -2,12 +2,12 @@
     <tr id="user-<%= u.id %>">
         <td><%= u.first_name %></td>
         <td><%= u.last_name %></td>
-        <td><%= u.email %></td>
-        <td><%= u.username %></td>
-        <td><%= u.user_access %></td>
-        <td><%= link_to 'View', user_path(u) %></td>
-        <td><%= link_to 'Delete', user_path(u),
+        <td class="hide-table-col"><%= u.email %></td>
+        <td class="hide-table-col"><%= u.username %></td>
+        <td class="hide-table-col"><%= u.user_access %></td>
+        <td><%= link_to 'View', user_path(u), class: "btn btn-sm btn-dark" %></td>
+        <td class="hide-table-col"><%= link_to 'Delete', user_path(u),
               method: :delete, remote:true,
-              data: { confirm: 'Are you sure? This cannot be reversed.' } %></td>
+              data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-dark" %></td>
     </tr>
 <% end %>

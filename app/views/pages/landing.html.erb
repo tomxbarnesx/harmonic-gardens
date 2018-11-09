@@ -1,7 +1,7 @@
 <div id="landing-options" class="d-flex flex-column align-items-center">
     <h2 class="greeting">Welcome, <%= current_user.full_name %></h2>
     <div class="container row d-flex justify-content-around">
-        <div class="col-md-2">
+        <div class="col-md-2 col-5">
             <div class="landing-img">
                 <a href="/shifts">
                 <%= image_tag("calendar2.png", alt: "Calendar icon", id: "calendar-icon", class: "img-sizing") %>
@@ -9,7 +9,7 @@
                 <a href="/shifts"><h4>Log Hours</h4></a>
             </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 col-5">
             <div class="landing-img">
                 <a href="/invoices">
                 <%= image_tag("invoice-icon2.png", alt: "Invoice icon", class: "img-sizing") %>
@@ -17,7 +17,7 @@
                 <a href="/invoices"><h4>Invoices</h4></a>
             </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 col-5">
             <div class="landing-img">
                 <a href="/users">
                 <%= image_tag("abstract-user-flat-2.svg", alt: "User icon", class: "img-sizing") %>
@@ -25,7 +25,7 @@
                 <a href="/users"><h4>Users</h4></a>
             </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 col-5">
             <div class="landing-img">
                 <a href="/clients">
                 <%= image_tag("client.png", alt: "Clients icon", class: "img-sizing") %>
@@ -33,7 +33,7 @@
                 <a href="/clients"><h4>Clients</h4></a>
             </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 col-5">
             <div class="landing-img">
                 <a href="/materials">
                 <%= image_tag("materials.svg", alt: "Materials icon", class: "img-sizing") %>

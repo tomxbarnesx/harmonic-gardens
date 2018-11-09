@@ -7,3 +7,14 @@ $("#day-log-container").empty();
 <% end %>
 
 $("#day-log-container").css("display", "block");
+
+$(document).ready( function () {
+    $('#datatable').DataTable( {
+        "paging": false,
+        "info": false,
+        "bLengthChange": false,
+        columnDefs: [
+            { orderable: false, targets: -1 },
+         ]
+    } );
+} );

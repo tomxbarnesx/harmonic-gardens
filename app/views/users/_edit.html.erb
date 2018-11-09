@@ -1,27 +1,31 @@
 <%= form_for @user, remote: true do |form| %>
     <div class="form-group">
         <label>First Name: </label>
-        <%= form.text_field :first_name, placeholder: "First Name", class: 'form-control' %>
+        <%= form.text_field :first_name, placeholder: "First Name", class: 'form-control form-control-sm' %>
     </div>
     <div class="form-group">
         <label>Last Name: </label>
-        <%= form.text_field :last_name, placeholder: "First Name", class: 'form-control' %>
+        <%= form.text_field :last_name, placeholder: "First Name", class: 'form-control form-control-sm' %>
     </div>
     <div class="form-group">
         <label>Email: </label>
-        <%= form.text_field :email, placeholder: "Email", class: "form-control" %>
+        <%= form.text_field :email, placeholder: "Email", class: "form-control form-control-sm" %>
     </div>
     <div class="form-group">
         <label>Username: </label>
-        <%= form.text_field :username, placeholder: "Username", class: "form-control" %>
+        <%= form.text_field :username, placeholder: "Username", class: "form-control form-control-sm" %>
     </div>
     <div class="form-group">
         <label>Access level: </label>
-        <%= form.select(:user_access, ['Worker', 'Foreman', 'Admin'], {}, {class: "form-control"}) %>
+        <%= form.select(:user_access, ['Worker', 'Foreman', 'Admin'], {}, {class: "form-control form-control-sm"}) %>
     </div>
     <div class="form-group">
         <label>Hourly Rate: </label>
-        <%= form.number_field :hourly_rate, placeholder: "Hourly Rate", class: "form-control" %>
+        <%= form.number_field :hourly_rate, placeholder: "Hourly Rate", class: "form-control form-control-sm" %>
+    </div>
+    <div class="form-group">
+        <label>House Photo:</label>
+        <%= form.file_field :house_pic %>
     </div>
     <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-dark" %>
 <% end %>
