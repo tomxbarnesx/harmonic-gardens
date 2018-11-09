@@ -36,32 +36,34 @@
     position: relative;
 }
 
+.card-text {
+    font-size: 75%;
+}
+
 .card-img.house-img {
     padding: 1em;
 }
 
 .shift-card-body {
-    margin: 2em;
-    width: 60%;
     font-size: 135%;
+    position: relative;
 }
 
 .date-code {
     background-color: rgb(230, 169, 161); 
-    border-radius: .3em;
-    padding: .15em;
+    border-radius: .2em;
+    padding: .25em;
 }
 
 #close-tab {
     position: absolute;
-    right: 10px;
-    top: 0;
-    font-size: 175%;
+    right: 0px;
+    top: -15px
 }
 
 #add-form {
     width: 96%;
-    padding: 3%;
+    padding: 4% 3%;
     margin: 0 auto;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: .25rem;
@@ -81,12 +83,23 @@
 //     right: 5%;
 // }
 
+.table thead th {
+    vertical-align: middle !important;
+    padding: 8px !important;
+}
+
+.none-message {
+    padding: 1em;
+    text-align: center;
+}
+
 
 @media (max-width: 575.98px){
     .table th, .table td {
         max-width: 1em !important;
         height: 3em;
         text-align: center;
+        vertical-align: middle !important;
     }
 
     .table thead th {

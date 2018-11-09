@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Client</th>
+            <th>Employee</th>
+            <th>Hours</th>
+            <th><%= link_to 'Add +', new_shift_path, remote: true, class: "btn btn-sm btn-success float-right" %></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @shifts.each do |s| %>
+            <tr id='day-log-shift-<%= s.id %>'>
+                <td><%= s.client.abbrv_name %></td>
+                <td><%= s.user.initials %></td>
+                <td><%= s.time_elapsed %></td>
+                <td><%= link_to 'View', shift_path(s.id), remote: true, class: "btn btn-sm btn-dark" %>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

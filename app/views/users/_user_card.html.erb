@@ -5,7 +5,7 @@
     <p><strong>Access:</strong> <%= @user.user_access %></p>
     <p><strong>Hourly Rate:</strong> $<%= @user.hourly_rate %>/hour</p>
     <% if has_role?("Admin") || has_role?("Foreman") && @user.user_access == "Worker"%>
-    <%=  link_to 'Edit', edit_user_path(@user), remote:true, class: 'btn btn-success' %>
+    <%= link_to 'Edit', edit_user_path(@user), remote:true, class: 'btn btn-success' %>
     <%= link_to 'Delete', user_path(@user),
                 method: :delete, remote: true,
                 data: { confirm: 'Are you sure? This cannot be reversed.' }, class: 'btn btn-success' %>

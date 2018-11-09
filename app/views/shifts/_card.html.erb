@@ -1,9 +1,10 @@
-<div class="card shift-card">
+<div class="shift-card">
   <div class="shift-card-body align-middle">
-    <h5 class="card-title"><span class="date-code"><%= @shift.just_date %></span>: <%= @shift.user.full_name%></h5>
+    <div class="close-container" id="close-tab">&times;</div>
+    <p class="card-title"><span class="date-code"><%= @shift.date.strftime("%m/%d") %></span> <%= @shift.user.full_name%></p>
     <p class="card-text"><strong>Client: </strong><%= @shift.client.full_name %><br>
-    <strong>Start: </strong><%= @shift.simple_start %><br>
-    <strong>End: </strong><%= @shift.simple_end %><br>
+    <strong>Start: </strong><%= @shift.start_time.strftime("%I:%M %p") %><br>
+    <strong>End: </strong><%= @shift.end_time.strftime("%I:%M %p") %><br>
     <strong>Total Hours: </strong><%= @shift.time_elapsed %></p>
     <% if has_role?("Admin") || has_role?("Foreman") %>
     <%= link_to 'Edit', edit_shift_path, remote: true, class: "btn btn-success" %>
@@ -13,6 +14,5 @@
   <div>
       <img class="card-img house-img" src="https://www.shareicon.net/data/256x256/2015/11/08/668668_home_512x512.png" alt="Card image cap">
   </div>
-  <div id="close-tab">X</div>
 </div>
 

@@ -10,17 +10,13 @@
 <div id="add-form" style="display:none;">
 </div>
 
-<div id="shift-card-container" style="display:none;">
+<div id="day-log-container" style="display:none;">
 </div>
 
 <script>
-    $('a').click(function(e) {
+    $('.shift-check').click(function(e) {
         var target = $(e.target);
-        if (target.context.attributes["class"].value.slice(0, 8) == "ajax-add") {
-            var val = target.context.attributes["class"].value.slice(13,23)
-            console.log(val);
-            sessionStorage.setItem("date", val);
-        };
-        console.log(target);
+        var targetDate = target.attr("href").slice(-10);
+        sessionStorage.setItem("date", targetDate);
     });
 </script>
