@@ -1,10 +1,10 @@
 <div class="col-md-4">
-<% if @client.house_pic.attached? %>
-<%= image_tag @client.house_pic, options = {width: "100%"} %>
-<% else %>
-<%= image_tag "home_placeholder.png"%>
-<% end %>
-</div>
+    <% if @client.house_pic.attached? %>
+    <%= image_tag @client.house_pic, options = {width: "100%"} %>
+    <% else %>
+    <%= image_tag "home_placeholder.png"%>
+    <% end %>
+    </div>
 <div class="col-md-4">
     <h2><%= @client.full_name %></h2>
     <p><strong>Email:</strong> <%= @client.email %></p>

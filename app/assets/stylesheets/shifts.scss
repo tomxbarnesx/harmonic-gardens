@@ -40,6 +40,34 @@
     font-size: 75%;
 }
 
+//STYLING FOR THE CALENDAR SELECTION CIRCLE
+
+.date-circle {
+    display:inline-block;
+    background-color: rgb(252, 178, 168);
+    border-radius:50%;
+}
+
+.date-circle:before,
+.date-circle:after {
+    content:'\200B';
+    display:inline-block;
+    line-height:0px;
+
+    padding-top:50%;
+    padding-bottom:50%;
+}
+
+.date-circle:before {
+    padding-left:4px;
+}
+.date-circle:after {
+    padding-right:4px;
+}
+
+
+//END DATE-CIRCLE STYLING
+
 .card-img.house-img {
     padding: 1em;
 }
