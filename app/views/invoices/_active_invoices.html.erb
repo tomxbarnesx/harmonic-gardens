@@ -1,12 +1,12 @@
 <% @invoices.each do |i| %>
     <tr id="invoice-<%= i.id %>">
         <td><%= i.client.full_name %></td>
-        <td><%= i.client.address %></td>
-        <td><%= i.just_date %></td>
-        <td>$ <%= i.current_total(i.id) %></td>
-        <td><%= link_to 'View', invoice_path(i) %></td>
-        <td><%= link_to 'Delete', invoice_path(i),
+        <td class="hide-table-col"><%= i.client.address %></td>
+        <td><%= i.created_at.strftime("%m-%d-%Y") %></td>
+        <td class="hide-table-col">$ <%= i.current_total(i.id) %></td>
+        <td class="center-col"><%= link_to 'View', invoice_path(i), class: "btn btn-sm btn-dark" %></td>
+        <td class="hide-table-col"><%= link_to 'Delete', invoice_path(i),
               method: :delete, remote:true,
-              data: { confirm: 'Are you sure? This cannot be reversed.' } %></td>
+              data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger" %></td>
     </tr>
 <% end %>

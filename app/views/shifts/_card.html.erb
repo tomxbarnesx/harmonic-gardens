@@ -7,12 +7,16 @@
     <strong>End: </strong><%= @shift.end_time.strftime("%I:%M %p") %><br>
     <strong>Total Hours: </strong><%= @shift.time_elapsed %></p>
     <% if has_role?("Admin") || has_role?("Foreman") %>
-    <%= link_to 'Edit', edit_shift_path, remote: true, class: "btn btn-success" %>
+    <%= link_to 'Edit', edit_shift_path, remote: true, class: "btn btn-sm btn-success" %>
     <% end %>
-    <%= link_to 'Delete', shift_path, method: :delete, class: "btn btn-success" %>
+    <%= link_to 'Delete', shift_path, method: :delete, class: "btn btn-sm btn-danger" %>
   </div>
-  <div>
-      <img class="card-img house-img" src="https://www.shareicon.net/data/256x256/2015/11/08/668668_home_512x512.png" alt="Card image cap">
+  <div class="shift-image-container">
+    <% if @shift.client.house_pic.attached? %>
+    <%= image_tag @shift.client.house_pic, options = {width: "100%"} %>
+    <% else %>
+      <%= image_tag "home_placeholder.png", class: "home-placeholder"%>
+    <% end %>
   </div>
 </div>
 

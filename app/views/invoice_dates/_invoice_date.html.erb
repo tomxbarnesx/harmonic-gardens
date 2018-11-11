@@ -1,7 +1,7 @@
 <div class="invoice-date-card" id="invoice-card-<%= invoice_date.id %>">
     <div class="close hide-button">&#x21a5;</div>
-    <h4><%= invoice_date.date %></h4>
-    <%= invoice_date.description %>
+    <h4 class="header-date"><%= invoice_date.date.strftime("%m-%d-%Y") %></h4>
+    <p class="pl-2"><%= invoice_date.description %></p>
     <div id="invoice-shift-container-<%= invoice_date.id %>" class="invoice-clip-container">
         <div class="d-flex align-items-baseline">
             <h5 class="col-3">Shifts</h5>
@@ -21,9 +21,9 @@
                         <td><%= shift_date.shift.user.full_name %></td>
                         <td><%= shift_date.shift.time_elapsed %> @ $<%= shift_date.user.hourly_rate %>/h</td>
                         <td><%= number_to_currency(shift_date.hour_calc) %></td>
-                        <td><%= link_to 'Delete', shift_date_path(shift_date),
+                        <td><%= link_to 'X', shift_date_path(shift_date),
                             method: :delete, remote:true,
-                            data: { confirm: 'Are you sure?' } %></td>
+                            data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
                     </tr>
             <% end %>
                     <tr id="tbody-shift-<%= invoice_date.id %>-total" class="total-row">
@@ -51,9 +51,9 @@
                         <td><%= mat_date.material.name %></td>
                         <td><%= number_to_currency(mat_date.material.cost) %> x <%= mat_date.quantity %></td>
                         <td><%= number_to_currency(mat_date.instant_total) %></td>
-                        <td><%= link_to 'Delete', material_date_path(mat_date),
+                        <td><%= link_to 'X', material_date_path(mat_date),
                             method: :delete, remote:true,
-                            data: { confirm: 'Are you sure?' } %></td>
+                            data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
                     </tr>
             <% end %>
                     <tr id="tbody-material-<%= invoice_date.id %>-total" class="total-row">

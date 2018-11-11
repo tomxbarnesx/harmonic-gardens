@@ -7,13 +7,17 @@
 }
 
 
-
 .invoice-date-card {
     width: 100%;
     border: none;
     margin-bottom: 1em;
+    padding-top: 1%;
     padding-bottom: 2%;
     border-bottom: 1px solid #d3d3d3;
+
+    .header-date {
+        margin-left: .5em;
+    }
 }
 
 @media (min-width: 576px) {

@@ -4,11 +4,23 @@
 
 .invoice-body {
     margin-top: 2em;
+    background-color: #ffffff;
 }
 
 .description-header {
-    background-color: #d3d3d3;
+    background-color: #e8e8e8;
     padding: .5em;
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+}
+
+.invoice-header {
+    margin-top: 1em;
+
+    .invoice-details {
+        border-radius: .5em;
+        border: 1px solid #a7a7a7;
+    }
 }
 
 // .subtotal {
@@ -41,9 +53,32 @@
     margin-bottom: 1.5%;
 }
 
+.invoice-details {
+    background-color: #ffffff;
+    padding: .4em;
+    max-width: 60%;
+    margin-left:.5em;
+    margin-top: .5em;
+    max-height: 4em;
+}
+
+@media (max-width: 575.98px) {
+    .invoice-date-master.col-md-10 {
+        padding-right: 0px !important;
+        padding-left: 5px !important;
+    }
+}
+
 @media (min-width: 768px){
     .container {
         max-width: 52em !important;
+    }
+
+    .invoice-details {
+        background-color: #ffffff;
+        max-height: 4em;
+        vertical-align: middle;
+        padding: .4em;
     }
 }
 

@@ -1,14 +1,14 @@
 <div class="invoice-header container">
     <div class="row justify-content-between">
-        <div class="invoice-client-info col-9">
+        <div class="invoice-client-info col-md-9">
             <h3><%= @invoice.client.full_name %></h3>
             <%= @invoice.client.address%><br>
             <%= number_to_phone(@invoice.client.home_phone, area_code: true) %><br>
             <%= @invoice.client.email %>
         </div>
-        <div class="col-3">
-            <p><strong>Invoice Number: </strong><%= @invoice.id %></p>
-            <p><strong>Date: </strong><%= @invoice.just_date %></p>
+        <div class="col-md-2 mr-4 invoice-details">
+            <p><strong>Invoice Number: </strong><%= @invoice.id %><br>
+            <strong>Date: </strong><%= @invoice.created_at.strftime("%m-%d-%Y") %></p>
         </div>
     </div>
 </div>
@@ -16,7 +16,7 @@
     <div class="description-header">
         <h4>Description</h4>
     </div>
-    <div class="invoice-date-master">
+    <div class="invoice-date-master col-md-10 m-md-auto">
         <%= render partial: 'invoice_dates/invoice_date', collection: @invoice_dates %>
         <%= link_to 'Add Date', new_invoice_invoice_date_path(@invoice), remote:true, class: "btn btn-success", id: "add-button-target" %>
     </div>

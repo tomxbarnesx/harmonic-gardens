@@ -8,6 +8,6 @@
         <td><%= link_to 'View', user_path(u), class: "btn btn-sm btn-dark" %></td>
         <td class="hide-table-col"><%= link_to 'Delete', user_path(u),
               method: :delete, remote:true,
-              data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-dark" %></td>
+              data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger" %></td>
     </tr>
 <% end %>

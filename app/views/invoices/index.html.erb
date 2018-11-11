@@ -1,19 +1,22 @@
-<h1>Active Invoices</h1>
-<%= link_to 'Add New', new_invoice_path, class: "btn btn-success" %>
+<div class="client-user-header">
+    <h2>Invoices</h2>
+    <%= link_to 'Add New', new_invoice_path, class: "btn btn-success" %>
+</div>
 <div>
     <table id="datatable" data-turbolinks="false" class="display">
         <thead>
             <th>Client</th>
-            <th>Address</th>
+            <th class="hide-table-col">Address</th>
             <th>Start Date</th>
-            <th>Current Total</th>
+            <th class="hide-table-col">Current Total</th>
             <th>Options</th>
-            <th></th>
+            <th class="hide-table-col"></th>
         </thead>
         <tbody>
             <%= render 'active_invoices'%>
         <tbody>
     </table>
 </div>
-<h5>View Closed Invoices</h5>
+<br>
+<h5>View Archived Invoices</h5>
             

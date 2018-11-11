@@ -1,16 +1,18 @@
-<div id="calendar-container">
-  <%= month_calendar events: @shifts do |date, shifts| %>
-    <a href="/shifts/day_log/<%= date %>" data-remote="true" class="shift-check">
-    <%= date.day %>
-    </a>
-    <%# REMOVED SHIFT VIZ %>
-  <% end %>
-</div>
+<div class="row">
+  <div id="calendar-container" class="col-md-6">
+    <%= month_calendar events: @shifts do |date, shifts| %>
+      <a href="/shifts/day_log/<%= date %>" data-remote="true" class="shift-check">
+      <%= date.day %>
+      </a>
+      <%# REMOVED SHIFT VIZ %>
+    <% end %>
+  </div>
 
-<div id="add-form" style="display:none;">
-</div>
+  <div id="add-form" class="col-md-5" style="display:none;">
+  </div>
 
-<div id="day-log-container" style="display:none;">
+  <div id="day-log-container" class="col-md-5" style="display:none;">
+  </div>
 </div>
 
 <script>

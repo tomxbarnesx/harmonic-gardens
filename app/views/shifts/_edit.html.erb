@@ -1,4 +1,5 @@
 <%= form_for @shift do |form|%>
+    <h2>Edit Shift</h2>
     <div class="form-group">
         <label>Client: </label>
         <%= collection_select(:shift, :client_id, Client.all, :id, :full_name, {}, {:class=>'form-control form-control-sm'}) %>

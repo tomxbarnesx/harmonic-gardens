@@ -36,6 +36,10 @@
     position: relative;
 }
 
+#add-form, .shift-card {
+    background-color: white;
+}
+
 .card-text {
     font-size: 75%;
 }
@@ -121,6 +125,10 @@
     text-align: center;
 }
 
+.close:hover, .close-container:hover {
+    cursor: pointer;
+}
+
 
 @media (max-width: 575.98px){
     .table th, .table td {
@@ -133,10 +141,41 @@
     .table thead th {
         height: 1em;
     }
+}
 
-    // #shift-btn-add {
-    //     position: absolute;
-    //     right: 5%;
-    //     top: -3%;
-    // }
+@media (min-width: 992px) {
+
+    .simple-calendar{
+
+        .table th, .table td {
+        height: 5em !important;
+        }
+        
+    }
+    .table th, .table td {
+        // height: 5em;
+        text-align: center;
+        vertical-align: middle !important;
+        font-size: 125%;
+    }
+
+    table.dataTable tbody th, table.dataTable tbody td {
+        font-size: 100% !important;
+    }
+
+    #add-form {
+
+        margin-top: 1em;
+
+        .shift-image-container {
+            margin-top: 4em;
+
+            // .placeholder-container {
+            //     display: flex;
+            //     justify-content: center;
+            // }
+        }
+
+    }
+
 }
