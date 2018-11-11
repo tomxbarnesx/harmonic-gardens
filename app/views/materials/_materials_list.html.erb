@@ -2,9 +2,9 @@
     <tr id="material-<%= m.id %>">
         <td><%= m.name %></td>
         <td><%= number_to_currency(m.cost) %></td>
-        <td><%= link_to 'Edit', edit_material_path(m), remote:true %></td>
-        <td><%= link_to 'Delete', material_path(m),
+        <td><%= link_to 'Edit', edit_material_path(m), remote:true, class: "btn btn-sm btn-dark" %></td>
+        <td><%= link_to 'X', material_path(m),
               method: :delete, remote:true,
-              data: { confirm: 'Are you sure? This cannot be reversed.' } %></td>
+              data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger" %></td>
     </tr>
 <% end %>

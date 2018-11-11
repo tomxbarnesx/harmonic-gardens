@@ -1,2 +1,6 @@
-$("<%= j (render 'materials_form') %>%").insertAfter("#material-add");
-$("#material-add").hide();
+$("#materials-add").append("<%= j (render 'materials_form') %>");
+$("#materials-container").hide();
+
+<%#if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    $("#materials-container").hide();
+}%>

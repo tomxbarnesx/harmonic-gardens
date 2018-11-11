@@ -15,6 +15,14 @@
  */
 @import "bootstrap";
 
+#the-view {
+    background: #e8ffeb;
+    background: -webkit-linear-gradient(#e8ffeb, #ffffff);
+    background:    -moz-linear-gradient(#e8ffeb, #ffffff);
+    background:         linear-gradient(#e8ffeb, #ffffff);
+  }
+  
+   
 
 //TABLE STYLING
 .center-col {
@@ -23,4 +31,9 @@
 
 #notice {
     background-color: #c2f3b6
+}
+
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 8px 10px;
+    font-size: 90%;
 }
