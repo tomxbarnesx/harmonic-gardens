@@ -6,7 +6,7 @@
     width: 90%;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: .25rem;
-    padding: 3%;
+    padding: 5%;
     background-color: #ffffff;
 }
 
@@ -38,5 +38,11 @@
 
     #shift-header {
         padding-left: 3%;
+    }
+}
+
+@media (min-width: 575.98px) {
+    #new-user-client-card {
+        padding: 3%;
     }
 }
