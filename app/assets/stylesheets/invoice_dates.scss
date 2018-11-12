@@ -11,8 +11,8 @@
     width: 100%;
     border: none;
     margin-bottom: 1em;
-    padding-top: 1%;
-    padding-bottom: 2%;
+    padding-top: 2%;
+    padding-bottom: 3%;
     border-bottom: 1px solid #d3d3d3;
 
     .header-date {
@@ -20,12 +20,15 @@
     }
 }
 
+.hide-button {
+    margin-right: 10px;
+}
+
 @media (min-width: 576px) {
     .invoice-date-card {
-        width: 97%;
-        padding: 1% 2% 1% 2%;
+        padding: 1% 2% 1.5% 2%;
         margin: 1% auto;
-        border: 1px solid #d3d3d3;
+        // border: 1px solid #d3d3d3;
     }
 
     .table {

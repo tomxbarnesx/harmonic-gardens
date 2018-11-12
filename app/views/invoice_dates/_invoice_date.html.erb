@@ -1,5 +1,5 @@
 <div class="invoice-date-card" id="invoice-card-<%= invoice_date.id %>">
-    <div class="close hide-button">&#x21a5;</div>
+    <div class="close hide-button"><i class="fas fa-chevron-circle-up"></i></div>
     <h4 class="header-date"><%= invoice_date.date.strftime("%m-%d-%Y") %></h4>
     <p class="pl-2"><%= invoice_date.description %></p>
     <div id="invoice-shift-container-<%= invoice_date.id %>" class="invoice-clip-container">
