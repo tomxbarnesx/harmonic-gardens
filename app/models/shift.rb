@@ -23,5 +23,21 @@ class Shift < ApplicationRecord
         return self.user.first_name + ' ' + self.user.last_name + ' - ' + self.time_elapsed.to_s
     end
 
+    def self.multi_create(sp)
+        self.multi(sp)
+    end
+
+    private
+
+    def self.multi(sp)
+        i = 0
+        sp["user_id"].each do |u|
+            sclone = sp.clone()
+            sclone["user_id"] = sp["user_id"][i]
+            split = Shift.create(sclone)
+            i += 1
+        end
+    end
+
 end
 

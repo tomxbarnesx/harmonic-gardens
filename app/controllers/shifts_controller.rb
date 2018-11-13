@@ -30,13 +30,8 @@ class ShiftsController < ApplicationController
     end
 
     def create
-        i = 0
-        shift_params["user_id"].each do |u|
-            @splitshift = shift_params.clone()
-            @splitshift["user_id"] = shift_params["user_id"][i]
-            @split = Shift.create(@splitshift)
-            i += 1
-        end
+
+        @total = Shift.multi_create(shift_params)
 
         @shifts = Shift.all
 
