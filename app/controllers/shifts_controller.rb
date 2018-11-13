@@ -56,8 +56,15 @@ class ShiftsController < ApplicationController
 
     def destroy
         @shift = Shift.find(params[:id])
-        @shift.destroy
-        redirect_to "/shifts"
+        authorize @shift
+
+        if @shift.destroy
+            flash[:notice] = "This shift was successfully deleted."
+            redirect_to '/shifts'
+          else
+            flash.now[:alert] = "There was an error deleting the shift."
+            redirect_to '/shifts'
+          end
     end
 
 private

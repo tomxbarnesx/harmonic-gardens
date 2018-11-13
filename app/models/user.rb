@@ -9,6 +9,14 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :username, uniqueness: true
 
+  enum role: [:worker, :foreman, :admin]
+
+  after_initialize do
+    if self.new_record?
+      self.role ||= :worker
+    end
+  end
+
   def email_required?
     false
   end
