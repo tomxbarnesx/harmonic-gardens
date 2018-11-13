@@ -1,5 +1,6 @@
 $("#add-form").empty().css("display", "none");
 $("#day-log-container").empty();
+
 <% if @shifts.length >= 1 %>
     $("#day-log-container").append("<%= j (render 'day_log_list') %>")
 <% else %>

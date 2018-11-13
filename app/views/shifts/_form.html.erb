@@ -1,15 +1,16 @@
 <div id="active-shift-add">
     <div class="close-container"><a class="close">&times;</a></div>
     <h4>Add Hours</h4>
-    <%= form_for @shift, local: true do |form| %>
+    <%= form_for @shift, remote: true do |form| %>
         <div class="form-group">
             <label>Client: </label>
             <%= collection_select(:shift, :client_id, Client.order('last_name ASC'), :id, :full_name, {}, {:class=>'form-control'}) %>
         </div>
         <% if has_role?("Admin") || has_role?("Foreman") %>
         <div class="form-group">
-            <label>Employee: </label>
-            <%= collection_select(:shift, :user_id, User.order('last_name ASC'), :id, :full_name, {}, {:class=>'form-control'}) %>
+            <label>Employees: </label>
+            <%= select_tag "shift[user_id]", options_from_collection_for_select(@users, "id", "full_name"), multiple: true, class: "form-control" %>
+            <%# collection_select(:shift, :user_id, User.order('last_name ASC'), :id, :full_name, {}, {:class=>'form-control'}) %>
         </div>
         <% else %>
             <div><%= form.hidden_field :user_id, value: current_user.id %></div>

@@ -1,1 +1,4 @@
-$(".invoice-date-master").empty().append("<%= j (render 'invoice_date_card') %>")
+$("#add-form").empty();
+$("#calendar-container").empty();
+$("#calendar-container").append("<%= j (render "shift_cal", shifts: @shifts) %>")
+$("#calendar-container").show();

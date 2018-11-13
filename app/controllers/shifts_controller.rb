@@ -22,6 +22,7 @@ class ShiftsController < ApplicationController
 
     def new
         @shift = Shift.new
+        @users = User.order('last_name ASC')
     end
 
     def edit
@@ -29,15 +30,23 @@ class ShiftsController < ApplicationController
     end
 
     def create
-        @shift = Shift.create(shift_params)
-
-        if @shift.save
-            flash[:notice] = "Hours logged successfully."
-            redirect_to "/shifts"
-        else
-            flash[:error] = "We encountered an error logging your hours"
-            redirect_to "/shifts"
+        i = 0
+        shift_params["user_id"].each do |u|
+            @splitshift = shift_params.clone()
+            @splitshift["user_id"] = shift_params["user_id"][i]
+            @split = Shift.create(@splitshift)
+            i += 1
         end
+
+        @shifts = Shift.all
+
+        # if @shift.save
+        #     flash[:notice] = "Hours logged successfully."
+        #     redirect_to "/shifts"
+        # else
+        #     flash[:error] = "We encountered an error logging your hours"
+        #     redirect_to "/shifts"
+        # end
     end
 
     def update
@@ -59,7 +68,7 @@ class ShiftsController < ApplicationController
 private
     
     def shift_params
-        params.require(:shift).permit(:start_time, :end_time, :date, :client_id, :user_id);
+        params.require(:shift).permit(:start_time, :end_time, :date, :client_id, :user_id => []);
     end
 
 end

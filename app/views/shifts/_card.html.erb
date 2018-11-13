@@ -13,7 +13,7 @@
   </div>
   <div class="shift-image-container">
     <% if @shift.client.house_pic.attached? %>
-    <%= image_tag @shift.client.house_pic, options = {width: "100%"} %>
+      <%= image_tag @shift.client.house_pic, options = {width: "100%"} %>
     <% else %>
       <%= image_tag "home_placeholder.png", class: "home-placeholder"%>
     <% end %>
