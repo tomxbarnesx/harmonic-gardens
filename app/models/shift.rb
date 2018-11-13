@@ -30,12 +30,16 @@ class Shift < ApplicationRecord
     private
 
     def self.multi(sp)
-        i = 0
-        sp["user_id"].each do |u|
-            sclone = sp.clone()
-            sclone["user_id"] = sp["user_id"][i]
-            split = Shift.create(sclone)
-            i += 1
+        if sp["user_id"].length > 1
+            i = 0
+            sp["user_id"].each do |u|
+                sclone = sp.clone()
+                sclone["user_id"] = sp["user_id"][i]
+                split = Shift.create(sclone)
+                i += 1
+            end
+        else
+            single = Shift.create(sp)
         end
     end
 

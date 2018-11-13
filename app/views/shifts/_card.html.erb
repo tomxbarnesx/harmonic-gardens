@@ -6,8 +6,9 @@
     <strong>Start: </strong><%= @shift.start_time.strftime("%I:%M %p") %><br>
     <strong>End: </strong><%= @shift.end_time.strftime("%I:%M %p") %><br>
     <strong>Total Hours: </strong><%= @shift.time_elapsed %></p>
-    <% if has_role?("Admin") || has_role?("Foreman") %>
-    <%= link_to 'Edit', edit_shift_path, remote: true, class: "btn btn-sm btn-success" %>
+
+    <% if policy(@shift).update? %>
+      <%= link_to 'Edit', edit_shift_path, remote: true, class: "btn btn-sm btn-success" %>
     <% end %>
     <%= link_to 'Delete', shift_path, method: :delete, class: "btn btn-sm btn-danger" %>
   </div>

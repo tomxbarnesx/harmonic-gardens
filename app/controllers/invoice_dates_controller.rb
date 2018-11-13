@@ -1,4 +1,5 @@
 class InvoiceDatesController < ApplicationController
+    before_action :authenticate_user!
     def show
         @invoice_date = InvoiceDate.find(params[:id])
         @shift_dates = @invoice_dates.shift_dates

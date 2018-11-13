@@ -1,7 +1,7 @@
 <div id="landing-options" class="d-flex flex-column align-items-center">
-    <h2 class="greeting mt-3 mt-md-4">Welcome, <%= current_user.full_name %></h2>
+    <h2 class="greeting mt-3 mt-md-4">Welcome, <%= @user.full_name %></h2>
     <div class="container row d-flex justify-content-around">
-        <div class="col-md-2 col-5">
+        <div class="col-md-2 mx-md-2 col-5">
             <div class="landing-img">
                 <a href="/shifts">
                 <%= image_tag("calendar2.png", alt: "Calendar icon", id: "calendar-icon", class: "img-sizing") %>
@@ -9,6 +9,18 @@
                 <a href="/shifts"><h4>Log Hours</h4></a>
             </div>
         </div>
+
+        <div class="col-md-2 col-5">
+            <div class="landing-img">
+                <a href="/users/<%= @user.id %>">
+                <%= image_tag("profile.png", alt: "Profile icon", id: "calendar-icon", class: "img-sizing") %>
+                </a>
+                <a href="/users/<%= @user.id %>"><h4>My Profile</h4></a>
+            </div>
+        </div>
+
+        <% if policy(@user).index? %>
+        
         <div class="col-md-2 col-5">
             <div class="landing-img">
                 <a href="/invoices">
@@ -41,5 +53,6 @@
                 <a href="/materials"><h4>Materials</h4></a>
             </div>
         </div>
+        <%end%>
     </div>
 </div>

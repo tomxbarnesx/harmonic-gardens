@@ -2,9 +2,17 @@
 <p><strong>Username:</strong> <%= @user.username %></p>
 <p><strong>Email:</strong> <%= @user.email %></p>
 <p><strong>Hourly Rate:</strong> $<%= @user.hourly_rate %>/hour</p>
-<% if has_role?("Admin") || has_role?("Foreman") && @user.user_access == "Worker"%>
+
+<% if policy(@user).update? %>
+
+<%# if has_role?("Admin") || has_role?("Foreman") && @user.user_access == "Worker"%>
 <p><strong>Access:</strong> <%= @user.user_access %></p>
 <%= link_to 'Edit', edit_user_path(@user), remote:true, class: 'btn btn-sm btn-success' %>
+
+<% end %>
+
+<% if policy(@user).destroy? %>
+
 <%= link_to 'Delete', user_path(@user),
             method: :delete, remote: true,
             data: { confirm: 'Are you sure? This cannot be reversed.' }, class: 'btn btn-sm btn-danger' %>

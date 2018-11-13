@@ -1,7 +1,7 @@
 class ShiftsController < ApplicationController
     before_action :authenticate_user!
     def index
-        if current_user.user_access == "Admin" || current_user.user_access == "Foreman"
+        if current_user.role == "admin" || current_user.role == "foreman"
             @shifts = Shift.all
         else
             @shifts = Shift.where(user_id: current_user.id)
@@ -10,10 +10,11 @@ class ShiftsController < ApplicationController
 
     def show
         @shift = Shift.find(params[:id]) 
+        authorize @shift
     end
 
     def day_log
-        if current_user.user_access == "Admin" || current_user.user_access == "Foreman"
+        if current_user.role == "admin" || current_user.role == "foreman"
             @shifts = Shift.where(date: params[:date])
         else
             @shifts = Shift.where(date: params[:date]).where(user_id: current_user.id)
@@ -30,9 +31,7 @@ class ShiftsController < ApplicationController
     end
 
     def create
-
         @total = Shift.multi_create(shift_params)
-
         @shifts = Shift.all
 
         # if @shift.save
@@ -46,6 +45,8 @@ class ShiftsController < ApplicationController
 
     def update
         @shift = Shift.find(params[:id])
+
+        authorize @shift
 
         if @shift.update(shift_params)
             redirect_to "/shifts"
@@ -70,7 +71,7 @@ class ShiftsController < ApplicationController
 private
     
     def shift_params
-        params.require(:shift).permit(:start_time, :end_time, :date, :client_id, :user_id => []);
+        params.require(:shift).permit(:start_time, :end_time, :date, :client_id, :user_id, user_id: []);
     end
 
 end

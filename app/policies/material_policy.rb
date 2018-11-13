@@ -1,0 +1,3 @@
+class MaterialPolicy < ApplicationPolicy
+
+end

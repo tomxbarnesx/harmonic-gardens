@@ -7,15 +7,15 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    user.role == 'admin' || user.role == 'foreman'
   end
 
   def show?
-    false
+    user.role == 'admin' || user.role == 'foreman'
   end
 
   def create?
-    false
+    user.role == 'admin' || user.role == 'foreman'
   end
 
   def new?
@@ -23,7 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    user.role == 'admin' || user.role == 'foreman'
   end
 
   def edit?
@@ -31,7 +31,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    user.role == 'admin' || user.role == 'foreman'
   end
 
   class Scope
