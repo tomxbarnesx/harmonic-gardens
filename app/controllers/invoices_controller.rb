@@ -7,6 +7,14 @@ class InvoicesController < ApplicationController
     def show
         @invoice = Invoice.find(params[:id])
         @invoice_dates = @invoice.invoice_dates.sort_by &:date
+
+        respond_to do |format|
+            format.html
+            format.pdf do
+              pdf = InvoicePdf.new(@invoice)
+              send_data pdf.render, filename: 'HGInvoice.pdf', type: 'application/pdf'
+            end
+          end
     end
 
     def new

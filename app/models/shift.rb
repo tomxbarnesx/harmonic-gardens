@@ -30,7 +30,7 @@ class Shift < ApplicationRecord
     private
 
     def self.multi(sp)
-        if sp["user_id"].count > 1
+        if sp["user_id"].length > 1
             sp["user_id"].each do |u|
                 sclone = sp.clone()
                 sclone["user_id"] = u
