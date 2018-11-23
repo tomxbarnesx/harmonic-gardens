@@ -30,13 +30,24 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        @user.update(user_params)
+        if @user.update(user_params)
+            flash[:notice] = "User updated successfully."
+            render js: "window.location='#{user_path(@user)}'"
+        else
+            # respond_to do |f|
+            #     f.js {render 'members_invalid', msg: alert_msg(result)}
+            #     f.html {render 'new', alert: alert_msg(result)}
+            # end   
+            
+            flash[:alert] = "Failed to update user"
+            render js: "window.location ='#{user_path(@user)}'"                          
+        end
     end
 
     def destroy
         @user = User.find(params[:id])
         @user.destroy
-        flash[:notice] = "User successfully deleted"
+        toast("success", 'User successfully deleted')
         render :js => "window.location = '#{users_path}'"
     end
 
