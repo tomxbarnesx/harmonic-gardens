@@ -34,7 +34,7 @@ class ShiftsController < ApplicationController
         @total = Shift.multi_create(shift_params)
         @shifts = Shift.all
 
-        if $split.save
+        if $shift.save
             flash[:notice] = "Shift(s) logged successfully."
             render js: "window.location='#{shifts_path}'"
         else
@@ -60,7 +60,7 @@ class ShiftsController < ApplicationController
         authorize @shift
 
         if @shift.destroy
-            flash[:notice] = "This shift was successfully deleted."
+            flash[:notice] = "Shift successfully deleted."
             redirect_to '/shifts'
           else
             flash.now[:alert] = "There was an error deleting the shift."
