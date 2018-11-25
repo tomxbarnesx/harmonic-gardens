@@ -34,13 +34,13 @@ class ShiftsController < ApplicationController
         @total = Shift.multi_create(shift_params)
         @shifts = Shift.all
 
-        # if @shift.save
-        #     flash[:notice] = "Hours logged successfully."
-        #     redirect_to "/shifts"
-        # else
-        #     flash[:error] = "We encountered an error logging your hours"
-        #     redirect_to "/shifts"
-        # end
+        if $split.save
+            flash[:notice] = "Shift(s) logged successfully."
+            render js: "window.location='#{shifts_path}'"
+        else
+            flash[:error] = "Error logging your hours"
+            render js: "window.location ='#{shifts_path}'"
+        end
     end
 
     def update

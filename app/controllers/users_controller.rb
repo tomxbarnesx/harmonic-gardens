@@ -19,6 +19,8 @@ class UsersController < ApplicationController
     def create
         @user = User.create(user_params)
 
+
+        # Non-Dynamic Creation and Flash
         if @user.save
             flash[:notice] = "User added."
             redirect_to "/users"
