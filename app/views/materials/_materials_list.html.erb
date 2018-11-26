@@ -1,10 +1,23 @@
-<% @materials.each do |m| %>
-    <tr id="material-<%= m.id %>">
-        <td><%= m.name %></td>
-        <td><%= number_to_currency(m.cost) %></td>
-        <td><%= link_to 'Edit', edit_material_path(m), remote:true, class: "btn btn-sm btn-dark" %></td>
-        <td><%= link_to 'X', material_path(m),
-              method: :delete, remote:true,
-              data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger" %></td>
-    </tr>
-<% end %>
+ <table id="datatable" data-turbolinks="false" class="display">
+        <thead>
+            <tr class="table-header">
+                <th>Type</th>
+                <th>Cost/Unit</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="materials-tbody">
+            <% materials.each do |m| %>
+                <tr id="material-<%= m.id %>">
+                    <td><%= m.name %></td>
+                    <td><%= number_to_currency(m.cost) %></td>
+                    <td><%= link_to 'Edit', edit_material_path(m), remote:true, class: "btn btn-sm btn-dark" %></td>
+                    <td><%= link_to 'X', material_path(m),
+                        method: :delete, remote:true,
+                        data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger" %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

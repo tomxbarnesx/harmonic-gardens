@@ -2,8 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#active-material-attach {
-    width: 96%;
-    padding: 3%;
+.active-mat {
+    width: 90%;
+    padding: 5%;
     border-radius: .25rem;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    background-color: #ffffff;
 }

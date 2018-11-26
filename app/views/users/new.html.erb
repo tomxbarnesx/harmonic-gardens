@@ -1,40 +1,42 @@
 <div id="new-user-client-card" class="mx-auto mt-3">
     <h2>New User</h2>
     <%= form_for @user, local: true do |form| %>
-        <div class="row form-group">
-            <div class="col">
-                <label>First Name: </label>
-                <%= form.text_field :first_name, placeholder: "First Name", class: 'form-control form-control-sm' %>
-            </div>
-            <div class="col">
-                <label>Last Name: </label>
-                <%= form.text_field :last_name, placeholder: "First Name", class: 'form-control form-control-sm' %>
-            </div>
-        </div>
-        <div class="row form-group">
-            <div class="col">
-                <label>Email: </label>
-                <%= form.email_field :email, placeholder: "Email", class: 'form-control form-control-sm' %>
-            </div>
-            <div class="col">
-                <label>Username: </label>
-                <%= form.text_field :username, placeholder: "Username", class: 'form-control form-control-sm' %>
-            </div>
-        </div>
-        <div class="row form-group">
-            <div class="col">
-                <label>Access Level: </label>
-                <%= form.select(:user_access, ['Worker', 'Foreman', 'Admin'], {}, {class: "form-control form-control-sm"}) %>
-            </div>
-            <div class="col">
-                <label>Temp Password: </label>
-                <%= form.text_field :password, placeholder: "Password", class: 'form-control form-control-sm' %>
-            </div>
-        </div>
-        <div class="form-group">
+
+        <%= form_group_for form, :first_name, label: false  do %>
+            <label>First Name: </label>
+            <%= form.text_field :first_name, placeholder: "First Name", class: 'form-control form-control-sm', required: true %>
+        <% end %>
+
+        <%= form_group_for form, :last_name, label: false do %>
+            <label>Last Name: </label>
+            <%= form.text_field :last_name, placeholder: "Last Name", class: 'form-control form-control-sm' %>
+        <% end %>
+
+        <%= form_group_for form, :email, label: false  do %>
+            <label>Email: </label>
+            <%= form.email_field :email, placeholder: "Email", class: 'form-control form-control-sm' %>
+        <% end %>
+
+        <%= form_group_for form, :username, label: false  do %>
+            <label>Username: </label>
+            <%= form.text_field :username, placeholder: "Username", class: 'form-control form-control-sm' %>
+        <% end %>
+
+        <%= form_group_for form, :password, label: false do %>
+            <label>Temp Password: </label>
+            <%= form.text_field :password, placeholder: "Password", class: 'form-control form-control-sm' %>
+        <% end %>
+
+        <%= form_group_for form, :user_access, label: false  do %>
+            <label>Access Level: </label>
+            <%= form.select(:user_access, ['Worker', 'Foreman', 'Admin'], {}, {class: "form-control form-control-sm"}) %>
+        <% end %>
+
+        <%= form_group_for form, :hourly_rate, label: false do %>
             <label>Hourly Rate</label>
             <%= form.number_field :hourly_rate, placeholder: 0, class: "form-control form-control-sm" %>
-        </div>
+        <% end %>
+
         <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-dark" %>
     <% end %>
 </div>

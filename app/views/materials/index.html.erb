@@ -5,17 +5,7 @@
         <h2>Materials</h2>
         <%= link_to 'Add New', new_material_path, remote: true, class: "btn btn-success" %>
     </div>
-    <table id="datatable" data-turbolinks="false" class="display">
-        <thead>
-            <tr class="table-header">
-                <th>Type</th>
-                <th>Cost/Unit</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody id="materials-tbody">
-            <%= render "materials_list" %>
-        </tbody>
-    </table>
+
+<div id="mat-list-div">
+    <%= render partial: "materials_list", locals: {materials: @materials} %>
 </div>

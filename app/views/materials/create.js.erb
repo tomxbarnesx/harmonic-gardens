@@ -1,3 +1,4 @@
-$("#active-material-attach").remove();
-$("#material-add").show();
-$("#materials-tbody").append('<tr id="material-<%= @material.id %>"><td><%= @material.name %></td><td><%= number_to_currency(@material.cost) %></td> <td><%= link_to "Edit", edit_material_path(@material), remote:true %></td><td><%= link_to "Delete", material_path(@material), method: :delete, remote:true, data: { confirm: "Are you sure? This cannot be reversed." } %></td></tr>');
+$("#materials-add").empty();
+$('#flash').html('<%= j render partial: "layouts/flash_messages"%>');
+$("#mat-list-div").html('<%= j render partial: 'materials_list', locals: {materials: @materials} %>')
+datatableInit();
