@@ -7,7 +7,7 @@
         <th class="hide-table-col"></th>
     </thead>
     <tbody>
-        <% @client.invoices.each do |i| %>
+        <% client.invoices.each do |i| %>
             <tr id="invoice-<%= i.id %>">
                 <td class="hide-table-col"><%= i.id %></td>
                 <td><%= i.created_at.strftime("%m-%d-%Y") %></td>

@@ -1,0 +1,5 @@
+<% if client.house_pic.attached? %>
+<%= image_tag client.house_pic, options = {width: "100%"} %>
+<% else %>
+<%= image_tag "home_placeholder.jpg", options = {width: "100%", class: "house-pic-container"} %>
+<% end %>

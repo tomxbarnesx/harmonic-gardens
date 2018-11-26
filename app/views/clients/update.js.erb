@@ -1,3 +1,4 @@
 $(".id-card").html("<%= j (render 'client_card') %>");
+$(".house-pic-outer").html("<%= j (render partial: 'house_pic', locals: {client: @client}) %>");
 $('.invoice-block').show();
 $('#flash').html('<%= j render partial: "layouts/flash_messages"%>');

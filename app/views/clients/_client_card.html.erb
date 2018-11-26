@@ -1,4 +1,5 @@
 <h2><%= @client.full_name %></h2>
+<hr class="my-4">
 <p><strong>Email:</strong> <%= @client.email %></p>
 <p><strong>Address:</strong> <%= @client.address %></p>
 <p><strong>Home Phone:</strong> <%= number_to_phone(@client.home_phone, area_code: true) %></p>

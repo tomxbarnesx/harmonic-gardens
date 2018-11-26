@@ -34,8 +34,15 @@
             <label>House Photo:</label>
             <%= form.file_field :house_pic, class: "form-control form-control-sm" %>
         </div>
-        <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-sm btn-dark" %>
+        <%= form.submit "Submit", :id=>'hours-submit', onclick: "showLoad()", class: "btn btn-sm btn-dark" %>
     <% end %>
+</div>
+<div class="spinner" style="display: none">
+  <div class="rect1"></div>
+  <div class="rect2"></div>
+  <div class="rect3"></div>
+  <div class="rect4"></div>
+  <div class="rect5"></div>
 </div>
 
 <script>
@@ -43,4 +50,9 @@ $(document).on("click", ".close-x", function(){
     $(".id-card").html("<%= j (render 'client_card') %>");
     $('.invoice-block').show();
 });
+
+function showLoad() {
+    var spinner = document.getElementsByClassName('spinner')
+    spinner[0].style.display = "inline-block";
+}
 </script>

@@ -3,15 +3,11 @@
       <%= render "client_card" %>
    </div>
 
-   <div class="col-md-5">
-      <% if @client.house_pic.attached? %>
-      <%= image_tag @client.house_pic, options = {width: "100%"} %>
-      <% else %>
-      <%= image_tag "home_placeholder.jpg", options = {width: "100%", class: "house-pic-container"} %>
-      <% end %>
+   <div class="col-md-5 house-pic-outer">
+      <%= render partial: "house_pic", locals: {client: @client} %>
    </div>
 </div>
 
 <div class="mt-4 col-md-12 mx-md-auto invoice-block">
-   <%= render "invoices" %>
+   <%= render partial: "invoices", locals: {client: @client} %>
 </div>
