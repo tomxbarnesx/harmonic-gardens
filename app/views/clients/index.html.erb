@@ -1,20 +1,11 @@
-<div class="client-user-header">
-    <h2>Clients</h2>
-    <%= link_to 'Add New', new_client_path, class: "btn btn-sm btn-success" %>
+<div id="client-add">
 </div>
 
-<table id="datatable" data-turbolinks="false" class="display">
-    <thead>
-        <tr class="table-header">
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th class="center-col hide-table-col">Email</th>
-            <th class="center-col hide-table-col">Address</th>
-            <th></th>
-            <th class="hide-table-col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <%= render "client_list" %>
-    </tbody>
-</table>
+<div class="client-user-header">
+    <h2>Clients</h2>
+    <%= link_to 'Add New', new_client_path, remote: true, class: "btn btn-sm btn-success" %>
+</div>
+
+<div id="client-list-div">
+    <%= render partial: "client_list", locals: {clients: @clients} %>
+</div>

@@ -1,0 +1,25 @@
+<table id="datatable" data-turbolinks="false" class="display">
+    <thead>
+        <th class="hide-table-col">Invoice No.</th>
+        <th>Start Date</th>
+        <th>Current Total</th>
+        <th>Options</th>
+        <th class="hide-table-col"></th>
+    </thead>
+    <tbody>
+        <% @client.invoices.each do |i| %>
+            <tr id="invoice-<%= i.id %>">
+                <td class="hide-table-col"><%= i.id %></td>
+                <td><%= i.created_at.strftime("%m-%d-%Y") %></td>
+                <td>$ <%= i.current_total(i.id) %></td>
+                <td class="center-col"><%= link_to 'View', invoice_path(i), class: "btn btn-sm btn-dark" %></td>
+                <td class="hide-table-col"><%= link_to 'Delete', invoice_path(i),
+                    method: :delete, remote:true,
+                    data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger" %></td>
+            </tr>
+        <% end %>
+    <tbody>
+</table>
+<br>
+<h5>View Archived Invoices</h5>
+            

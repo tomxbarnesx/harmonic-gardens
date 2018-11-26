@@ -25,6 +25,7 @@ class MaterialsController < ApplicationController
                 format.js {}
             else
                 format.html { render 'new', error: "We encountered an error adding your material"}
+                flash.now[:error] = "Errors saving your material."
                 format.js { render 'new' }
             end
         end
@@ -41,7 +42,7 @@ class MaterialsController < ApplicationController
             else
                 flash.now[:error] = "We encountered an error editting your material"
                 format.html { render "new", error: "We encountered an error editting your material" }
-                format.js {}
+                format.js { render 'edit'}
             end
         end
     end
@@ -50,7 +51,7 @@ class MaterialsController < ApplicationController
         @material = Material.find(params[:id])
 
         if @material.destroy
-            flash.now[:notice] = "Material deleted successfully"
+            flash.now[:notice] = "Material successfully deleted"
         else
             flash.now[:error] = @material.errors.full_messages[0]
             render 'update'

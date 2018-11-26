@@ -1,5 +1,7 @@
 class ClientsController < ApplicationController
     before_action :authenticate_user!
+    before_action :all_clients, only: [:index, :create, :update, :destroy]
+
     def index
         @clients = Client.all
     end
@@ -18,29 +20,52 @@ class ClientsController < ApplicationController
 
     def create
         @client = Client.create(client_params)
-
-        if @client.save
-            flash[:notice] = "Client added."
-            redirect_to "/clients"
-        else
-            flash[:error] = "We encountered an error creating your new client."
-            render 'new'
+        
+        respond_to do |format|
+            if @client.save
+                format.html { redirect_to clients_path, notice: "Client added successfully" }
+                flash.now[:notice] = "Client added successfully."
+                format.js {}
+            else
+                format.html { render 'new', error: "We encountered an error adding your material"}
+                flash.now[:error] = "Errors saving your client."
+                format.js { render 'new' }
+            end
         end
     end
 
     def update
         @client = Client.find(params[:id])
-        @client.update(client_params)
+
+        respond_to do |format|
+            if @client.update(client_params)
+                flash.now[:notice] = "Client updated successfully."
+                format.html { redirect_to clients_path, notice: "Client updated successfully" }
+                format.js {}
+            else
+                flash.now[:error] = "Errors editting your client"
+                format.html { render "new", error: "Errors editting your client" }
+                format.js { render 'edit' }
+            end
+        end
     end
 
     def destroy
         @client = Client.find(params[:id])
-        @client.destroy
-        flash[:notice] = "Client successfully deleted"
-        render :js => "window.location = '#{clients_path}'"
+
+        if @client.destroy
+            flash.now[:notice] = "Client successfully deleted"
+        else
+            flash.now[:error] = @client.errors.full_messages[0]
+            render 'update'
+        end
     end
 
 private
+
+    def all_clients
+        @clients = Client.all
+    end
     
     def client_params
         params.require(:client).permit(:first_name, :last_name, :address, :email, :active, :home_phone, :cell_phone, :house_pic);

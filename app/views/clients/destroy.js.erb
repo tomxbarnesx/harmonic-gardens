@@ -1,1 +1,2 @@
-$('#client-<%= @client.id %>').fadeOut(300);
+$('#client-<%= @client.id %>').fadeOut(150);
+$('#flash').html('<%= j render partial: "layouts/flash_messages" %>');

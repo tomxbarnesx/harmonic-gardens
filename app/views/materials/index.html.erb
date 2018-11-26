@@ -1,10 +1,10 @@
 <div id="materials-add">
 </div>
-<div id="materials-container">
-    <div class="client-user-header">
-        <h2>Materials</h2>
-        <%= link_to 'Add New', new_material_path, remote: true, class: "btn btn-success" %>
-    </div>
+
+<div class="client-user-header">
+    <h2>Materials</h2>
+    <%= link_to 'Add New', new_material_path, remote: true, class: "btn btn-success" %>
+</div>
 
 <div id="mat-list-div">
     <%= render partial: "materials_list", locals: {materials: @materials} %>

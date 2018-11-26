@@ -1,3 +1,17 @@
-<div id="client-card">
-   <%= render "client_card" %>
+<div class="row no-gutters mt-md-4 justify-content-around">  
+   <div class="col-md-5 id-card p-4 p-md-5">
+      <%= render "client_card" %>
+   </div>
+
+   <div class="col-md-5">
+      <% if @client.house_pic.attached? %>
+      <%= image_tag @client.house_pic, options = {width: "100%"} %>
+      <% else %>
+      <%= image_tag "home_placeholder.jpg", options = {width: "100%", class: "house-pic-container"} %>
+      <% end %>
+   </div>
+</div>
+
+<div class="mt-4 col-md-12 mx-md-auto invoice-block">
+   <%= render "invoices" %>
 </div>

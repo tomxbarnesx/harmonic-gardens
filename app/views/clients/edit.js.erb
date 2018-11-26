@@ -1,1 +1,3 @@
-$("#client-card").replaceWith("<%= j (render 'edit') %>");
+$('.invoice-block').hide();
+$(".id-card").html("<%= j (render 'edit') %>");
+$('#flash').html('<%= j render partial: "layouts/flash_messages"%>');
