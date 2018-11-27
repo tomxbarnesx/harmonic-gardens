@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!
+    before_action :all_users, only: [:index, :create, :update, :destroy]
+
     def index
-        @users = User.all
     end
 
     def show
@@ -19,37 +20,44 @@ class UsersController < ApplicationController
     def create
         @user = User.create(user_params)
 
-        # Non-Dynamic Creation and Flash
-        if @user.save
-            flash[:notice] = "User added."
-            redirect_to "/users"
-        else
-            flash[:error] = "Errors creating your new user."
-            render 'new'
+        respond_to do |format|
+            if @user.save
+                format.html { redirect_to users_path, notice: "User added successfully" }
+                flash.now[:notice] = "User added successfully."
+                format.js {}
+            else
+                format.html { render 'new', error: "Errors adding your user"}
+                flash.now[:error] = "Errors saving your user."
+                format.js { render 'new' }
+            end
         end
     end
 
     def update
         @user = User.find(params[:id])
-        if @user.update(user_params)
-            flash[:notice] = "User updated successfully."
-            render js: "window.location='#{user_path(@user)}'"
-        else
-            # respond_to do |f|
-            #     f.js {render 'members_invalid', msg: alert_msg(result)}
-            #     f.html {render 'new', alert: alert_msg(result)}
-            # end   
-            
-            flash[:alert] = "Failed to update user"
-            render js: "window.location ='#{user_path(@user)}'"                          
+
+        respond_to do |format|
+            if @user.update(user_params)
+                flash.now[:notice] = "User updated successfully."
+                format.html { redirect_to users_path, notice: "User updated successfully" }
+                format.js {}
+            else
+                flash.now[:error] = "Errors editting your user"
+                format.html { render "new", error: "Errors editting your user" }
+                format.js { render 'edit' }
+            end
         end
     end
 
     def destroy
         @user = User.find(params[:id])
-        @user.destroy
-        toast("success", 'User successfully deleted')
-        render :js => "window.location = '#{users_path}'"
+        
+        if @user.destroy
+            flash.now[:notice] = "User successfully deleted"
+        else
+            flash.now[:error] = @user.errors.full_messages[0]
+            render 'update'
+        end
     end
 
     def edit_access
@@ -59,6 +67,10 @@ class UsersController < ApplicationController
     end
 
 private
+    def all_users
+        @users = User.all
+    end
+
     def user_params
         params.require(:user).permit(:first_name, :last_name, :username, :hourly_rate, :user_access, :email, :password);
     end

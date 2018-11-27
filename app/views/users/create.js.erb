@@ -1,0 +1,6 @@
+$("#user-add").empty();
+$('#flash').html('<%= j render partial: "layouts/flash_messages"%>');
+$("#user-list-div").html('<%= j render partial: 'user_list', locals: {users: @users} %>')
+datatableInit();
+$('.client-user-header').show()
+$('#user-list-div').show()

@@ -3,7 +3,6 @@ class ClientsController < ApplicationController
     before_action :all_clients, only: [:index, :create, :update, :destroy]
 
     def index
-        @clients = Client.all
     end
 
     def show
@@ -27,7 +26,7 @@ class ClientsController < ApplicationController
                 flash.now[:notice] = "Client added successfully."
                 format.js {}
             else
-                format.html { render 'new', error: "We encountered an error adding your material"}
+                format.html { render 'new', error: "Errors saving your client"}
                 flash.now[:error] = "Errors saving your client."
                 format.js { render 'new' }
             end

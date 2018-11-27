@@ -1,6 +1,7 @@
 <div id="new-user-client-card" class="mx-auto mt-3">
+    <div class="close-container"><a class="close-x">&times;</a></div>
     <h2>New User</h2>
-    <%= form_for @user, local: true do |form| %>
+    <%= form_for @user, remote: true do |form| %>
 
         <%= form_group_for form, :first_name, label: false  do %>
             <label>First Name: </label>
@@ -40,3 +41,11 @@
         <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-dark" %>
     <% end %>
 </div>
+
+<script>
+$(document).on("click", ".close-x", function(){
+    $('.client-user-header').show()
+    $('#user-list-div').show()
+    $("#user-add").empty()
+});
+</script>

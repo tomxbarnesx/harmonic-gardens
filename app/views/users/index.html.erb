@@ -1,21 +1,11 @@
-<div class="client-user-header">
-    <h2>Users</h2>
-    <%= link_to 'Add New', new_user_path, class: "btn btn-success" %>
+<div id="user-add">
 </div>
 
-<table id="datatable" data-turbolinks="false" class="display">
-    <thead>
-        <tr class="table-header">
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th class="hide-table-col">Email</th>
-            <th class="hide-table-col">Username</th>
-            <th class="hide-table-col">Access</th>
-            <th></th>
-            <th class="hide-table-col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <%= render "user_list" %>
-    </tbody>
-</table>
+<div class="client-user-header">
+    <h2>Users</h2>
+    <%= link_to 'Add New', new_user_path, remote:true, class: "btn btn-success" %>
+</div>
+
+<div id="user-list-div">
+    <%= render partial: "user_list", locals: {users: @users} %>
+</div>

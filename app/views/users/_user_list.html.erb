@@ -1,13 +1,28 @@
-<% @users.each do |u| %>
-    <tr id="user-<%= u.id %>">
-        <td><%= u.first_name %></td>
-        <td><%= u.last_name %></td>
-        <td class="hide-table-col"><%= u.email %></td>
-        <td class="hide-table-col"><%= u.username %></td>
-        <td class="hide-table-col"><%= u.user_access %></td>
-        <td><%= link_to 'View', user_path(u), class: "btn btn-sm btn-dark" %></td>
-        <td class="hide-table-col"><%= link_to 'X', user_path(u),
-              method: :delete, remote:true,
-              data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger" %></td>
-    </tr>
+<table id="datatable" data-turbolinks="false" class="display">
+    <thead>
+        <tr class="table-header">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th class="hide-table-col">Email</th>
+            <th class="hide-table-col">Username</th>
+            <th class="hide-table-col">Access</th>
+            <th></th>
+            <th class="hide-table-col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% users.each do |u| %>
+            <tr id="user-<%= u.id %>">
+                <td><%= u.first_name %></td>
+                <td><%= u.last_name %></td>
+                <td class="hide-table-col"><%= u.email %></td>
+                <td class="hide-table-col"><%= u.username %></td>
+                <td class="hide-table-col"><%= u.user_access %></td>
+                <td><%= link_to 'View', user_path(u), class: "btn btn-sm btn-dark" %></td>
+                <td class="hide-table-col"><%= link_to 'X', user_path(u),
+                    method: :delete, remote:true,
+                    data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger" %></td>
+            </tr>
 <% end %>
+    </tbody>
+</table>
