@@ -17,4 +17,13 @@ class Invoice < ApplicationRecord
         end
         return total
     end   
+
+    def labor_total(id)
+        l_total = 0
+        invoice_ids = InvoiceDate.where(invoice_id: id)
+        invoice_ids.each do |i|
+            l_total += i.shift_sub_2(i.id)
+        end
+        return l_total
+    end
 end

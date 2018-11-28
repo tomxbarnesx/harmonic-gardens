@@ -1,5 +1,5 @@
 <div id="active-shift-add">
-    <div class="close-container"><a class="close">&times;</a></div>
+    <div class="close-container"><a class="close-x">&times;</a></div>
     <h4>Add Hours</h4>
     <%= form_for @shift, remote: true do |form| %>
         <div class="form-group">
@@ -29,7 +29,7 @@
 </div>
 
 <script>
-$(document).on("click", ".close", function(){
+$(document).on("click", ".close-x", function(){
     $("#active-shift-add").remove();
     $("#add-form").css("display", "none")
     $("#calendar-container").show();

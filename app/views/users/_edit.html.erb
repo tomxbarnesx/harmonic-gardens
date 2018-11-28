@@ -1,4 +1,4 @@
-<div class="close-container"><a class="close">&times;</a></div>
+<div class="close-container"><a class="close-x">&times;</a></div>
 <%= form_for @user, remote: true do |form| %>
     <h2>Edit</h2>
     <div class="form-group">
@@ -29,9 +29,9 @@
 <% end %>
 
 <script>
-$(document).on("click", ".close", function(){
-    $("#user-card").empty();
-    $("#user-card").append('<%= j render partial: "user_card", locals: {user: @user} %>' );
+$(document).on("click", ".close-x", function(){
+    $(".id-card").html('<%= j (render "user_card") %>' );
     $("#user-shift-table").show();
+    $('.budget-block').show();
 });
 </script>

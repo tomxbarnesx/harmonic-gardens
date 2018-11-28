@@ -8,3 +8,8 @@
 //       alert.style.display = "none";
 //     };
 //   })
+
+function showLoad() {
+    var spinner = document.getElementsByClassName('spinner')
+    spinner[0].style.display = "inline-block";
+}

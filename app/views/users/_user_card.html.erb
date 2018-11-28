@@ -1,4 +1,5 @@
 <h2 class="mb-3"><%= @user.full_name %></h2>
+<hr class="my-4">
 <p><strong>Username:</strong> <%= @user.username %></p>
 <p><strong>Email:</strong> <%= @user.email %></p>
 <p><strong>Hourly Rate:</strong> $<%= @user.hourly_rate %>/hour</p>
@@ -14,6 +15,6 @@
 <% if policy(@user).destroy? %>
 
 <%= link_to 'Delete', user_path(@user),
-            method: :delete, remote: true,
+            method: :delete,
             data: { confirm: 'Are you sure? This cannot be reversed.' }, class: 'btn btn-sm btn-danger' %>
 <% end %>

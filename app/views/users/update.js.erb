@@ -1,3 +1,4 @@
-$("#user-card").empty();
-$("#user-card").append('<%= j render partial: "user_card", locals: {user: @user} %>' );
+$(".id-card").html("<%= j (render 'user_card') %>" );
+$('#flash').html('<%= j render partial: "layouts/flash_messages" %>');
 $("#user-shift-table").show();
+$(".budget-block").show()

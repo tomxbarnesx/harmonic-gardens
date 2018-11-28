@@ -1,21 +1,11 @@
-<div class="row">
+<div class="row no-gutters">
   <div id="calendar-container" class="col-md-6">
     <%= render "shift_cal", shifts: @shifts %>
   </div>
 
-  <div id="add-form" class="col-md-5" style="display:none;">
+  <div id="add-form" class="col-md-5 col-12" style="display:none;">
   </div>
 
-  <div id="day-log-container" class="col-md-5" style="display:none;">
+  <div id="day-log-container" class="col-md-5 col-12" style="display:none;">
   </div>
 </div>
-
-<script>
-    $('.shift-check').click(function(e) {
-        $('.shift-check').removeClass('date-circle');
-        $(this).addClass('date-circle');
-        var target = $(e.target);
-        var targetDate = target.attr("href").slice(-10);
-        sessionStorage.setItem("date", targetDate);
-    });
-</script>

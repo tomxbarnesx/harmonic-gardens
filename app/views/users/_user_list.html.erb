@@ -20,9 +20,9 @@
                 <td class="hide-table-col"><%= u.user_access %></td>
                 <td><%= link_to 'View', user_path(u), class: "btn btn-sm btn-dark" %></td>
                 <td class="hide-table-col"><%= link_to 'X', user_path(u),
-                    method: :delete, remote:true,
+                    method: :delete,
                     data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger" %></td>
             </tr>
-<% end %>
+        <% end %>
     </tbody>
 </table>

@@ -1,4 +1,4 @@
-$("#add-form").empty();
-$("#calendar-container").empty();
-$("#calendar-container").append("<%= j (render "shift_cal", shifts: @shifts) %>")
+$("#add-form").empty().hide();
+$("#calendar-container").html("<%= j (render "shift_cal", shifts: @shifts) %>")
 $("#calendar-container").show();
+$('#flash').html('<%= j render partial: "layouts/flash_messages" %>');

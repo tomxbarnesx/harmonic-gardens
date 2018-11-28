@@ -1,6 +1,5 @@
 $("#day-log-container").hide();
-$("#add-form").empty();
-$("#add-form").append("<%= j (render 'card') %>").css("display", "block");
+$("#add-form").html("<%= j (render 'card') %>").show();
 
 var close = document.getElementById("close-tab");
 

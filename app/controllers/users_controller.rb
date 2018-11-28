@@ -39,11 +39,11 @@ class UsersController < ApplicationController
         respond_to do |format|
             if @user.update(user_params)
                 flash.now[:notice] = "User updated successfully."
-                format.html { redirect_to users_path, notice: "User updated successfully" }
+                format.html { redirect_to user_path(@user), notice: "User updated successfully" }
                 format.js {}
             else
                 flash.now[:error] = "Errors editting your user"
-                format.html { render "new", error: "Errors editting your user" }
+                format.html { render "edit", error: "Errors editting your user" }
                 format.js { render 'edit' }
             end
         end
@@ -53,7 +53,8 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         
         if @user.destroy
-            flash.now[:notice] = "User successfully deleted"
+            flash[:notice] = "User successfully deleted"
+            redirect_to users_path
         else
             flash.now[:error] = @user.errors.full_messages[0]
             render 'update'
