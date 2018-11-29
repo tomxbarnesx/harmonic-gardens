@@ -23,7 +23,7 @@
 
 <script>
 $(document).on("click", ".close-x", function(){
-    $("#active-material-attach").remove();
+    $("#invoice-material-form-<%=@invoice_date.id%>").empty();
     $("#invoice-material-listings-<%= @invoice_date.id %>").show();
     $(".material-add-btn").show();
 });

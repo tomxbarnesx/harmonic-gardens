@@ -129,7 +129,7 @@ class InvoicePdf < Prawn::Document
                         pad_top(5){ text "$" + to_currency(mat_date.material.cost)}
                     end
                     bounding_box([490, bounds.top], width: 60, height: 30) do
-                        pad_top(5){ text "$" + to_currency(mat_date.instant_total)}
+                        pad_top(5){ text "$" + to_currency(mat_date.cost)}
                     end
                 end
             end

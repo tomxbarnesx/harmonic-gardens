@@ -13,7 +13,13 @@ class MaterialDatesController < ApplicationController
     def create
         @material_date = MaterialDate.price_set_create(material_date_params)
         @invoice_date = InvoiceDate.find(params[:invoice_date_id])
-        
+
+        if @material_date.save
+            flash.now[:notice] = "Material added successfully"
+        else
+            flash.now[:error] = "Error adding your material"
+            render 'new'
+        end
         #double check the validity of this as a solution:
         # @invoice_date.update(subtotal: @invoice_date.daily_total(@invoice_date.id))
     end
@@ -23,7 +29,7 @@ class MaterialDatesController < ApplicationController
         @invoice_date = @material_date.invoice_date
         # @invoice_date.update(subtotal: @invoice_date.daily_total(@invoice_date.id))
         @material_date.destroy
-        flash[:notice] = "Materials successfully deleted"
+        flash.now[:notice] = "Materials successfully deleted"
     end
 
 private

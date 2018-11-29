@@ -11,7 +11,7 @@ class InvoiceDate < ApplicationRecord
         shift_total = 0
         shift_dates = ShiftDate.where(invoice_date_id: id)
         shift_dates.each do |shift|
-            shift_total += shift.hour_calc
+            shift_total += shift.earned
             # shift_total += shift.earned
         end
         return shift_total
@@ -21,7 +21,7 @@ class InvoiceDate < ApplicationRecord
         mat_total = 0
         material_dates = MaterialDate.where(invoice_date_id: id)
         material_dates.each do |mat|
-            mat_total += mat.instant_total
+            mat_total += mat.cost
         end
         return mat_total
     end

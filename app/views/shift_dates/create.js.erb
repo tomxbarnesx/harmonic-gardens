@@ -4,3 +4,4 @@ $("#tbody-shift-<%= @shift_date.invoice_date.id%>-total").empty().append("<%= j 
 $("#tbody-daily-total-<%= @shift_date.invoice_date.id%>").empty().append("<%= j (render "invoice_dates/daily_total", invoice_date: @invoice_date) %>");
 $("#invoice-shift-listings-<%= @shift_date.invoice_date.id %>").show();
 $(".shift-add-btn").show();
+$('#flash').html('<%= j render partial: "layouts/flash_messages" %>');

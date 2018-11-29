@@ -4,4 +4,4 @@ $("#tbody-material-<%= @material_date.invoice_date.id%>-total").empty().append("
 $("#tbody-daily-total-<%= @material_date.invoice_date.id%>").empty().append("<%= j (render "invoice_dates/daily_total", invoice_date: @invoice_date) %>");
 $("#invoice-material-listings-<%= @material_date.invoice_date.id %>").show();
 $(".material-add-btn").show();
-
+$('#flash').html('<%= j render partial: "layouts/flash_messages" %>');

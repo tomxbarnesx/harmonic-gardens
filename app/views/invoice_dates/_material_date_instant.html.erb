@@ -1,7 +1,7 @@
 <tr id="material-date-<%= mat_date.id %>">
     <td><%= mat_date.material.name %></td>
-    <td><%= number_to_currency(mat_date.material.cost) %> x <%= mat_date.quantity %></td>
-    <td><%= number_to_currency(mat_date.instant_total) %></td>
+    <td><%= number_to_currency(mat_date.true_cost) %> x <%= mat_date.quantity %></td>
+    <td><%= number_to_currency(mat_date.cost) %></td>
     <td><%= link_to 'X', material_date_path(mat_date),
         method: :delete, remote:true,
         data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>

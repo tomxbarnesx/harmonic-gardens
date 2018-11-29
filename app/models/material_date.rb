@@ -2,12 +2,12 @@ class MaterialDate < ApplicationRecord
     belongs_to :invoice_date
     belongs_to :material
 
-    def instant_total
-        return self.material.cost * self.quantity
-    end
-
     def self.price_set_create(mdp)
         self.price_set(mdp)
+    end
+
+    def true_cost
+        return (self.cost).to_f / (self.quantity).to_i
     end
     
     private
