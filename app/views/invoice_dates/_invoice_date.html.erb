@@ -19,8 +19,8 @@
             <% invoice_date.shift_dates.each do |shift_date| %>
                     <tr id="shift-date-<%= shift_date.id %>">
                         <td><%= shift_date.shift.user.full_name %></td>
-                        <td><%= shift_date.shift.time_elapsed %> @ $<%= shift_date.user.hourly_rate %>/h</td>
-                        <td><%= number_to_currency(shift_date.hour_calc) %></td>
+                        <td><%= shift_date.shift.time_elapsed %></td>
+                        <td><%= number_to_currency(shift_date.earned) %></td>
                         <td><%= link_to 'X', shift_date_path(shift_date),
                             method: :delete, remote:true,
                             data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>

@@ -11,7 +11,7 @@ class MaterialDatesController < ApplicationController
     end
 
     def create
-        @material_date = MaterialDate.create(material_date_params)
+        @material_date = MaterialDate.price_set_create(material_date_params)
         @invoice_date = InvoiceDate.find(params[:invoice_date_id])
         
         #double check the validity of this as a solution:
@@ -29,7 +29,7 @@ class MaterialDatesController < ApplicationController
 private
 
     def material_date_params
-        params.require(:material_date).permit(:material_id, :invoice_date_id, :quantity, :cost);
+        params.require(:material_date).permit(:material_id, :invoice_date_id, :quantity, :override, :cost);
     end
 
 end

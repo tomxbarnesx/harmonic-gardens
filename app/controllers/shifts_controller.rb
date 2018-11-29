@@ -44,7 +44,7 @@ class ShiftsController < ApplicationController
             else
                 format.html { render 'new', error: "Error logging your hours."}
                 flash.now[:error] = "Error logging your hours"
-                format.js {}
+                format.js {render 'new'}
             end
         end
     end
@@ -79,7 +79,7 @@ class ShiftsController < ApplicationController
 private
     
     def shift_params
-        params.require(:shift).permit(:start_time, :end_time, :date, :client_id, :user_id, user_id: []);
+        params.require(:shift).permit(:start_time, :end_time, :earned, :client_id, :user_id, user_id: []);
     end
 
 end

@@ -1,25 +1,44 @@
 <div id="active-material-attach">
-    <div class="close-container"><a class="close">&times;</a></div>
+    <div class="close-container"><a class="close-x">&times;</a></div>
     <%= form_for [@invoice_date, @material_date], remote: true do |form| %>
-        <div class="form-row">
-            <div class="col-md-4">
-                <label>Item: </label>
-                <%= collection_select(:material_date, :material_id, Material.order(name: :asc), :id, :name, {}, {:class=>'form-control form-control-sm'})  %>
-            </div>
-            <div><%= form.hidden_field :invoice_date_id, :value => @invoice_date.id %></div>
-            <div class="col-md-4 mt-1">
-                <label>Quantity: </label>
-                <%= form.number_field :quantity, placeholder: "Quantity", class: "form-control form-control-sm"  %>
-            </div>
-        </div>
+        <%= form_group_for form, :material_date, label: false do %>
+            <label>Item: </label>
+            <%= collection_select(:material_date, :material_id, Material.order(name: :asc), :id, :name, {}, {:class=>'form-control form-control-sm'})  %>
+        <% end %>
+        <%= form_group_for form, :quantity, label: false do %>
+            <label>Quantity: </label>
+            <%= form.number_field :quantity, placeholder: "Quantity", class: "form-control form-control-sm"  %>
+        <% end %>
+        <%= form_group_for form, :override, label: false do %>
+            <label>Override?</label>
+            <%= form.check_box :override, id: "override-check", onclick: "checkFunction()", value: "true" %>
+        <% end %>
+        <%= form_group_for form, :cost, label: false do %>
+            <%= form.number_field :cost, placeholder: "Item Cost", class: "form-control form-control-sm", id: "cost-field", style: "display: none;" %>
+        <% end %>
+        <div><%= form.hidden_field :invoice_date_id, :value => @invoice_date.id %></div>
         <%= form.submit "Submit", :id=>'material-date-submit', class: "btn btn-sm btn-dark mt-2" %>
     <% end %>
 </div>
 
 <script>
-$(document).on("click", ".close", function(){
+$(document).on("click", ".close-x", function(){
     $("#active-material-attach").remove();
     $("#invoice-material-listings-<%= @invoice_date.id %>").show();
     $(".material-add-btn").show();
 });
+
+function checkFunction() {
+    var checkBox = document.getElementById("override-check");
+    var costField = document.getElementById("cost-field");
+
+    if (checkBox.checked == true){
+        costField.style.display = "block";
+        console.log("I'm listening")
+    } else {
+        costField.style.display = "none";
+    }
+}
+
+
 </script>
