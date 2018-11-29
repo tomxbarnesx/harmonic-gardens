@@ -6,8 +6,7 @@
 
 <% if policy(@user).update? %>
 
-<%# if has_role?("Admin") || has_role?("Foreman") && @user.user_access == "Worker"%>
-<p><strong>Access:</strong> <%= @user.user_access %></p>
+<p><strong>Access:</strong> <%= @user.role %></p>
 <%= link_to 'Edit', edit_user_path(@user), remote:true, class: 'btn btn-sm btn-success' %>
 
 <% end %>

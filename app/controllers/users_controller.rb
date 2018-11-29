@@ -73,6 +73,6 @@ private
     end
 
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :username, :hourly_rate, :user_access, :email, :password);
+        params.require(:user).permit(:first_name, :last_name, :username, :role, :hourly_rate, :email, :password);
     end
 end

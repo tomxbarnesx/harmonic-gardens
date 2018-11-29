@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates_presence_of :last_name, message: "Enter a last name."
   validates_presence_of :username, message: "Enter a username."
 
-  enum role: [:worker, :foreman, :admin]
+  enum role: [:Worker, :Foreman, :Admin]
 
   after_initialize do
     if self.new_record?

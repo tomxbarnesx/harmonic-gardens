@@ -6,16 +6,15 @@
             <label>Client: </label>
             <%= collection_select(:shift, :client_id, Client.order('last_name ASC'), :id, :full_name, {}, {:class=>'form-control'}) %>
         </div>
-        <% if has_role?("Admin") || has_role?("Foreman") %>
+        <%# if ("Admin") || has_role?("Foreman") %>
         <div class="form-group">
             <label>Employees: </label>
             <%= select_tag "shift[user_id]", options_from_collection_for_select(@users, "id", "full_name"), multiple: true, class: "form-control" %>
             <%# collection_select(:shift, :user_id, User.order('last_name ASC'), :id, :full_name, {}, {:class=>'form-control'}) %>
         </div>
-        <% else %>
-            <div><%= form.hidden_field :user_id, value: current_user.id %></div>
-        <% end %>
-        <div><%= form.hidden_field :date, placeholder: "Date", :id => 'shift_date' %></div>
+        <%# else %>
+            <div><%# form.hidden_field :user_id, value: current_user.id %></div>
+        <%# end %>
         <div class="form-group">
             <label>Start Time: </label>
             <%= form.datetime_field :start_time, placeholder: "Start Time", :id => 'start_time', class: "form-control" %>

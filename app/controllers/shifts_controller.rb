@@ -1,7 +1,7 @@
 class ShiftsController < ApplicationController
     before_action :authenticate_user!
     def index
-        if current_user.role == "admin" || current_user.role == "foreman"
+        if current_user.role == "Admin" || current_user.role == "Foreman"
             @shifts = Shift.all
         else
             @shifts = Shift.where(user_id: current_user.id)
@@ -14,10 +14,12 @@ class ShiftsController < ApplicationController
     end
 
     def day_log
-        if current_user.role == "admin" || current_user.role == "foreman"
-            @shifts = Shift.where(date: params[:date])
+        date = Date.parse(params[:date])
+
+        if current_user.role == "Admin" || current_user.role == "Foreman"
+            @shifts = Shift.where(start_time: date.all_day)
         else
-            @shifts = Shift.where(date: params[:date]).where(user_id: current_user.id)
+            @shifts = Shift.where(start_time: date.all_day).where(user_id: current_user.id)
         end
     end
 

@@ -28,9 +28,9 @@
             <%= form.text_field :password, placeholder: "Password", class: 'form-control form-control-sm' %>
         <% end %>
 
-        <%= form_group_for form, :user_access, label: false  do %>
+        <%= form_group_for form, :role, label: false  do %>
             <label>Access Level: </label>
-            <%= form.select(:user_access, ['Worker', 'Foreman', 'Admin'], {}, {class: "form-control form-control-sm"}) %>
+            <%= form.select(:role, ['Worker', 'Foreman', 'Admin'], {}, {class: "form-control form-control-sm"}) %>
         <% end %>
 
         <%= form_group_for form, :hourly_rate, label: false do %>

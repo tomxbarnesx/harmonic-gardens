@@ -8,10 +8,8 @@ $("#add-form").append("<%= j (render 'form') %>");
 <%# Set its values. These need to stay here %>
 var startTime = document.getElementById('start_time');
 var endTime = document.getElementById('end_time');
-var dateField = document.getElementById('shift_date');
 date = sessionStorage.getItem("date");
 
 startTime.value = `${date}T00:00`;
-endTime.value = `${date}T00:00`;
-dateField.value = date;
+endTime.value = `${date}T12:00`;
 form.style.display = "block";

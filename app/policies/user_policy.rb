@@ -1,15 +1,15 @@
 class UserPolicy < ApplicationPolicy
 
     def show?
-        user.role == 'admin' || user.role == 'foreman' || record.user == user
+        user.role == 'Admin' || user.role == 'Foreman' || record.user == user
     end
 
     def update?
-        user.role == 'admin' || (user.role == 'foreman' && record.role == 'worker') || record.id == user.id
+        user.role == 'Admin' || (user.role == 'Foreman' && record.role == 'Worker') || record.id == user.id
     end
 
     def destroy?
-        (user.role == 'admin' && record.role != 'admin') || (user.role == 'foreman' && record.role == 'worker') 
+        (user.role == 'Admin' && record.role != 'Admin') || (user.role == 'Foreman' && record.role == 'Worker') 
     end
 
 end
