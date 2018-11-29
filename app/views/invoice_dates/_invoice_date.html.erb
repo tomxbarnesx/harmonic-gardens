@@ -1,7 +1,11 @@
 <div class="invoice-date-card" id="invoice-card-<%= invoice_date.id %>">
     <div class="close hide-button"><i class="fas fa-chevron-circle-up"></i></div>
-    <h4 class="header-date"><%= invoice_date.date.strftime("%m-%d-%Y") %></h4>
+   
+   <h4 class="header-date"><%= invoice_date.date.strftime("%m-%d-%Y") %></h4>
     <p class="pl-2"><%= invoice_date.description %></p>
+    
+<%# DAILY SHIFT CONTAINER %>
+
     <div id="invoice-shift-container-<%= invoice_date.id %>" class="invoice-clip-container">
         <div class="d-flex align-items-baseline">
             <h5 class="col-3">Shifts</h5>
@@ -17,14 +21,7 @@
                 </thead>
                 <tbody id="tbody-shift-<%= invoice_date.id%>">
             <% invoice_date.shift_dates.each do |shift_date| %>
-                    <tr id="shift-date-<%= shift_date.id %>">
-                        <td><%= shift_date.shift.user.full_name %></td>
-                        <td><%= shift_date.shift.time_elapsed %></td>
-                        <td><%= number_to_currency(shift_date.earned) %></td>
-                        <td><%= link_to 'X', shift_date_path(shift_date),
-                            method: :delete, remote:true,
-                            data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
-                    </tr>
+                    <%= render "invoice_dates/shift_date_instant", shift_date: shift_date %>
             <% end %>
                     <tr id="tbody-shift-<%= invoice_date.id %>-total" class="total-row">
                         <%= render "invoice_dates/shift_date", invoice_date: invoice_date %>
@@ -33,6 +30,9 @@
             </table>
         </div>
     </div>
+    
+<%# DAILY MATERIALS CONTAINER %>    
+    
     <div id="invoice-material-container-<%= invoice_date.id %>" class="invoice-clip-container">
         <div class="d-flex align-items-baseline">
             <h5 class="col-3">Materials</h5><%= link_to 'Add', new_invoice_date_material_date_path(invoice_date), remote:true, class: "btn-sm btn-success offset-2 offset-lg-0 material-add-btn" %>
@@ -47,14 +47,7 @@
                 </thead>
                 <tbody id="tbody-material-<%= invoice_date.id%>">
             <% invoice_date.material_dates.each do |mat_date| %>
-                    <tr id="material-date-<%= mat_date.id %>">
-                        <td><%= mat_date.material.name %></td>
-                        <td><%= number_to_currency(mat_date.material.cost) %> x <%= mat_date.quantity %></td>
-                        <td><%= number_to_currency(mat_date.instant_total) %></td>
-                        <td><%= link_to 'X', material_date_path(mat_date),
-                            method: :delete, remote:true,
-                            data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
-                    </tr>
+                    <%= render "invoice_dates/material_date_instant", mat_date: mat_date %>
             <% end %>
                     <tr id="tbody-material-<%= invoice_date.id %>-total" class="total-row">
                         <%= render "invoice_dates/material_date", invoice_date: invoice_date %>
@@ -66,5 +59,7 @@
             </table>
         </div>
     </div>
+
+
     <%= link_to 'Delete Date', invoice_date_path(invoice_date), method: :delete, remote:true, data: { confirm: 'Are you sure? This cannot be undone.' }, class: "btn-sm btn-danger button-target" %>
 </div>

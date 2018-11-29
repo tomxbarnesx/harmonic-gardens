@@ -1,5 +1,5 @@
 $("#active-shift-attach").remove();
-$("#tbody-shift-<%= @shift_date.invoice_date.id%>-total").before('<tr id="shift-date-<%= @shift_date.id %>"><td><%= @shift_date.shift.user.full_name %></td><td><%= @shift_date.shift.time_elapsed %> @ $<%= @shift_date.user.hourly_rate %>/h</td><td><%= number_to_currency(@shift_date.hour_calc) %></td><td><%= link_to "Delete", shift_date_path(@shift_date), method: :delete, remote:true, data: { confirm: "Are you sure?" } %></td></tr>');
+$("#tbody-shift-<%= @shift_date.invoice_date.id%>-total").before("<%= j render 'invoice_dates/shift_date_instant', shift_date: @shift_date %>");
 $("#tbody-shift-<%= @shift_date.invoice_date.id%>-total").empty().append("<%= j (render "invoice_dates/shift_date", invoice_date: @invoice_date) %>");
 $("#tbody-daily-total-<%= @shift_date.invoice_date.id%>").empty().append("<%= j (render "invoice_dates/daily_total", invoice_date: @invoice_date) %>");
 $("#invoice-shift-listings-<%= @shift_date.invoice_date.id %>").show();
