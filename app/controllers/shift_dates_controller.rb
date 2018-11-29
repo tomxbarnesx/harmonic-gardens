@@ -12,7 +12,7 @@ class ShiftDatesController < ApplicationController
     end
 
     def create
-        @shift_date = ShiftDate.calc_create(shift_date_params)
+        @shift_date = ShiftDate.create(shift_date_params)
         @invoice_date = InvoiceDate.find(params[:invoice_date_id])
     end
 
@@ -26,7 +26,7 @@ class ShiftDatesController < ApplicationController
 private
 
     def shift_date_params
-        params.require(:shift_date).permit(:shift_id, :invoice_date_id, :earned);
+        params.require(:shift_date).permit(:shift_id, :invoice_date_id);
     end
 
 end

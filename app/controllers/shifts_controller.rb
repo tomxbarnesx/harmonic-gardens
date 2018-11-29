@@ -54,7 +54,7 @@ class ShiftsController < ApplicationController
 
         authorize @shift
 
-        if @shift.update(shift_params)
+        if @shift.earned_update(shift_params)
             flash[:notice] = "Shift updated successfully."
             redirect_to "/shifts"
         else

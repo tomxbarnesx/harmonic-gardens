@@ -27,6 +27,10 @@ class Shift < ApplicationRecord
         self.multi(sp)
     end
 
+    def earned_update(sp)
+        earned_up(sp)
+    end
+
     private
 
     def self.multi(sp)
@@ -34,11 +38,19 @@ class Shift < ApplicationRecord
             sp["user_id"].each do |u|
                 sclone = sp.clone()
                 sclone["user_id"] = u
+                sclone["earned"] = ((Time.zone.parse(sclone["end_time"]) - Time.zone.parse(sclone["start_time"]))/60/60) * User.find(sclone["user_id"]).hourly_rate
                 $shift = Shift.create(sclone)
             end
         else 
+            sp["earned"] = ((Time.zone.parse(sp["end_time"]) - Time.zone.parse(sp["start_time"]))/60/60) * User.find(sp["user_id"]).hourly_rate
             $shift = Shift.create(sp)
         end
+    end
+
+    def earned_up(sp)
+        sclone = sp.clone()
+        sclone["earned"] = ((Time.zone.parse(sclone["end_time"]) - Time.zone.parse(sclone["start_time"]))/60/60) * self.user.hourly_rate
+        self.update(sclone)
     end
 
 end

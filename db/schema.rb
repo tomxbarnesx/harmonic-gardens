@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(version: 2018_11_29_014340) do
     t.integer "invoice_date_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "earned", precision: 10, scale: 2
   end
 
   create_table "shifts", force: :cascade do |t|
@@ -98,6 +97,7 @@ ActiveRecord::Schema.define(version: 2018_11_29_014340) do
     t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "earned", precision: 10, scale: 2
   end
 
   create_table "users", force: :cascade do |t|

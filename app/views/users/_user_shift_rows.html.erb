@@ -1,6 +1,6 @@
 <% @user.shifts.each do |u| %>
     <tr id="user-show-shift-<%= u.id %>">
-        <td><%= u.date.strftime("%m/%d/%g") %></td>
+        <td><%= u.start_time.strftime("%m/%d/%g") %></td>
         <td><%= u.client.full_name %></td>
         <td><%= u.time_elapsed %></td>
     </tr>

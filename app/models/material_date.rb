@@ -19,7 +19,6 @@ class MaterialDate < ApplicationRecord
             mdclone["cost"] = alt_cost.to_f * mdclone["quantity"].to_i
             $md_entry = MaterialDate.create(mdclone)
         else
-            p "we're in here *******************************"
             mdclone = mdp.clone()
             mdclone["cost"] = Material.find(mdclone["material_id"]).cost * mdclone["quantity"].to_i
             $md_entry = MaterialDate.create(mdclone)
