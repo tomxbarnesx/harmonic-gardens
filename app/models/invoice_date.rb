@@ -11,7 +11,7 @@ class InvoiceDate < ApplicationRecord
         shift_total = 0
         shift_dates = ShiftDate.where(invoice_date_id: id)
         shift_dates.each do |shift|
-            shift_total += shift.earned
+            shift_total += shift.shift.earned
             # shift_total += shift.earned
         end
         return shift_total
