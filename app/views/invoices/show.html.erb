@@ -1,4 +1,4 @@
-<div class="invoice-header container">
+<div class="invoice-header container mt-4 bg-white p-4 p-md-5 rounded-top border border-bottom-0 border-bottom-md-0 border-secondary ">
     <div class="row justify-content-between">
         <div class="invoice-client-info col-md-9">
             <h3><%= @invoice.client.full_name %></h3>
@@ -6,19 +6,21 @@
             <%= number_to_phone(@invoice.client.home_phone, area_code: true) %><br>
             <%= @invoice.client.email %>
         </div>
-        <div class="col-md-2 mr-4 invoice-details">
-            <p><strong>Invoice Number: </strong><%= @invoice.id %><br>
+        <div class="col-md-3 mt-4">
+            <p><strong>Invoice #: </strong><%= @invoice.id %><br>
             <strong>Date: </strong><%= @invoice.created_at.strftime("%m-%d-%Y") %></p>
         </div>
     </div>
 </div>
-<div class="invoice-body">
+<div class="bg-white">
     <div class="description-header">
         <h4>Description</h4>
     </div>
     <div class="invoice-date-master col-md-10 m-md-auto">
         <%= render partial: 'invoice_dates/invoice_date', collection: @invoice_dates %>
-        <%= link_to 'Add Date', new_invoice_invoice_date_path(@invoice), remote:true, class: "btn btn-success", id: "add-button-target" %>
-        <a href="/invoices/<%=@invoice.id%>.pdf" class="btn btn-danger">Generate PDF</a>
+        <div class="row no-gutter ml-1 mb-3">
+            <%= link_to 'Add Date', new_invoice_invoice_date_path(@invoice), remote:true, class: "btn btn-success", id: "add-button-target" %>
+            <%= link_to 'Generate PDF', invoice_set_pdf_path(@invoice), class: "btn btn-danger ml-2"%>
+        </div>
     </div>
 </div>

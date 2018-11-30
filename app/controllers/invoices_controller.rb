@@ -33,13 +33,20 @@ class InvoicesController < ApplicationController
         end
     end
 
-    def edit
+    # def set_pdf
+    #     @invoice = Invoice.find(params[:id])
+    #     @invoice.total_cost = @invoice.current_total(@invoice.id)
+    #     @invoice.save
+    #     redirect_to "#{invoice_path(@invoice)}/pdf"
+    # end
 
-    end
+    # def edit
 
-    def update
+    # end
 
-    end
+    # def update
+
+    # end
 
 private
     def invoice_params

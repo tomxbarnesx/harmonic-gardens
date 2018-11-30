@@ -100,7 +100,7 @@ class InvoicePdf < Prawn::Document
         bounding_box([0, cursor], width: 540, height: 30) do
             font_size(10) do
                 bounding_box([5, bounds.top], width: 300, height: 30) do
-                    pad_top(5){ text "Labor: " + String(@invoice.invoice_dates.count) + " days" + "\n" + String(@invoice.invoice_dates.last.date.strftime("%m-%d")) + " — " + String(@invoice.invoice_dates.first.date.strftime("%m-%d")) }
+                    pad_top(5){ text "Labor: " + String(@invoice.invoice_dates.count) + " days" + "\n" + String(@invoice.invoice_dates.first.date.strftime("%m-%d")) + " — " + String(@invoice.invoice_dates.last.date.strftime("%m-%d")) }
                 end
                 bounding_box([325, bounds.top], width: 50, height: 30) do
                     pad_top(5){ text "-" }
@@ -126,10 +126,10 @@ class InvoicePdf < Prawn::Document
                         pad_top(5){ text String(mat_date.quantity)}
                     end
                     bounding_box([400, bounds.top], width: 50, height: 30) do
-                        pad_top(5){ text "$" + to_currency(mat_date.material.cost)}
+                        pad_top(5){ text "$" + String(mat_date.true_cost)}
                     end
                     bounding_box([490, bounds.top], width: 60, height: 30) do
-                        pad_top(5){ text "$" + to_currency(mat_date.cost)}
+                        pad_top(5){ text "$" + String(mat_date.cost)}
                     end
                 end
             end

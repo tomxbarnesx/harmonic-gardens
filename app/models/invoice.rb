@@ -26,4 +26,5 @@ class Invoice < ApplicationRecord
         end
         return l_total
     end
+
 end

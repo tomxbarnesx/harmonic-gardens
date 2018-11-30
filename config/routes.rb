@@ -17,5 +17,8 @@ Rails.application.routes.draw do
       resources :material_dates
     end
   end
+
+  # get '/invoices/:id/pdf', to: 'invoices#set_pdf', as: 'invoice_set_pdf'
+
   
 end
