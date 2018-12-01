@@ -20,7 +20,8 @@
         <%= render partial: 'invoice_dates/invoice_date', collection: @invoice_dates %>
         <div class="row no-gutter ml-1 mb-3">
             <%= link_to 'Add Date', new_invoice_invoice_date_path(@invoice), remote:true, class: "btn btn-success", id: "add-button-target" %>
-            <%= link_to 'Generate PDF', invoice_set_pdf_path(@invoice), class: "btn btn-danger ml-2"%>
+            <a href="/invoices/<%=@invoice.id%>.pdf" target="_blank" class="btn btn-danger ml-2">Generate PDF</a>
+            <%# link_to 'Generate PDF', invoice_set_pdf_path(@invoice), class: "btn btn-danger ml-2"%>
         </div>
     </div>
 </div>

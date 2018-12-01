@@ -1,0 +1,19 @@
+<div class="client-user-header mt-md-3 mt-2">
+    <h2>Archives</h2>
+    <%= link_to 'Back to Active', invoices_path, class: "btn btn-dark ml-3" %>
+</div>
+<div>
+    <table id="datatable" data-turbolinks="false" class="display">
+        <thead>
+            <th>Client</th>
+            <th class="hide-table-col">Address</th>
+            <th>Start Date</th>
+            <th class="hide-table-col">Total</th>
+            <th>Options</th>
+            <th></th>
+        </thead>
+        <tbody>
+            <%= render 'archived_invoices'%>
+        <tbody>
+    </table>
+</div>

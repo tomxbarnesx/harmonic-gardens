@@ -17,13 +17,17 @@ class InvoicePdf < Prawn::Document
 
     def to_currency(cost)
         zerocheck = cost.to_s.split(".")
+
         if zerocheck[1].length == 1
           zerocheck[1] << "0"
+          return zerocheck.join(".")
+        elsif zerocheck[1].length == 2
           return zerocheck.join(".")
         elsif zerocheck[1].length > 2
           rounder = zerocheck.join(".").to_f
           return rounder.round(2).to_s
         end
+
     end
 
     def header
@@ -95,41 +99,47 @@ class InvoicePdf < Prawn::Document
             end
         end
     end
-
+    
     def laborentry
-        bounding_box([0, cursor], width: 540, height: 30) do
-            font_size(10) do
-                bounding_box([5, bounds.top], width: 300, height: 30) do
-                    pad_top(5){ text "Labor: " + String(@invoice.invoice_dates.count) + " days" + "\n" + String(@invoice.invoice_dates.first.date.strftime("%m-%d")) + " — " + String(@invoice.invoice_dates.last.date.strftime("%m-%d")) }
-                end
-                bounding_box([325, bounds.top], width: 50, height: 30) do
-                    pad_top(5){ text "-" }
-                end
-                bounding_box([400, bounds.top], width: 50, height: 30) do
-                    pad_top(5){ text "-" }
-                end
-                bounding_box([490, bounds.top], width: 60, height: 30) do
-                    pad_top(5){ text "$" + to_currency(@invoice.labor_total(@invoice.id))}
+        if @invoice.shift_dates.exists?
+            bounding_box([0, cursor], width: 540, height: 30) do
+                font_size(10) do
+                    bounding_box([5, bounds.top], width: 300, height: 30) do
+                        pad_top(5){ text "Labor: " + String(@invoice.invoice_dates.count) + " days" + "\n" + String(@invoice.invoice_dates.first.date.strftime("%m-%d")) + " — " + String(@invoice.invoice_dates.last.date.strftime("%m-%d")) }
+                    end
+                    bounding_box([325, bounds.top], width: 50, height: 30) do
+                        pad_top(5){ text "-" }
+                    end
+                    bounding_box([400, bounds.top], width: 50, height: 30) do
+                        pad_top(5){ text "-" }
+                    end
+                    bounding_box([490, bounds.top], width: 60, height: 30) do
+                        pad_top(5){ text "$" + to_currency(@invoice.labor_total(@invoice.id))}
+                    end
                 end
             end
         end
     end
 
+
+
     def materials
-        @invoice.material_dates.each do |mat_date|
-            bounding_box([0, cursor], width: 540, height: 30) do
-                font_size(10) do
-                    bounding_box([5, bounds.top], width: 300, height: 30) do
-                        pad_top(5){ text mat_date.material.name + "\n" + String(@invoice.invoice_dates.first.date.strftime("%m-%d"))}
-                    end
-                    bounding_box([325, bounds.top], width: 50, height: 30) do
-                        pad_top(5){ text String(mat_date.quantity)}
-                    end
-                    bounding_box([400, bounds.top], width: 50, height: 30) do
-                        pad_top(5){ text "$" + String(mat_date.true_cost)}
-                    end
-                    bounding_box([490, bounds.top], width: 60, height: 30) do
-                        pad_top(5){ text "$" + String(mat_date.cost)}
+        if @invoice.material_dates.exists?
+            @invoice.material_dates.each do |mat_date|
+                bounding_box([0, cursor], width: 540, height: 30) do
+                    font_size(10) do
+                        bounding_box([5, bounds.top], width: 300, height: 30) do
+                            pad_top(5){ text mat_date.material.name + "\n" + String(mat_date.invoice_date.date.strftime("%m-%d"))}
+                        end
+                        bounding_box([325, bounds.top], width: 50, height: 30) do
+                            pad_top(5){ text String(mat_date.quantity)}
+                        end
+                        bounding_box([400, bounds.top], width: 50, height: 30) do
+                            pad_top(5){ text "$" + to_currency(mat_date.true_cost)}
+                        end
+                        bounding_box([490, bounds.top], width: 60, height: 30) do
+                            pad_top(5){ text "$" + to_currency(mat_date.cost)}
+                        end
                     end
                 end
             end
@@ -147,7 +157,7 @@ class InvoicePdf < Prawn::Document
             pad_top(10){ text "BALANCE DUE" }
         end
         bounding_box([470, y_position], width: 70, height: 40) do
-            pad_top(10) { text "$" + to_currency(@invoice.current_total(@invoice.id)), size: 16 }
+            pad_top(10) { text "$" + to_currency(@invoice.current_total), size: 16 }
         end
     end
 

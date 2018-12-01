@@ -17,7 +17,7 @@ class InvoiceDatesController < ApplicationController
     def destroy
         @invoice_date = InvoiceDate.find(params[:id])
         @invoice_date.destroy
-        flash[:notice] = "Date successfully deleted"
+        flash.now[:notice] = "Date successfully deleted"
     end
 
 private

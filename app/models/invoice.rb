@@ -1,6 +1,6 @@
 class Invoice < ApplicationRecord
     belongs_to :client
-    has_many :invoice_dates
+    has_many :invoice_dates, dependent: :destroy
     has_many :shift_dates, through: :invoice_dates
     has_many :material_dates, through: :invoice_dates
 
@@ -8,9 +8,9 @@ class Invoice < ApplicationRecord
         return created_at.to_s.slice(0, 10)
     end
 
-    def current_total(id)
+    def current_total
         total = 0
-        invoice_ids = InvoiceDate.where(invoice_id: id)
+        invoice_ids = InvoiceDate.where(invoice_id: self.id)
         invoice_ids.each do |i|
             total += i.material_sub_2(i.id) 
             total += i.shift_sub_2(i.id)

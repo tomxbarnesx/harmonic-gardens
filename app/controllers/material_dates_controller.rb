@@ -20,14 +20,11 @@ class MaterialDatesController < ApplicationController
             flash.now[:error] = "Error adding your material"
             render 'new'
         end
-        #double check the validity of this as a solution:
-        # @invoice_date.update(subtotal: @invoice_date.daily_total(@invoice_date.id))
     end
 
     def destroy
         @material_date = MaterialDate.find(params[:id])
         @invoice_date = @material_date.invoice_date
-        # @invoice_date.update(subtotal: @invoice_date.daily_total(@invoice_date.id))
         @material_date.destroy
         flash.now[:notice] = "Materials successfully deleted"
     end
