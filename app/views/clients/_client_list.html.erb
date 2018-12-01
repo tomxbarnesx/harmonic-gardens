@@ -16,7 +16,7 @@
                 <td><%= c.last_name %></td>
                 <td class="hide-table-col"><%= c.email %></td>
                 <td class="hide-table-col"><%= c.address %></td>
-                <td><%= link_to 'View', client_path(c), class: "btn btn-sm btn-dark" %></td>
+                <td><%= link_to '<i class="far fa-eye"></i>'.html_safe, client_path(c), class: "btn btn-sm btn-dark" %></td>
                 <td class="hide-table-col"><%= link_to 'X', client_path(c),
                     method: :delete, remote:true,
                     data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger" %></td>

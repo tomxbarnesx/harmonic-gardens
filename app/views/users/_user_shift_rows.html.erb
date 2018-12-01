@@ -3,5 +3,7 @@
         <td><%= u.start_time.strftime("%m/%d/%g") %></td>
         <td><%= u.client.full_name %></td>
         <td><%= u.time_elapsed %></td>
+        <td><%= number_to_currency(u.earned) %></td>
+        <%# link_to '<i class="far fa-eye"></i>'.html_safe, shifts_path(u.user.id), class: 'btn btn-dark' %>
     </tr>
 <% end %>

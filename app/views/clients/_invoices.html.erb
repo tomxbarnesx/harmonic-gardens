@@ -12,7 +12,7 @@
                 <td class="hide-table-col"><%= i.id %></td>
                 <td><%= i.created_at.strftime("%m-%d-%Y") %></td>
                 <td>$ <%= i.current_total(i.id) %></td>
-                <td class="center-col"><%= link_to 'View', invoice_path(i), class: "btn btn-sm btn-dark" %></td>
+                <td class="center-col"><%= link_to '<i class="far fa-eye"></i>'.html_safe, invoice_path(i), class: "btn btn-sm btn-dark" %></td>
                 <td class="hide-table-col"><%= link_to 'Delete', invoice_path(i),
                     method: :delete, remote:true,
                     data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger" %></td>

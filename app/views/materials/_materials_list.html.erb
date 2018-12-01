@@ -2,8 +2,8 @@
         <thead>
             <tr class="table-header">
                 <th>Type</th>
-                <th>Cost/Unit</th>
-                <th></th>
+                <th>Cost Per</th>
+                <th class="center-col hide-table-col">Last Updated</th>
                 <th></th>
             </tr>
         </thead>
@@ -12,8 +12,9 @@
                 <tr id="material-<%= m.id %>">
                     <td><%= m.name %></td>
                     <td><%= number_to_currency(m.cost) %></td>
-                    <td><%= link_to 'Edit', edit_material_path(m), remote:true, class: "btn btn-sm btn-dark" %></td>
-                    <td><%= link_to 'X', material_path(m),
+                    <td class="center-col hide-table-col"><%= m.updated_at.strftime("%m-%d-%Y") %></td>
+                    <td><%= link_to 'Edit', edit_material_path(m), remote:true, class: "btn btn-sm btn-dark" %> | 
+                    <%= link_to 'X', material_path(m),
                         method: :delete, remote:true,
                         data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger" %></td>
                 </tr>

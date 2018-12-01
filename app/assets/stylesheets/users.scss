@@ -23,13 +23,6 @@
 }
 
 
-#user-shift-table {
-    margin-top: 2em;
-    border-left: 3px solid #d3d3d3;
-    padding: 1% 2%;
-
-}
-
 @media (max-width: 575.98px) { 
     #user-page {
         padding-left: 0em;
@@ -44,5 +37,12 @@
 @media (min-width: 575.98px) {
     #new-user-client-card {
         padding: 3%;
+    }
+
+    #user-shift-table {
+        margin-top: 2em;
+        border-left: 3px solid #d3d3d3;
+        padding: 1% 2%;
+    
     }
 }
