@@ -1,1 +1,7 @@
+$('#flash').html('<%= j render partial: "layouts/flash_messages" %>');
 $(".invoice-date-master").hide().after("<%= j (render 'invoice_date_form') %>")
+
+$(document).on("click", ".close-x", function(){
+    $("#invoice-form-container").remove();
+    $(".invoice-date-master").show();
+});

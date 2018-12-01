@@ -2,6 +2,8 @@ class MaterialDate < ApplicationRecord
     belongs_to :invoice_date
     belongs_to :material
 
+    validates_numericality_of :quantity, greater_than: 0, only_integer: true, message: "Must be a whole number greater than 0"
+
     def self.price_set_create(mdp)
         self.price_set(mdp)
     end

@@ -1,19 +1,11 @@
 <div id="active-shift-attach">
     <div class="close-container"><a class="close-x">&times;</a></div>
     <%= form_for [@invoice_date, @shift_date], remote: true do |form| %>
-        <div class="form-group">
+        <%= form_group_for form, :shift_id, label: false do %>
             <label>Attach: </label>
             <%= collection_select(:shift_date, :shift_id, Shift.where(start_time: @invoice_date.date.all_day, client_id: @invoice_date.invoice.client_id).where.not(id: ShiftDate.pluck(:shift_id)), :id, :full_name_hours, {:include_blank => "Select a valid shift"}, {:class=>'form-control form-control-sm'})  %>
-        </div>
+        <% end %>
         <div><%= form.hidden_field :invoice_date_id, :value => @invoice_date.id %></div>
         <%= form.submit "Submit", :id=>'shift-date-submit', class: "btn btn-dark btn-sm" %>
     <% end %>
 </div>
-
-<script>
-$(document).on("click", ".close-x", function(){
-    $("#invoice-shift-form-<%=@invoice_date.id%>").empty();
-    $("#invoice-shift-listings-<%= @invoice_date.id %>").show();
-    $(".shift-add-btn").show();
-});
-</script>

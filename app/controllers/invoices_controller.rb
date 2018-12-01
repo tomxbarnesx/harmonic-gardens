@@ -17,7 +17,7 @@ class InvoicesController < ApplicationController
               @invoice.update(total_cost: total_update)
               send_data pdf.render, filename: 'HGInvoice.pdf', type: 'application/pdf'
             end
-          end
+        end
     end
 
     def new

@@ -2,3 +2,9 @@ $('.client-user-header').hide()
 $('#client-list-div').hide()
 $('#flash').html('<%= j render partial: "layouts/flash_messages"%>');
 $("#client-add").html("<%= j (render 'form') %>");
+
+$(document).on("click", ".close-x", function(){
+    $('.client-user-header').show()
+    $('#client-list-div').show()
+    $("#client-add").empty()
+});

@@ -15,3 +15,9 @@ date = sessionStorage.getItem("date");
 startTime.value = `${date}T00:00`;
 endTime.value = `${date}T12:00`;
 form.style.display = "block";
+
+$(document).on("click", ".close-x", function(){
+    $("#active-shift-add").remove();
+    $("#add-form").css("display", "none")
+    $("#calendar-container").show();
+});

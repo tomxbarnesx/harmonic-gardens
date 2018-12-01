@@ -12,12 +12,22 @@ class InvoiceDatesController < ApplicationController
 
     def create
         @invoice_date = InvoiceDate.create(invoice_date_params)
+
+        if @invoice_date.save
+            flash.now[:notice] = "Date created successfully"
+        else
+            flash.now[:error] = "Error adding new date"
+            render 'new'
+        end
     end
 
     def destroy
         @invoice_date = InvoiceDate.find(params[:id])
-        @invoice_date.destroy
-        flash.now[:notice] = "Date successfully deleted"
+        if @invoice_date.destroy
+            flash.now[:notice] = "Date successfully deleted"
+        else
+            flash.now[:error] = "Error deleting shift"
+        end
     end
 
 private

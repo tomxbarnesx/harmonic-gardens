@@ -19,18 +19,10 @@
             <label>Start Time: </label>
             <%= form.datetime_field :start_time, placeholder: "Start Time", :id => 'start_time', class: "form-control" %>
         </div>
-        <div class="form-group">
+        <%= form_group_for form, :end_time, label: false do %>
             <label>End Time: </label>
             <%= form.datetime_field :end_time, placeholder: "End Time", :id => 'end_time', class: "form-control" %>
-        </div>
+        <% end %>
         <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-dark" %>
     <% end %>
 </div>
-
-<script>
-$(document).on("click", ".close-x", function(){
-    $("#active-shift-add").remove();
-    $("#add-form").css("display", "none")
-    $("#calendar-container").show();
-});
-</script>

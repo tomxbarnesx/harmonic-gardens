@@ -2,3 +2,9 @@ $("#invoice-shift-listings-<%= @invoice_date.id %>").hide();
 $(".shift-add-btn").hide();
 $("#invoice-shift-form-<%= @invoice_date.id %>").html("<%= j (render 'shift_date_form') %>");
 $('#flash').html('<%= j render partial: "layouts/flash_messages" %>');
+
+$(document).on("click", ".close-x", function(){
+    $("#invoice-shift-form-<%=@invoice_date.id%>").empty();
+    $("#invoice-shift-listings-<%= @invoice_date.id %>").show();
+    $(".shift-add-btn").show();
+});

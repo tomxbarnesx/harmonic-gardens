@@ -2,3 +2,20 @@ $("#invoice-material-listings-<%= @invoice_date.id %>").hide();
 $(".material-add-btn").hide();
 $("#invoice-material-form-<%= @invoice_date.id %>").html("<%= j (render 'material_date_form') %>");
 $('#flash').html('<%= j render partial: "layouts/flash_messages" %>');
+
+$(document).on("click", ".close-x", function(){
+    $("#invoice-material-form-<%=@invoice_date.id%>").empty();
+    $("#invoice-material-listings-<%= @invoice_date.id %>").show();
+    $(".material-add-btn").show();
+});
+
+function checkFunction() {
+    var checkBox = document.getElementById("override-check");
+    var costField = document.getElementById("cost-field");
+
+    if (checkBox.checked == true){
+        costField.style.display = "block";
+    } else {
+        costField.style.display = "none";
+    }
+}

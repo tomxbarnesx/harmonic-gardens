@@ -4,7 +4,6 @@ function datatableInit () {
         "bLengthChange": false,
         columnDefs: [
             { orderable: false, targets: -1 },
-            { orderable: false, targets: -2 },
          ]
         } ); 
     

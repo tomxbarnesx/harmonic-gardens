@@ -1,5 +1,4 @@
+$('#flash').html('<%= j render partial: "layouts/flash_messages" %>');
 $("#invoice-form-container").remove();
 $(".invoice-date-master").show();
 $("#add-button-target").before("<%= j render :partial => 'invoice_dates/invoice_date', :locals => { :invoice_date => @invoice_date } %>");
-$('#flash').html('<%= j render partial: "layouts/flash_messages" %>');
-<%# Fix this form display madness %>
