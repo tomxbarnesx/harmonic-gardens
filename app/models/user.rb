@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   after_initialize do
     if self.new_record?
-      self.role ||= :worker
+      self.role ||= :Worker
     end
   end
 
