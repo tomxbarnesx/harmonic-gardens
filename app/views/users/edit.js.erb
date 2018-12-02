@@ -1,3 +1,9 @@
 $("#user-shift-table").hide();
 $(".budget-block").hide()
 $(".id-card").html("<%= j (render 'edit') %>");
+
+$(document).on("click", ".close-x", function(){
+    $(".id-card").html('<%= j (render "user_card") %>' );
+    $("#user-shift-table").show();
+    $('.budget-block').show();
+});

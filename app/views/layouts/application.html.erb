@@ -14,39 +14,7 @@
 
   <body>
     <div id="the-view">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">Harmonic Gardens</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link ml-2" href="/users/<%= current_user.id %>%">Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link ml-2" href="/shifts">Timesheets</a>
-            </li>
-            <% if current_user.role != "worker" %>
-            <li class="nav-item">
-              <a class="nav-link ml-2" href="/invoices">Invoices</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link ml-2" href="/clients">Clients</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link ml-2" href="/users">Users</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link ml-2" href="/materials">Materials</a>
-            </li>
-            <% end %>
-          </ul>
-          <%#<div class="nav-item my-2 my-sm-0"><%= link_to('Profile', user_path(current_user.id), {:class => "nav-link white-no-link"}) %><%#</div>%>
-          <div class="nav-item my-2 my-sm-0"><%= link_to('Logout', destroy_user_session_path, method: :delete, :class => "nav-link white-no-link") %></div>
-        </div>
-      </nav>
+      <%= layout_switch %>
       <div id="flash">
         <%= render 'layouts/flash_messages' %>
       </div>

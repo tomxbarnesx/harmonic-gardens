@@ -1,0 +1,3 @@
+class InvoicePolicy < ApplicationPolicy
+
+end

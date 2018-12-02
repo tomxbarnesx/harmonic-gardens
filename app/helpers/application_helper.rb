@@ -13,4 +13,28 @@ module ApplicationHelper
         when :alert then "alert alert-danger"
         end
     end
+
+    def layout_switch
+        if current_user.role == "Worker"
+            render partial: "layouts/worker_nav"
+        else 
+            render partial: "layouts/foreman_nav"
+        end
+    end
+
+    def profile_edits
+        if current_user.role == "Worker"
+            render partial: 'users/worker_edit'
+        else
+            render partial: 'users/foreman_edit'
+        end
+    end
+
+    def shift_create_access
+        if current_user.role == "Worker"
+            render partial: 'shifts/worker_form'
+        else
+            render partial: 'shifts/foreman_form'
+        end
+    end
 end

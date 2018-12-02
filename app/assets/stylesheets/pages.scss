@@ -22,3 +22,17 @@
 .img-sizing {
     width: 100%;
 }
+
+
+
+@media (max-width: 575.98px){
+    .boostrap-landing-override {
+        margin-bottom: -1.6rem !important;
+    }
+}
+
+@media (min-width: 1025px) {
+    .landing-container {
+        width: 60% !important;
+    }
+}

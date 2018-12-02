@@ -12,8 +12,9 @@
 
     <body>
         <div id="the-view">
-            <p id="notice" class="notice"><%= notice %></p>
-            <p id= "alert" class="alert"><%= alert %></p>
+            <div id="flash">
+                <%= render 'layouts/flash_messages' %>
+            </div>
             <%= yield %>
         </div>
     </body>

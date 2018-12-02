@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        authorize @user
     end
 
     def new
@@ -35,6 +36,7 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
+        authorize @user
 
         respond_to do |format|
             if @user.update(user_params)
@@ -51,6 +53,7 @@ class UsersController < ApplicationController
 
     def destroy
         @user = User.find(params[:id])
+        authorize @user
         
         if @user.destroy
             flash[:notice] = "User successfully deleted"
