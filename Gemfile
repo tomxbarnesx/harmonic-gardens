@@ -66,9 +66,9 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
 gem 'devise'
 gem "aws-sdk-s3", require: false
-gem 'popper_js'
 gem 'sprockets', '~>3.7.2'
 gem 'simple_calendar', '~> 2.0', '>= 2.0.6'
-gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'pundit'
 gem 'prawn'
+
+ruby "2.5.1"
