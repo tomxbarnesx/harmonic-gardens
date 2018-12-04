@@ -27,4 +27,27 @@ class User < ApplicationRecord
   def email_changed?
     false
   end
+
+  def earnings_calculator(period)
+    total = 0
+    if period == "week"
+      date_beginning_this_week = Date.today.beginning_of_week
+      shifts = Shift.where(start_time: date_beginning_this_week..(DateTime.now)).where(user_id: self.id)
+      shifts.each do |s|
+          total += s.earned
+      end
+    elsif period == "month"
+      date_beginning_this_month = Date.today.beginning_of_month
+      shifts = Shift.where(start_time: date_beginning_this_month..(DateTime.now)).where(user_id: self.id)
+      shifts.each do |s|
+        total += s.earned
+      end
+    end
+    return total
+  end
+
+  # def week_hours
+    
+  # end
+
 end

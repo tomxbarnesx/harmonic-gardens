@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @weekly_calc = @user.earnings_calculator("week")
+        @monthly_calc = @user.earnings_calculator("month")
         authorize @user
     end
 
