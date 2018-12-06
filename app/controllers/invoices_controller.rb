@@ -41,7 +41,6 @@ class InvoicesController < ApplicationController
     end
 
     # def edit
-
     # end
 
     def update
@@ -71,6 +70,15 @@ class InvoicesController < ApplicationController
                     format.js { redirect_to invoices_path }
                 end
             end
+        end
+    end
+
+    def destroy
+        @invoice = Invoice.find(params[:id])
+        if @invoice.destroy
+            flash.now[:notice] = "Invoice successfully deleted"
+        else
+            flash.now[:error] = "Error deleting invoice"
         end
     end
 

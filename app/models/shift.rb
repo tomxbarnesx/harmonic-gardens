@@ -1,6 +1,7 @@
 class Shift < ApplicationRecord
     belongs_to :user
     belongs_to :client
+    has_one :shift_date
     has_one :invoice_date, through: :shift_date
     
     def time_elapsed

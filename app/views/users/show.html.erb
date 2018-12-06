@@ -3,11 +3,7 @@
         <%= render "user_card" %>
     </div>
     <div class="col-md-4 budget-block p-4 border rounded bg-white h-75">
-        <h4 class="mb-3">Earnings Report</h4>
-        <hr class="my-2">
-        <p><strong>Hours This Week: </strong> <%= @weekly_calc / @user.hourly_rate %> </p>
-        <p><strong>Week to Date: </strong> <%= number_to_currency(@weekly_calc) %></p>
-        <p><strong>Month to Date: </strong> <%= number_to_currency(@monthly_calc) %> </p>
+        <%= render 'earnings_report' %>
     </div>
 </div>
     <%= render "user_shifts" %>

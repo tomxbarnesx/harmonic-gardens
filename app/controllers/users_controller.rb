@@ -7,8 +7,15 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @weekly_calc = @user.earnings_calculator("week")
-        @monthly_calc = @user.earnings_calculator("month")
+
+        if @user.earnings_calculator("week") != nil
+            @weekly_calc = @user.earnings_calculator("week")
+            @monthly_calc = @user.earnings_calculator("month")   
+        else
+            @weekly_calc = 0
+            @monthly_calc = 0
+        end         
+
         authorize @user
     end
 
@@ -61,8 +68,8 @@ class UsersController < ApplicationController
             flash[:notice] = "User successfully deleted"
             redirect_to users_path
         else
-            flash.now[:error] = @user.errors.full_messages[0]
-            render 'update'
+            flash[:error] = @user.errors.full_messages[0]
+            redirect_to users_path
         end
     end
 

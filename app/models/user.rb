@@ -1,16 +1,20 @@
 class User < ApplicationRecord
-  has_many :shifts, dependent: :nullify
-  has_many :invoices
+  has_many :shifts
+  has_many :shift_dates, through: :shifts, dependent: :restrict_with_error
+
+  # has_many :shift_dates, through: :shifts, dependent: :nullify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   validates_uniqueness_of :username, message: "Username already taken."
- 
+
   validates_presence_of :first_name, message: "Enter a first name."
   validates_presence_of :last_name, message: "Enter a last name."
   validates_presence_of :username, message: "Enter a username."
+  validates_numericality_of :hourly_rate, greater_than: 0, message: "Rate has to be greater than 0"
 
   enum role: [:Worker, :Foreman, :Admin]
 
