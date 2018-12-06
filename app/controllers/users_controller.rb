@@ -43,6 +43,29 @@ class UsersController < ApplicationController
         end
     end
 
+    # def toggle_archive
+    #     @user = User.find(params[:id])
+
+    #     if @invoice.update(is_active: false)
+    #         flash.now[:notice] = "User archived succesfully"
+    #     else   
+    #         flash.now[:error] = "Error archiving invoice"
+    #     end
+    # end
+
+    def archive
+        @user = User.find(params[:id])
+        @user.update_attribute(:is_active, true)
+        flash[:notice] = 'User archived successfully'
+      
+        redirect_to completed_tasks_path
+      end
+    end
+
+    def archived
+        @users = User.where(is_active: false)
+    end
+
     def update
         @user = User.find(params[:id])
         authorize @user
@@ -81,7 +104,7 @@ class UsersController < ApplicationController
 
 private
     def all_users
-        @users = User.all
+        @users = User.where(is_active: true)
     end
 
     def user_params

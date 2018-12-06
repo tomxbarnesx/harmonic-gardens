@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'shifts/day_log/:date', to: 'shifts#day_log'
 
   resources :clients
+  get 'users/archived', to: 'users#archived', as: :archived_users
+  put 'users/archive/:id', to: 'users#archive', as: :archive_user
   resources :users
   resources :materials
   
