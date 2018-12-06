@@ -18,9 +18,8 @@
     </div>
     <div class="invoice-date-master col-md-10 m-md-auto">
         <%= render partial: 'invoice_dates/invoice_date', collection: @invoice_dates %>
-        <div class="row no-gutter mb-3 mt-3">
-            <%= link_to 'Add Date', new_invoice_invoice_date_path(@invoice), remote:true, class: "btn btn-success", id: "add-button-target" %>
-            <a href="/invoices/<%=@invoice.id%>.pdf" target="_blank" class="btn btn-danger ml-2">Generate PDF</a>
+        <div id="ender_buttons" class="row no-gutter mb-3 mt-3">
+            <%= invoice_enders %>
         </div>
     </div>
 </div>

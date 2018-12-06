@@ -9,3 +9,4 @@
 <div id="user-list-div">
     <%= render partial: "user_list", locals: {users: @users} %>
 </div>
+<%= link_to 'View Archives', archived_users_path, class: "btn btn-dark mb-3 ml-3" %>

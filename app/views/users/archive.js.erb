@@ -1,0 +1,7 @@
+if (document.getElementById("user-<%= @user.id %>")) {
+    $('#user-<%= @user.id %>').fadeOut(250);
+} else {
+    $(window.location.replace("/users"))
+}
+
+$('#flash').html('<%= j render partial: "layouts/flash_messages" %>');

@@ -55,11 +55,32 @@ class UsersController < ApplicationController
 
     def archive
         @user = User.find(params[:id])
-        @user.update_attribute(:is_active, true)
-        flash[:notice] = 'User archived successfully'
-      
-        redirect_to completed_tasks_path
-      end
+
+        if @user.is_active == true
+            respond_to do |format|
+                if @user.update_attribute(:is_active, false)
+                    flash.now[:notice] = 'User archived successfully'
+                    format.html { redirect to users_path, notice: "User archived succesfully"}
+                    format.js {}
+                else
+                    flash.now[:error] = "Error archiving user"
+                    format.html { redirect_to users_path, error: "Error achiving user"}
+                    format.js {}
+                end
+            end
+        else
+            respond_to do |format|
+                if @user.update_attribute(:is_active, true)
+                    flash.now[:notice] = "User unarchived successfully"
+                    format.html { redirect_to users_path, notice: "User archived succesfully"}
+                    format.js {}
+                else
+                    flash.now[:error] = "Error unarchiving invoice"
+                    format.html { redirect_to invoices_path, error: "Error achiving invoices"}
+                    format.js {}
+                end
+            end
+        end
     end
 
     def archived

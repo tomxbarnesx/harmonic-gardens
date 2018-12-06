@@ -1,3 +1,7 @@
 <%# CURRENTLY ON ARCHIVES POSTS %>
-$('#invoice-<%= @invoice.id %>').fadeOut(250);
+if (document.getElementById("invoice-<%= @invoice.id %>")) {
+    $('#invoice-<%= @invoice.id %>').fadeOut(250);
+} else {
+    $(window.location.replace("/invoices"))
+}
 $('#flash').html('<%= j render partial: "layouts/flash_messages" %>');

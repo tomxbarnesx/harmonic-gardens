@@ -37,4 +37,5 @@ module ApplicationHelper
             render partial: 'shifts/foreman_form'
         end
     end
+
 end

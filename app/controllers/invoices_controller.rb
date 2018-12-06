@@ -63,11 +63,11 @@ class InvoicesController < ApplicationController
                 if @invoice.update(active: true)
                     flash.now[:notice] = "Invoice unarchived successfully"
                     format.html { redirect_to invoices_path, notice: "Invoice archived succesfully"}
-                    format.js { redirect_to invoices_path }
+                    format.js {}
                 else
                     flash.now[:error] = "Error unarchiving invoice"
                     format.html { redirect_to invoices_path, error: "Error achiving invoices"}
-                    format.js { redirect_to invoices_path }
+                    format.js {}
                 end
             end
         end
