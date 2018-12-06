@@ -16,6 +16,10 @@
         <%= form.text_field :username, placeholder: "Username", class: "form-control form-control-sm" %>
     </div>
     <div class="form-group">
+        <label>Primary Phone: </label>
+        <%= form.text_field :phone_number, placeholder: "Primary Phone", class: "form-control form-control-sm" %>
+    </div>
+    <div class="form-group">
         <label>Access level: </label>
         <%= form.select(:role, ['Worker', 'Foreman','Admin'], {}, {class: "form-control form-control-sm"}) %>
     </div>

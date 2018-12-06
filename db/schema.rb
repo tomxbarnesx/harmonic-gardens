@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 2018_12_06_172629) do
     t.string "last_name"
     t.string "address"
     t.string "email"
-    t.bigint "home_phone"
-    t.bigint "cell_phone"
+    t.string "home_phone", limit: 10
+    t.string "cell_phone", limit: 10
     t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_172629) do
     t.integer "hourly_rate"
     t.integer "role"
     t.boolean "is_active", default: true
+    t.string "phone_number", limit: 10
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end

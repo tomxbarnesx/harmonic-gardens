@@ -23,6 +23,11 @@
             <%= form.text_field :username, placeholder: "Username", class: 'form-control form-control-sm' %>
         <% end %>
 
+        <%= form_group_for form, :phone_number, label: false  do %>
+            <label>Primary Phone: </label>
+            <%= form.telephone_field :phone_number, placeholder: "Primary Phone", class: 'form-control form-control-sm' %>
+        <% end %>
+
         <%= form_group_for form, :password, label: false do %>
             <label>Temp Password: </label>
             <%= form.text_field :password, placeholder: "Password", class: 'form-control form-control-sm' %>

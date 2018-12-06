@@ -2,6 +2,7 @@
 <hr class="my-2">
 <p><strong>Username:</strong> <%= @user.username %></p>
 <p><strong>Email:</strong> <%= @user.email %></p>
+<p><strong>Primary Phone:</strong> <%= number_to_phone(@user.phone_number, area_code: true) %></p>
 <p><strong>Hourly Rate:</strong> $<%= @user.hourly_rate %>/hour</p>
 
 <% if policy(@user).destroy? %>
