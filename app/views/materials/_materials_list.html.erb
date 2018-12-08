@@ -13,7 +13,7 @@
                     <td><%= m.name %></td>
                     <td><%= number_to_currency(m.cost) %></td>
                     <td class="center-col hide-table-col"><%= m.updated_at.strftime("%m-%d-%Y") %></td>
-                    <td><%= link_to 'Edit', edit_material_path(m), remote:true, class: "btn btn-sm btn-dark" %> | 
+                    <td class="center-col options-col"><%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_material_path(m), remote:true, class: "btn btn-sm btn-dark" %> | 
                     <%= link_to 'X', material_path(m),
                         method: :delete, remote:true,
                         data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger" %></td>
