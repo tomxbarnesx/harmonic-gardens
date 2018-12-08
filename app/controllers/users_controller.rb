@@ -43,16 +43,6 @@ class UsersController < ApplicationController
         end
     end
 
-    # def toggle_archive
-    #     @user = User.find(params[:id])
-
-    #     if @invoice.update(is_active: false)
-    #         flash.now[:notice] = "User archived succesfully"
-    #     else   
-    #         flash.now[:error] = "Error archiving invoice"
-    #     end
-    # end
-
     def archive
         @user = User.find(params[:id])
 
@@ -75,8 +65,8 @@ class UsersController < ApplicationController
                     format.html { redirect_to users_path, notice: "User archived succesfully"}
                     format.js {}
                 else
-                    flash.now[:error] = "Error unarchiving invoice"
-                    format.html { redirect_to invoices_path, error: "Error achiving invoices"}
+                    flash.now[:error] = "Error unarchiving user"
+                    format.html { redirect_to users_path, error: "Error achiving user"}
                     format.js {}
                 end
             end
@@ -129,6 +119,6 @@ private
     end
 
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :username, :role, :hourly_rate, :email, :phone_number, :password);
+        params.require(:user).permit(:first_name, :last_name, :username, :role, :hourly_rate, :email, :phone_number, :is_active, :password);
     end
 end

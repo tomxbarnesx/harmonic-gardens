@@ -11,10 +11,14 @@ Rails.application.routes.draw do
   resources :shifts
   get 'shifts/day_log/:date', to: 'shifts#day_log'
 
+  get 'clients/archived', to: 'clients#archived', as: :archived_clients
+  put 'clients/archive/:id', to: 'clients#archive', as: :archive_client
   resources :clients
+
   get 'users/archived', to: 'users#archived', as: :archived_users
   put 'users/archive/:id', to: 'users#archive', as: :archive_user
   resources :users
+
   resources :materials
   
   get 'invoices/archive', to: 'invoices#archive'
@@ -26,7 +30,6 @@ Rails.application.routes.draw do
   end
 
   # get 'completed', to: 'tasks#completed', as: :completed_tasks
-
   # get '/invoices/:id/pdf', to: 'invoices#set_pdf', as: 'invoice_set_pdf'
 
   

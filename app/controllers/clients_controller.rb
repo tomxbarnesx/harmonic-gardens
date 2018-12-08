@@ -33,6 +33,40 @@ class ClientsController < ApplicationController
         end
     end
 
+    def archive
+        @client = Client.find(params[:id])
+
+        if @client.is_active == true
+            respond_to do |format|
+                if @client.update_attribute(:is_active, false)
+                    flash.now[:notice] = 'Client archived successfully'
+                    format.html { redirect to clients_path, notice: "Client archived succesfully"}
+                    format.js {}
+                else
+                    flash.now[:error] = "Error archiving client"
+                    format.html { redirect_to clients_path, error: "Error achiving client"}
+                    format.js {}
+                end
+            end
+        else
+            respond_to do |format|
+                if @client.update_attribute(:is_active, true)
+                    flash.now[:notice] = "Client unarchived successfully"
+                    format.html { redirect_to clients_path, notice: "Client archived succesfully"}
+                    format.js {}
+                else
+                    flash.now[:error] = "Error unarchiving invoice"
+                    format.html { redirect_to clients_path, error: "Error achiving client"}
+                    format.js {}
+                end
+            end
+        end
+    end
+
+    def archived
+        @clients = Client.where(is_active: false)
+    end
+
     def update
         @client = Client.find(params[:id])
 
@@ -63,11 +97,11 @@ class ClientsController < ApplicationController
 private
 
     def all_clients
-        @clients = Client.all
+        @clients = Client.where(is_active: true)
     end
     
     def client_params
-        params.require(:client).permit(:first_name, :last_name, :address, :email, :active, :home_phone, :cell_phone, :house_pic);
+        params.require(:client).permit(:first_name, :last_name, :address, :email, :active, :home_phone, :cell_phone, :house_pic, :is_active);
     end
 
 end
