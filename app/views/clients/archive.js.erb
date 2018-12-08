@@ -1,0 +1,7 @@
+if (document.getElementById("client-<%= @client.id %>")) {
+    $('#client-<%= @client.id %>').fadeOut(250);
+} else {
+    $(window.location.replace("/clients"))
+}
+
+$('#flash').html('<%= j render partial: "layouts/flash_messages" %>');

@@ -38,6 +38,11 @@ table.dataTable tbody th, table.dataTable tbody td {
     font-size: 90%;
 }
 
+.options-col {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 //CLOSE BAR FIX
 
 .close-x {

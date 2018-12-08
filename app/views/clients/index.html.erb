@@ -8,5 +8,5 @@
 
 <div id="client-list-div">
     <%= render partial: "client_list", locals: {clients: @clients} %>
+    <%= link_to 'View Archives', archived_clients_path, class: "btn btn-warning mb-3 ml-3" %>
 </div>
-<%= link_to 'View Archives', archived_clients_path, class: "btn btn dark mb-3 ml-3" %>

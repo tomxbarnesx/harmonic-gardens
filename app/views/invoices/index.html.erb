@@ -9,7 +9,7 @@
             <th class="hide-table-col">Address</th>
             <th>Created</th>
             <th class="hide-table-col">Current Total</th>
-            <th class="center-col">Options</th>
+            <th class="options-col center-col"></th>
         </thead>
         <tbody>
             <%= render 'active_invoices'%>
@@ -17,5 +17,5 @@
     </table>
 </div>
 <br>
-<%= link_to 'View Archives', invoices_archive_path, class: "btn btn-dark ml-3" %>
+<%= link_to 'View Archives', invoices_archive_path, class: "btn btn-warning ml-3" %>
             

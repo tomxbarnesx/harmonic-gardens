@@ -8,5 +8,5 @@
 
 <div id="user-list-div">
     <%= render partial: "user_list", locals: {users: @users} %>
+    <%= link_to 'View Archives', archived_users_path, class: "btn btn-warning mb-3 ml-3" %>
 </div>
-<%= link_to 'View Archives', archived_users_path, class: "btn btn-dark mb-3 ml-3" %>

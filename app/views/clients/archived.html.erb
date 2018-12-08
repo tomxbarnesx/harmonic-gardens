@@ -1,0 +1,8 @@
+<div class="client-user-header mt-md-3">
+    <h2>Clients Archive</h2>
+    <%= link_to 'Back to Clients', clients_path, class: "btn btn-dark" %>
+</div>
+
+<div id="client-list-div">
+    <%= render partial: "archive_client_list", locals: {clients: @clients} %>
+</div>
