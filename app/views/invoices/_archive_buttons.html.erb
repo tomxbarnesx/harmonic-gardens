@@ -1,3 +1,3 @@
 <%= link_to 'Add Date', new_invoice_invoice_date_path(@invoice), remote:true, class: "btn btn-success", id: "add-button-target" %>
-<a href="/invoices/<%=@invoice.id%>.pdf" target="_blank" class="btn btn-danger ml-2">Generate PDF</a>
+<a href="/invoices/<%=@invoice.id%>.pdf" target="_blank" class="btn btn-danger ml-2">Finalize + PDF</a>
 <%= link_to 'Archive <i class="fas fa-folder-minus"></i>'.html_safe, invoice_path(@invoice), class: "btn btn-secondary ml-2", remote: true, method: :patch, data: { confirm: 'Are you sure you want to archive this record?' } %>

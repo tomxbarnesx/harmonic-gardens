@@ -4,7 +4,7 @@
         <td class="hide-table-col"><%= i.client.address %></td>
         <td><%= i.created_at.strftime("%m-%d-%Y") %></td>
         <td class="hide-table-col">$ <%= i.current_total %></td>
-        <td class="options-col center-col"><%= link_to '<i class="far fa-eye"></i>'.html_safe, invoice_path(i), class: "btn btn-sm btn-dark" %> | 
+        <td class="options-col center-col"><%= link_to '<i class="fas fa-edit"></i>'.html_safe, invoice_path(i), class: "btn btn-sm btn-dark" %> | 
         <span class="hide-table-col"><%= link_to '<i class="fas fa-folder-minus"></i>'.html_safe, invoice_path(i), class: "btn btn-sm btn-warning", remote: true, method: :patch, data: { confirm: 'Are you sure you want to archive this record?' } %> | </span> 
         <%= link_to 'X', invoice_path(i),
               method: :delete, remote:true,

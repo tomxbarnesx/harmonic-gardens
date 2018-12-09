@@ -11,6 +11,9 @@
             <strong>Date: </strong><%= @invoice.created_at.strftime("%m-%d-%Y") %></p>
         </div>
     </div>
+    <div class="mt-md-3">
+        <p class="mb-md-0"><em><%= @invoice.master_desc %></em></p>
+    </div>
 </div>
 <div class="bg-white">
     <div class="description-header">
@@ -18,7 +21,7 @@
     </div>
     <div class="invoice-date-master col-md-10 m-md-auto">
         <%= render partial: 'invoice_dates/invoice_date', collection: @invoice_dates %>
-        <div id="ender_buttons" class="row no-gutter mb-3 mt-3">
+        <div id="ender_buttons" class="row no-gutter mb-3 mt-3 mx-auto">
             <%= invoice_enders %>
         </div>
     </div>

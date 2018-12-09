@@ -14,7 +14,7 @@
             <%= form.check_box :override, id: "override-check", onclick: "checkFunction()", value: "true" %>
         <% end %>
         <%= form_group_for form, :cost, label: false do %>
-            <%= form.number_field :cost, placeholder: "Item Cost", class: "form-control form-control-sm", id: "cost-field", style: "display: none;" %>
+            <%= form.number_field :cost, placeholder: "Item Cost", step: 0.01, class: "form-control form-control-sm", id: "cost-field", style: "display: none;" %>
         <% end %>
         <div><%= form.hidden_field :invoice_date_id, :value => @invoice_date.id %></div>
         <%= form.submit "Submit", :id=>'material-date-submit', class: "btn btn-sm btn-dark mt-2" %>
