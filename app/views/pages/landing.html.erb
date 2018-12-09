@@ -1,56 +1,56 @@
 <div id="landing-options" class="d-flex flex-column align-items-center">
-    <h2 class="greeting mt-3 mt-md-4 boostrap-landing-override">Welcome, <%= @user.full_name %></h2>
+    <h2 class="greeting mt-3 p-1 text-center mt-md-4 boostrap-landing-override">Welcome, <%= @user.full_name %></h2>
     <div class="container row landing-container d-flex justify-content-around">
         <div class="col-md-3 mx-md-2 col-5">
-            <div class="landing-img">
+            <div class="landing-img mx-auto">
                 <a href="/shifts">
                 <%= image_tag("calendar2.png", alt: "Calendar icon", id: "calendar-icon", class: "img-sizing") %>
                 </a>
-                <a href="/shifts"><h4 class="boostrap-landing-override">Log Hours</h4></a>
+                <a href="/shifts"><h6 class="boostrap-landing-override landing-tag">Log Hours</h6></a>
             </div>
         </div>
 
         <div class="col-md-3 col-5">
-            <div class="landing-img">
+            <div class="landing-img mx-auto">
                 <a href="/users/<%= @user.id %>">
                 <%= image_tag("profile.png", alt: "Profile icon", id: "calendar-icon", class: "img-sizing") %>
                 </a>
-                <a href="/users/<%= @user.id %>"><h4 class="boostrap-landing-override">My Profile</h4></a>
+                <a href="/users/<%= @user.id %>"><h6 class="boostrap-landing-override landing-tag">My Profile</h6></a>
             </div>
         </div>
 
         <% if policy(@user).index? %>
         
         <div class="col-md-3 col-5">
-            <div class="landing-img">
+            <div class="landing-img mx-auto">
                 <a href="/invoices">
                 <%= image_tag("invoice-icon2.png", alt: "Invoice icon", class: "img-sizing") %>
                 </a>
-                <a href="/invoices"><h4 class="boostrap-landing-override">Invoices</h4></a>
+                <a href="/invoices"><h6 class="boostrap-landing-override landing-tag">Invoices</h6></a>
             </div>
         </div>
         <div class="col-md-3 col-5">
-            <div class="landing-img">
+            <div class="landing-img mx-auto">
                 <a href="/users">
                 <%= image_tag("abstract-user-flat-2.svg", alt: "User icon", class: "img-sizing") %>
                 </a>
-                <a href="/users"><h4 class="boostrap-landing-override">Users</h4></a>
+                <a href="/users"><h6 class="boostrap-landing-override landing-tag">Users</h6></a>
             </div>
         </div>
         <div class="col-md-3 col-5">
-            <div class="landing-img">
+            <div class="landing-img mx-auto">
                 <a href="/clients">
                 <%= image_tag("client.png", alt: "Clients icon", class: "img-sizing") %>
                 </a>
-                <a href="/clients"><h4 class="boostrap-landing-override">Clients</h4></a>
+                <a href="/clients"><h6 class="boostrap-landing-override landing-tag">Clients</h6></a>
             </div>
         </div>
         <div class="col-md-3 col-5">
-            <div class="landing-img">
+            <div class="landing-img mx-auto">
                 <a href="/materials">
                 <%= image_tag("materials.svg", alt: "Materials icon", class: "img-sizing") %>
                 </a>
-                <a href="/materials"><h4 class="boostrap-landing-override">Materials</h4></a>
+                <a href="/materials"><h6 class="boostrap-landing-override landing-tag">Materials</h6></a>
             </div>
         </div>
         <%end%>

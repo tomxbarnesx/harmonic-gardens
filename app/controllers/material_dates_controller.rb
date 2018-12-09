@@ -32,7 +32,7 @@ class MaterialDatesController < ApplicationController
 private
 
     def material_date_params
-        params.require(:material_date).permit(:material_id, :invoice_date_id, :quantity, :override, :cost);
+        params.require(:material_date).permit(:material_id, :invoice_date_id, :quantity, :override, :cost, :tax);
     end
 
 end

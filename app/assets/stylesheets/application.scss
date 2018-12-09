@@ -54,3 +54,9 @@ table.dataTable tbody th, table.dataTable tbody td {
     text-shadow: 0 1px 0 #fff;
     opacity: .5;
 }
+
+@media (max-width: 991.98px){
+    .logout-button {
+        width: 7em !important;
+    }
+}

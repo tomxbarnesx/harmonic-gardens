@@ -1,16 +1,28 @@
 <div id="active-material-attach">
     <div class="close-container"><a class="close-x">&times;</a></div>
     <%= form_for [@invoice_date, @material_date], remote: true do |form| %>
+
+        <% if @material_date.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">        
+            <% @material_date.errors.full_messages.each do |msg| %>
+            <p><%= msg %></p>
+            <% end %>
+            </ul>
+        </div>
+        <% end %>
+
         <%= form_group_for form, :material_date, label: false do %>
             <label>Item: </label>
-            <%= collection_select(:material_date, :material_id, Material.order(name: :asc), :id, :name, {}, {:class=>'form-control form-control-sm'})  %>
+            <%= form.collection_select(:material_id, Material.order(name: :asc), :id, :name, {}, {:class=>'form-control form-control-sm'})  %>
         <% end %>
         <%= form_group_for form, :quantity, label: false do %>
             <label>Quantity: </label>
             <%= form.number_field :quantity, placeholder: "Quantity", class: "form-control form-control-sm"  %>
         <% end %>
         <%= form_group_for form, :override, label: false do %>
-            <label>Override?</label>
+            <label>Tax?</label>
+            <%= form.check_box :tax, id: "tax-check", value: "true" %>
+            <label class="ml-1">Override?</label>
             <%= form.check_box :override, id: "override-check", onclick: "checkFunction()", value: "true" %>
         <% end %>
         <%= form_group_for form, :cost, label: false do %>

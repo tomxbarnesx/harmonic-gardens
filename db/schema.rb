@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2018_12_08_224643) do
     t.datetime "updated_at", null: false
     t.decimal "cost", precision: 10, scale: 2
     t.boolean "override", default: false
+    t.boolean "tax", default: false
   end
 
   create_table "materials", force: :cascade do |t|
