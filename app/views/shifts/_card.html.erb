@@ -14,11 +14,7 @@
     <%= link_to 'Delete', shift_path, method: :delete, class: "btn btn-sm btn-danger" %>
   </div>
   <div class="shift-image-container">
-    <% if @shift.client.house_pic.attached? %>
-      <%= image_tag @shift.client.house_pic, options = {width: "100%"} %>
-    <% else %>
-      <%= image_tag "home_placeholder.png", options = {width: "100%"} %>
-    <% end %>
+    <%= shift_house_pic_choice %>
   </div>
 </div>
 

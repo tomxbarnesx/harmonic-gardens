@@ -12,4 +12,12 @@ module ShiftsHelper
         end
     end
 
+    def shift_house_pic_choice
+        if @shift.client.house_pic.attached?
+            return (image_tag @shift.client.house_pic, options = {width: "100%"})
+        else
+            return (image_tag "home_placeholder.jpg", options = {width: "100%", class: "house-pic-container"})
+        end
+    end
+
 end
