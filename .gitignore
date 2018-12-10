@@ -28,4 +28,3 @@
 
 # Ignore application configuration
 /config/application.yml
-/db/seeds.rb
