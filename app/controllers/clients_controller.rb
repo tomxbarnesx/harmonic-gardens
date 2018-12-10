@@ -101,7 +101,7 @@ private
     end
     
     def client_params
-        params.require(:client).permit(:first_name, :last_name, :address, :email, :active, :home_phone, :cell_phone, :house_pic, :is_active);
+        params.require(:client).permit(:first_name, :last_name, :address, :email, :home_phone, :cell_phone, :house_pic, :is_active);
     end
 
 end
