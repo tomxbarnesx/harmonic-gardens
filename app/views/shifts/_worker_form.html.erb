@@ -1,7 +1,7 @@
 <%= form_for @shift, remote: true do |form| %>
     <div class="form-group">
         <label>Client: </label>
-        <%= collection_select(:shift, :client_id, Client.where(is_active: true).order('last_name ASC'), :id, :full_name, {}, {:class=>'form-control'}) %>
+        <%= collection_select(:shift, :client_id, client_shift_attach, :id, :full_name, {}, {:class=>'form-control'}) %>
     </div>
     <%= form.hidden_field :user_id, value: current_user.id %>
     <div class="form-group">

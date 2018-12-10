@@ -22,20 +22,8 @@ module ApplicationHelper
         end
     end
 
-    def profile_edits
-        if current_user.role == "Worker"
-            render partial: 'users/worker_edit'
-        else
-            render partial: 'users/foreman_edit'
-        end
-    end
-
-    def shift_create_access
-        if current_user.role == "Worker"
-            render partial: 'shifts/worker_form'
-        else
-            render partial: 'shifts/foreman_form'
-        end
+    def client_shift_attach
+        Client.where(is_active: true).order('last_name ASC')
     end
 
 end
