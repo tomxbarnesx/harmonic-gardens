@@ -16,6 +16,9 @@ $(document).ready( function () {
         "bLengthChange": false,
         columnDefs: [
             { orderable: false, targets: -1 },
-         ]
+         ],
+        "initComplete": function(){ 
+            $("#datatable").show(); 
+            }
     } );
 } );

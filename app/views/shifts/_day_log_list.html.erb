@@ -1,4 +1,4 @@
-<table class="table" id="datatable">
+<table class="display table" id="datatable">
     <thead>
         <tr>
             <th>Worker</th>
@@ -13,7 +13,7 @@
                 <td><%= s.user.initials %></td>
                 <td><%= s.client.abbrv_name %></td>
                 <td><%= s.time_elapsed %></td>
-                <td><%= link_to '<i class="far fa-eye"></i>'.html_safe, shift_path(s.id), remote: true, class: "btn btn-sm btn-dark" %> 
+                <td><%= link_to '<i class="far fa-eye"></i>'.html_safe, shift_path(s.id), remote: true, class: "btn btn-sm btn-dark" %> | 
                 <%= link_to 'X', shift_path(s.id), method: :delete, data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger double-btn" %></td>
             </tr>
         <% end %>

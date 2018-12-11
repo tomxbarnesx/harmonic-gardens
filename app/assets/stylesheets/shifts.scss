@@ -102,7 +102,6 @@
 }
 
 #add-form {
-    width: 96%;
     padding: 4% 3%;
     margin: 0 auto;
     border: 1px solid rgba(0, 0, 0, 0.125);
@@ -156,7 +155,6 @@
         
     }
     .table th, .table td {
-        // height: 5em;
         text-align: center;
         vertical-align: middle !important;
         font-size: 125%;
@@ -171,12 +169,7 @@
         margin-top: 1em;
 
         .shift-image-container {
-            margin-top: 4em;
-
-            // .placeholder-container {
-            //     display: flex;
-            //     justify-content: center;
-            // }
+            margin-top: 4em !important;
         }
 
     }
