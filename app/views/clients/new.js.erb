@@ -4,7 +4,7 @@ $('#flash').html('<%= j render partial: "layouts/flash_messages"%>');
 $("#client-add").html("<%= j (render 'form') %>");
 $("#close-div").trigger("create")
 
-$(document).on("click", ".close-x", function(){
+$(document).on("touchend click", ".close-x", function(){
     $('.client-user-header').show()
     $('#client-list-div').show()
     $("#client-add").empty()

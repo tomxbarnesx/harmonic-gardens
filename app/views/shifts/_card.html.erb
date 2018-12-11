@@ -1,6 +1,6 @@
 <div class="shift-card">
   <div class="shift-card-body align-middle">
-    <div class="close-container" id="close-tab">&times;</div>
+    <div class="close-container"><a class="close-x">&times;</a></div>
     <p class="card-title"><span class="date-code"><%= @shift.start_time.strftime("%m/%d") %></span> <%= @shift.user.full_name%></p>
     <hr class="my-2">
     <p class="card-text"><strong>Client: </strong><%= @shift.client.full_name %><br>

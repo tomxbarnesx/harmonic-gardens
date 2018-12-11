@@ -1,9 +1,7 @@
 $("#day-log-container").hide();
 $("#add-form").html("<%= j (render 'card') %>").show();
 
-var close = document.getElementById("close-tab");
-
-close.addEventListener("click", function(){
+$(document).on("touchend click", ".close-x", function(){
     $("#add-form").empty().css("display", "none");
     $("#day-log-container").show();
-})
+});
