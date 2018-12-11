@@ -64,6 +64,10 @@ table.dataTable tbody th, table.dataTable tbody td {
     opacity: .5;
 }
 
+.close-container {
+    height: 2em;
+}
+
 @media (max-width: 991.98px){
     .logout-button {
         width: 7em !important;
