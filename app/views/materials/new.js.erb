@@ -1,7 +1,7 @@
 $('#flash').html('<%= j render partial: "layouts/flash_messages"%>');
 $("#materials-add").html("<%= j (render 'materials_form') %>");
 
-$(document).on("click", ".close-x", function(){
+$(document).on("mousedown", ".close-x", function(){
     $("#materials-add").empty();
     $("#materials-container").show();
 });
