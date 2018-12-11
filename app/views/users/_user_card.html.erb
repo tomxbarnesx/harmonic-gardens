@@ -5,9 +5,11 @@
 <p><strong>Primary Phone:</strong> <%= number_to_phone(@user.phone_number, area_code: true) %></p>
 <p><strong>Hourly Rate:</strong> $<%= @user.hourly_rate %>/hour</p>
 
-<% if policy(@user).destroy? %>
+<% if policy(@user).admin_edit? %>
 <p><strong>Access:</strong> <%= @user.role %></p>
 <%= link_to 'Edit Info', edit_user_path(@user), remote: true, class: 'btn btn-sm btn-dark'%>
+<% end %>
+<% if policy(@user).destroy? %>
 <%= link_to 'Delete', user_path(@user),
             method: :delete,
             data: { confirm: 'Are you sure? This cannot be reversed.' }, class: 'btn btn-sm btn-danger' %>
