@@ -1,5 +1,5 @@
 <div id="active-material-attach" class="active-mat mx-auto mt-3">
-    <div class="close-container"><a class="close-x">&times;</a></div>
+    <div id="close-div" class="close-container"><a class="close-x">&times;</a></div>
     <h3>Add New</h3>
     <%= form_for @material, remote: true do |form| %>
         <%= form_group_for form, :name, label: false do %>
