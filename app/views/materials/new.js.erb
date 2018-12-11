@@ -1,7 +1,14 @@
 $('#flash').html('<%= j render partial: "layouts/flash_messages"%>');
 $("#materials-add").html("<%= j (render 'materials_form') %>");
 
-$(document).on("click touchstart", ".close-x", function(){
-    $("#materials-add").empty();
-    $("#materials-container").show();
+$(document).on("touchstart click", ".close-x", function(e){
+    e.preventDefault();
+
+    if(e.type == "touchstart") {
+        $("#materials-add").empty();
+        $("#materials-container").show();
+    } else if(e.type == "click") {
+        $("#materials-add").empty();
+        $("#materials-container").show();
+    }
 });
