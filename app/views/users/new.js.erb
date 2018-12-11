@@ -2,3 +2,9 @@ $('.client-user-header').hide()
 $('#user-list-div').hide()
 $('#flash').html('<%= j render partial: "layouts/flash_messages"%>');
 $("#user-add").html("<%= j (render 'add') %>");
+
+$(document).on("touchend click", ".close-x", function(){
+    $('.client-user-header').show()
+    $('#user-list-div').show()
+    $("#user-add").empty()
+});

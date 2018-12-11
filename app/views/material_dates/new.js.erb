@@ -3,7 +3,7 @@ $(".material-add-btn").hide();
 $("#invoice-material-form-<%= @invoice_date.id %>").html("<%= j (render 'material_date_form') %>");
 $('#flash').html('<%= j render partial: "layouts/flash_messages" %>');
 
-$(document).on("click", ".close-x", function(){
+$(document).on("touchend click", ".close-x", function(){
     $("#invoice-material-form-<%=@invoice_date.id%>").empty();
     $("#invoice-material-listings-<%= @invoice_date.id %>").show();
     $(".material-add-btn").show();

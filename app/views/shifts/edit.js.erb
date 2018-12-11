@@ -1,6 +1,6 @@
 $("#add-form").html("<%= j (render 'edit') %>")
 $("#shift-card-container").empty();
 
-$(document).on("click", ".close-x", function(){
+$(document).on("touchend click", ".close-x", function(){
     $("#add-form").html("<%= j (render 'card') %>")
 });

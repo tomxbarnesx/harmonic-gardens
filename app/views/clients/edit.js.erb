@@ -2,7 +2,7 @@ $('.invoice-block').hide();
 $(".id-card").html("<%= j (render 'edit') %>");
 $('#flash').html('<%= j render partial: "layouts/flash_messages"%>');
 
-$(document).on("click", ".close-x", function(){
+$(document).on("touchend click", ".close-x", function(){
     $(".id-card").html("<%= j (render 'client_card') %>");
     $('.invoice-block').show();
 });
