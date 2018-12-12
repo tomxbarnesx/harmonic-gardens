@@ -6,5 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(username: "admin", first_name: "Harmonic", last_name: "Admin", email: "harmonicgardensad@gmail.com", role: "Admin", hourly_rate: "1", password: "password", phone_number: "2032735191");
-User.create(username: "xtbxadmin", first_name: "Super", last_name: "Admin", email: "barnes.thomas.c@gmail.com", role: "Admin", hourly_rate:"1", password:"password", phone_number:"2035640219");
+User.create(username: "admin", first_name: "Harmonic", last_name: "Admin", email: "harmonictest@test.com", role: "Admin", hourly_rate: "1", password: "password", phone_number: "5555555555");
+User.create(username: "xtbxadmin", first_name: "Super", last_name: "Admin", email: "admin2@test.com", role: "Admin", hourly_rate:"1", password:"password", phone_number:"5555555555");
