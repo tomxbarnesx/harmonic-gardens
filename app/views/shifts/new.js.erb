@@ -1,13 +1,14 @@
 $('#flash').html('<%= j render partial: "layouts/flash_messages" %>');
 
 <%# Set and display the FORM %>
-var form = document.getElementById('add-form');
 
+var form = document.getElementById('add-form');
 $("#calendar-container").hide();
 $("#day-log-container").hide();
 $("#add-form").append("<%= j (render 'form') %>");
 
 <%# Set its values. These need to stay here %>
+
 var startTime = document.getElementById('start_time');
 var endTime = document.getElementById('end_time');
 date = sessionStorage.getItem("date");
