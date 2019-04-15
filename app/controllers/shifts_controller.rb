@@ -18,6 +18,7 @@ class ShiftsController < ApplicationController
 
         if current_user.role == "Admin" || current_user.role == "Foreman"
             @shifts = Shift.where(start_time: date.all_day)
+            @material_dates = MaterialDate.where(date: date.all_day)
         else
             @shifts = Shift.where(start_time: date.all_day).where(user_id: current_user.id)
         end

@@ -6,8 +6,14 @@ class MaterialDatesController < ApplicationController
     end
 
     def new
-        @invoice_date = InvoiceDate.find(params[:invoice_date_id])
+        # @invoice_date = InvoiceDate.find(params[:invoice_date_id])
+        @materials = Material.order('')
         @material_date = MaterialDate.new
+    end
+
+    def new
+        @shift = Shift.new
+        @users = User.order('last_name ASC')
     end
 
     def create

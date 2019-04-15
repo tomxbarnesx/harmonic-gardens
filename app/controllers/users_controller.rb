@@ -8,13 +8,13 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
 
-        if @user.earnings_calculator("week") != nil
-            @weekly_calc = @user.earnings_calculator("week")
-            @monthly_calc = @user.earnings_calculator("month")   
-        else
-            @weekly_calc = 0
-            @monthly_calc = 0
-        end         
+        # if @user.earnings_calculator("week") != nil
+        #     @weekly_calc = @user.earnings_calculator("week")
+        #     @monthly_calc = @user.earnings_calculator("month")   
+        # else
+        #     @weekly_calc = 0
+        #     @monthly_calc = 0
+        # end         
 
         authorize @user
     end

@@ -7,6 +7,12 @@ $("#day-log-container").empty();
     $("#day-log-container").append("<%= j (render 'day_log_list_none') %>")
 <% end %>
 
+<% if @material_dates.length >= 1 %>
+    $("#day-log-container").append("<%= j (render 'day_materials_list') %>")
+<% else %>
+    $("#day-log-container").append("<%= j (render 'day_materials_list_none') %>")
+<% end %>
+
 $("#day-log-container").css("display", "block");
 
 $(document).ready( function () {
@@ -19,6 +25,20 @@ $(document).ready( function () {
          ],
         "initComplete": function(){ 
             $("#datatable").show(); 
+            }
+    } );
+} );
+
+$(document).ready( function () {
+    $('#datatable2').DataTable( {
+        "paging": false,
+        "info": false,
+        "bLengthChange": false,
+        columnDefs: [
+            { orderable: false, targets: -1 },
+         ],
+        "initComplete": function(){ 
+            $("#datatable2").show(); 
             }
     } );
 } );
