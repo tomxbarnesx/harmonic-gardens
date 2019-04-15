@@ -10,7 +10,6 @@ class User < ApplicationRecord
 
 
   validates_uniqueness_of :username, message: "Username already taken."
-
   validates_presence_of :first_name, message: "Enter a first name."
   validates_presence_of :last_name, message: "Enter a last name."
   validates_presence_of :username, message: "Enter a username."

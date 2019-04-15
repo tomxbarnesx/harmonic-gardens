@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_08_224643) do
+ActiveRecord::Schema.define(version: 2019_04_15_000126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,13 +68,14 @@ ActiveRecord::Schema.define(version: 2018_12_08_224643) do
 
   create_table "material_dates", force: :cascade do |t|
     t.integer "material_id"
-    t.integer "invoice_date_id"
+    t.integer "client_id"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "cost", precision: 10, scale: 2
-    t.boolean "override", default: false
     t.boolean "tax", default: false
+    t.decimal "charge", precision: 10, scale: 2
+    t.date "date"
   end
 
   create_table "materials", force: :cascade do |t|
@@ -92,13 +93,13 @@ ActiveRecord::Schema.define(version: 2018_12_08_224643) do
   end
 
   create_table "shifts", force: :cascade do |t|
-    t.integer "user_id"
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "earned", precision: 10, scale: 2
+    t.integer "employee_count"
   end
 
   create_table "users", force: :cascade do |t|
