@@ -20,12 +20,13 @@ Rails.application.routes.draw do
   resources :users
 
   resources :materials
+  resources :material_dates
   
   get 'invoices/archive', to: 'invoices#archive'
   resources :invoices do
     resources :invoice_dates, shallow: true do 
       resources :shift_dates
-      resources :material_dates
+      # resources :material_dates
     end
   end
 

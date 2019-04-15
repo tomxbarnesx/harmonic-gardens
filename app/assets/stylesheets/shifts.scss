@@ -11,6 +11,8 @@
 
 #day-log-container {
     margin: .1em auto;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .double-btn {

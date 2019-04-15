@@ -1,26 +1,26 @@
 class MaterialDatesController < ApplicationController
     before_action :authenticate_user!
     def show
-        @invoice = Invoice.find(params[:id])
-        @invoice_dates = @invoice.invoice_dates
+        # @invoice = Invoice.find(params[:id])
+        # @invoice_dates = @invoice.invoice_dates
     end
 
     def new
         # @invoice_date = InvoiceDate.find(params[:invoice_date_id])
-        @materials = Material.order('')
+        @clients = Client.order(:address)
+        @materials = Material.order('name ASC')
         @material_date = MaterialDate.new
     end
 
-    def new
-        @shift = Shift.new
-        @users = User.order('last_name ASC')
-    end
-
     def create
-        @material_date = MaterialDate.price_set_create(material_date_params)
-        @invoice_date = InvoiceDate.find(params[:invoice_date_id])
+        @client = material_date_params["client_id"]
+        @date = material_date_params["date"]
 
-        if @material_date.save
+        params["materials"].each do |key, value|
+            MaterialDate.multi_create(nested_material_params(value), @client, @date)
+        end
+
+        if $material_date.save
             flash.now[:notice] = "Material added successfully"
         else
             flash.now[:error] = "Error adding your material"
@@ -30,7 +30,6 @@ class MaterialDatesController < ApplicationController
 
     def destroy
         @material_date = MaterialDate.find(params[:id])
-        @invoice_date = @material_date.invoice_date
         @material_date.destroy
         flash.now[:notice] = "Materials successfully deleted"
     end
@@ -38,7 +37,11 @@ class MaterialDatesController < ApplicationController
 private
 
     def material_date_params
-        params.require(:material_date).permit(:material_id, :invoice_date_id, :quantity, :override, :cost, :tax);
+        params.require(:material_date).permit(:material_id, :client_id, :quantity, :date, :cost, :tax, :materials);
+    end
+
+    def nested_material_params(my_params)
+        my_params.permit(:quantity, :material_id, :cost, :charge)
     end
 
 end

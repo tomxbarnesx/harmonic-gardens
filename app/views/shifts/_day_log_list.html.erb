@@ -1,21 +1,24 @@
-<table class="display table" id="datatable2">
-    <thead>
-        <tr>
-            <th>Worker</th>
-            <th>Client</th>
-            <th>Hours</th>
-            <th><%= link_to 'Add +', new_shift_path, remote: true, class: "btn btn-sm btn-success float-right" %></th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @shifts.each do |s| %>
-            <tr id='day-log-shift-<%= s.id %>'>
-                <td><%= s.user.initials %></td>
-                <td><%= s.client.abbrv_name %></td>
-                <td><%= s.time_elapsed %></td>
-                <td><%= link_to '<i class="far fa-eye"></i>'.html_safe, shift_path(s.id), remote: true, class: "btn btn-sm btn-dark" %> | 
-                <%= link_to 'X', shift_path(s.id), method: :delete, data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger double-btn" %></td>
+<div>
+    <h3> Materials </h3>
+    <table class="display table" id="datatable2">
+        <thead>
+            <tr>
+                <th>Worker</th>
+                <th>Client</th>
+                <th>Hours</th>
+                <th><%= link_to 'Add +', new_shift_path, remote: true, class: "btn btn-sm btn-success float-right" %></th>
             </tr>
-        <% end %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <% @shifts.each do |s| %>
+                <tr id='day-log-shift-<%= s.id %>'>
+                    <td><%= s.user.initials %></td>
+                    <td><%= s.client.abbrv_name %></td>
+                    <td><%= s.time_elapsed %></td>
+                    <td><%= link_to '<i class="far fa-eye"></i>'.html_safe, shift_path(s.id), remote: true, class: "btn btn-sm btn-dark" %> | 
+                    <%= link_to 'X', shift_path(s.id), method: :delete, data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger double-btn" %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

@@ -23,7 +23,7 @@ module ApplicationHelper
     end
 
     def client_shift_attach
-        Client.where(is_active: true).order('last_name ASC')
+        Client.where(is_active: true).order('address ASC')
     end
 
 end

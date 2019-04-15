@@ -26,7 +26,7 @@ class ShiftsController < ApplicationController
 
     def new
         @shift = Shift.new
-        @users = User.order('last_name ASC')
+        @users = User.order('address ASC')
     end
 
     def edit

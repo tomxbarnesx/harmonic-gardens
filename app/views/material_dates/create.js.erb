@@ -1,7 +1,3 @@
-$("#active-material-attach").remove();
-$("#tbody-material-<%= @material_date.invoice_date.id%>-total").before("<%= j render 'invoice_dates/material_date_instant', mat_date: @material_date %>");
-$("#tbody-material-<%= @material_date.invoice_date.id%>-total").empty().append("<%= j (render "invoice_dates/material_date", invoice_date: @invoice_date) %>");
-$("#tbody-daily-total-<%= @material_date.invoice_date.id%>").empty().append("<%= j (render "invoice_dates/daily_total", invoice_date: @invoice_date) %>");
-$("#invoice-material-listings-<%= @material_date.invoice_date.id %>").show();
-$(".material-add-btn").show();
+$("#add-form").empty().hide();
+$("#calendar-container").show();
 $('#flash').html('<%= j render partial: "layouts/flash_messages" %>');

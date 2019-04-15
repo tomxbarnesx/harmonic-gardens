@@ -1,23 +1,25 @@
-<table class="display table" id="datatable">
-    <thead>
-        <tr>
-            <th>Material</th>
-            <th>Quantity</th>
-            <th>Cost</th>
-            <th>Charge</th>
-            <th><%= link_to 'Add +', new_shift_path, remote: true, class: "btn btn-sm btn-success float-right" %></th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @material_dates.each do |m| %>
-            <tr id='day-log-material-<%= s.id %>'>
-                <td><%= m.name %></td>
-                <td><%= m.quantity %></td>
-                <td><%= m.cost %></td>
-                <td><%= m.charge %></td>
-                <td><%= link_to '<i class="far fa-eye"></i>'.html_safe, shift_path(s.id), remote: true, class: "btn btn-sm btn-dark" %> | 
-                <%= link_to 'X', shift_path(s.id), method: :delete, data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger double-btn" %></td>
+<div>
+    <h3> Materials </h3>
+    <table class="display table" id="datatable2">
+        <thead>
+            <tr>
+                <th>Material</th>
+                <th>Quantity</th>
+                <th>Cost/Per</th>
+                <th>Charge</th>
+                <th><%= link_to 'Add +', new_material_date_path, remote: true, class: "btn btn-sm btn-success float-right" %></th>
             </tr>
-        <% end %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <% @material_dates.each do |m| %>
+                <tr id='day-log-material-<%= m.id %>'>
+                    <td><%= m.material.name %></td>
+                    <td><%= m.quantity %></td>
+                    <td><%= m.cost %></td>
+                    <td><%= m.charge %></td>
+                    <td><%= link_to 'X', material_date_path(m.id), method: :delete, remote: true, data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger double-btn" %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

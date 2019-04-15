@@ -1,12 +1,15 @@
-<table class="table">
-    <thead>
-        <th>Client</th>
-        <th>Worker</th>
-        <th>Hours</th>
-        <th><%= link_to 'Add +', new_shift_path, remote: true, class: "btn btn-sm btn-success float-right" %></th>
-    </thead>
-</table>
+<div>
+    <h3> Shifts </h3>
+    <table class="table">
+        <thead>
+            <th>Client</th>
+            <th>Worker</th>
+            <th>Hours</th>
+            <th><%= link_to 'Add +', new_shift_path, remote: true, class: "btn btn-sm btn-success float-right" %></th>
+        </thead>
+    </table>
 
-<div class="none-message">
-    <p> There's nothing here.<br>Add a shift.</p>
+    <div class="none-message">
+        <p> There's nothing here.<br>Add a shift.</p>
+    </div>
 </div>

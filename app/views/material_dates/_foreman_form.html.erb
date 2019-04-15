@@ -1,0 +1,21 @@
+<%= form_for @material_date, remote: true do |form| %>
+    <div class="form-group">
+        <label>Client</label>
+        <%= collection_select(:material_date, :client_id, client_shift_attach, :id, :address, {}, {:class=>'form-control'}) %>
+    </div>
+    <%= form.hidden_field :date, id: "date-hidden" %>
+    <%# render partial: "material_sub", collection: @materials, as: :material %>
+    <div class="form-group row">
+        <h6 class="col-sm-3">Name</h6>
+        <h6 class="col-sm-3">Quantity</h6>
+    </div>
+    <% @materials.each do |m| %>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label"><%= m.name %></label>
+            <input step="any" name="materials[<%=@materials.index(m)%>][quantity]" id="material-<%=m.id%>-quantity" class="form-control col-sm-2 mx-3">
+            <input type="hidden" name="materials[<%=@materials.index(m)%>][material_id]" id="material-<%=m.id%>-id" value="<%=m.id%>">
+            <%# form.number_field name: [m.id][quantity], id: "material-#{m.id}-quantity", class: "form-control col-sm-4" %>
+        </div>
+    <% end %>
+    <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-dark" %>
+<% end %>
