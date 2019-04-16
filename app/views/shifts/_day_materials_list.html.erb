@@ -1,23 +1,21 @@
-<div>
+<div class="pt-3">
     <h3> Materials </h3>
     <table class="display table" id="datatable2">
         <thead>
             <tr>
-                <th>Material</th>
-                <th>Quantity</th>
-                <th>Cost/Per</th>
-                <th>Charge</th>
+                <th>Client</th>
+                <th>Total Cost</th>
+                <th>Total Charge</th>
                 <th><%= link_to 'Add +', new_material_date_path, remote: true, class: "btn btn-sm btn-success float-right" %></th>
             </tr>
         </thead>
         <tbody>
-            <% @material_dates.each do |m| %>
-                <tr id='day-log-material-<%= m.id %>'>
-                    <td><%= m.material.name %></td>
-                    <td><%= m.quantity %></td>
-                    <td><%= m.cost %></td>
-                    <td><%= m.charge %></td>
-                    <td><%= link_to 'X', material_date_path(m.id), method: :delete, remote: true, data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger double-btn" %></td>
+            <% @client_materials.each do |m| %>
+                <tr>
+                    <td><%= m[:client_address] %></td>
+                    <td><%= number_to_currency(m[:total_cost]) %></td>
+                    <td><%= number_to_currency(m[:total_charge]) %></td>
+                    <td><%= link_to '<i class="far fa-eye"></i>'.html_safe, material_date_path(m[:client_id]), remote: true, class: "btn tablebtn btn-sm btn-dark" %>
                 </tr>
             <% end %>
         </tbody>

@@ -14,6 +14,10 @@ dateVal.value = date;
 
 $("#add-form").show();
 
+$("#gastos-add-button").on("touchend click", function(){
+    $("#gastos-add").append("<%= j (render 'blank_material_sub')%>")
+})
+
 $(document).on("touchend click", ".close-x", function(){
     $("#active-shift-add").remove();
     $("#add-form").css("display", "none")

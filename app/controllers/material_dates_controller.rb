@@ -1,15 +1,15 @@
 class MaterialDatesController < ApplicationController
     before_action :authenticate_user!
     def show
-        # @invoice = Invoice.find(params[:id])
-        # @invoice_dates = @invoice.invoice_dates
+        #CURRENTLY USED FOR CLIENTS DAILY MATERIALS
+        @material_date_client = MaterialDate.where(client_id: params[:id])
     end
 
     def new
-        # @invoice_date = InvoiceDate.find(params[:invoice_date_id])
         @clients = Client.order(:address)
-        @materials = Material.order('name ASC')
+        @materials = Material.where(foreman_priority: true).order('name ASC')
         @material_date = MaterialDate.new
+        @m = 0
     end
 
     def create

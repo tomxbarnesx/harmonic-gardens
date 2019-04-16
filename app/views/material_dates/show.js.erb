@@ -1,0 +1,22 @@
+$("#day-log-container").hide();
+$("#add-form").html("<%= j (render 'card') %>").show();
+
+$(document).on("touchend click", ".close-x", function(){
+    $("#add-form").empty().css("display", "none");
+    $("#day-log-container").show();
+});
+
+$(document).ready( function () {
+    $('#datatable2').DataTable( {
+        "paging": false,
+        "searching": false,
+        "info": false,
+        "bLengthChange": false,
+        columnDefs: [
+            { orderable: false, targets: -1 },
+         ],
+        "initComplete": function(){ 
+            $("#datatable2").show(); 
+            }
+    } );
+} );

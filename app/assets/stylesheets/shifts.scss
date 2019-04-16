@@ -15,6 +15,10 @@
     justify-content: space-around;
 }
 
+.btn.tablebtn {
+    display: unset !important;
+}
+
 .double-btn {
     margin-left: 5%;
 }
@@ -95,6 +99,7 @@
     background-color: rgb(230, 169, 161); 
     border-radius: .2em;
     padding: .25em;
+    border: 1px black solid;
 }
 
 #close-tab {

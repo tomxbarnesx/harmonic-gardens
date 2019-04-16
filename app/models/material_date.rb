@@ -2,7 +2,7 @@ class MaterialDate < ApplicationRecord
     belongs_to :material
     belongs_to :client
 
-    validates_numericality_of :quantity, greater_than: 0, only_integer: true, message: "- Must be a whole number greater than 0"
+    validates_numericality_of :quantity, greater_than: 0, message: "- Must be a whole number greater than 0"
     # validates_uniqueness_of :material_id, scope: :invoice_date_id, message: "- Duplicate materials on same date - Update the quantity instead"
 
     def self.price_set_create(mdp)
@@ -15,6 +15,22 @@ class MaterialDate < ApplicationRecord
 
     def self.multi_create(sp, client, date)
         self.multi(sp, client, date)
+    end
+
+    def self.client_tally(mats)
+        client_set = []
+        last_client = nil
+        mats.each do |m|
+            if last_client != m.client_id
+                client_set.push({"client_id": m.client_id, "client_address": m.client.address, "total_cost": (m.cost * m.quantity), "total_charge": (m.charge * m.quantity)})
+                last_client = m.client_id
+            else
+                client_set[-1][:total_cost] += (m.cost * m.quantity)
+                client_set[-1][:total_charge] += (m.charge * m.quantity)
+                last_client = m.client_id
+            end 
+        end
+        return client_set
     end
     
     private

@@ -1,0 +1,29 @@
+<div class="shift-card">
+  <div class="shift-card-body align-middle">
+    <div class="close-container"><a class="close-x">&times;</a></div>
+    <h4 class="card-title"><span class="date-code"><%= @material_date_client.last.date.strftime("%m/%d") %></span> <%= @material_date_client.last.client.full_name %></h4>
+    <p style="font-size: 75%"><%= @material_date_client.last.client.address %></p>
+    <table class="display table material-date-show-table" id="datatable2">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>#</th>
+                <th>Cost</th>
+                <th>Charge</th>
+                <th><%# link_to 'Add +', new_material_date_path, remote: true, class: "btn btn-sm btn-success float-right" %></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @material_date_client.each do |m| %>
+                <tr id="material-date-client-row-<%=m.id%>">
+                    <td><%= m.material.name %></td>
+                    <td><%= m.quantity %></td>
+                    <td><%= number_to_currency(m.cost) %></td>
+                    <td><%= number_to_currency(m.charge) %></td>
+                    <td><%= link_to 'X', material_date_path(m.id), method: :delete, remote:true, data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger double-btn" %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+

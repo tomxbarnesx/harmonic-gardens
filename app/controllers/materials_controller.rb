@@ -66,7 +66,7 @@ private
     end
 
     def material_params
-        params.require(:material).permit(:name, :cost);
+        params.require(:material).permit(:name, :cost, :foreman_priority);
     end
 
 end

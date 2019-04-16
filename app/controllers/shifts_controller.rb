@@ -19,6 +19,7 @@ class ShiftsController < ApplicationController
         if current_user.role == "Admin" || current_user.role == "Foreman"
             @shifts = Shift.where(start_time: date.all_day)
             @material_dates = MaterialDate.where(date: date.all_day)
+            @client_materials = MaterialDate.client_tally(@material_dates)
         else
             @shifts = Shift.where(start_time: date.all_day).where(user_id: current_user.id)
         end
@@ -26,7 +27,6 @@ class ShiftsController < ApplicationController
 
     def new
         @shift = Shift.new
-        @users = User.order('address ASC')
     end
 
     def edit
@@ -34,7 +34,7 @@ class ShiftsController < ApplicationController
     end
 
     def create
-        @total = Shift.multi_create(shift_params)
+        @shift = Shift.earned_plus_create(shift_params)
         @shifts = Shift.all
 
         respond_to do |format|
@@ -80,7 +80,7 @@ class ShiftsController < ApplicationController
 private
     
     def shift_params
-        params.require(:shift).permit(:start_time, :end_time, :earned, :client_id, :user_id, user_id: []);
+        params.require(:shift).permit(:start_time, :end_time, :earned, :client_id, :employee_count);
     end
 
 end

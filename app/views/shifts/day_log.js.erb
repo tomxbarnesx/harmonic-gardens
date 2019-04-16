@@ -20,6 +20,7 @@ $(document).ready( function () {
         "paging": false,
         "info": false,
         "bLengthChange": false,
+        "searching": false,
         columnDefs: [
             { orderable: false, targets: -1 },
          ],
@@ -27,9 +28,7 @@ $(document).ready( function () {
             $("#datatable").show(); 
             }
     } );
-} );
-
-$(document).ready( function () {
+    
     $('#datatable2').DataTable( {
         "paging": false,
         "searching": false,

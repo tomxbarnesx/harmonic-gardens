@@ -14,8 +14,10 @@
             <label class="col-sm-3 col-form-label"><%= m.name %></label>
             <input step="any" name="materials[<%=@materials.index(m)%>][quantity]" id="material-<%=m.id%>-quantity" class="form-control col-sm-2 mx-3">
             <input type="hidden" name="materials[<%=@materials.index(m)%>][material_id]" id="material-<%=m.id%>-id" value="<%=m.id%>">
-            <%# form.number_field name: [m.id][quantity], id: "material-#{m.id}-quantity", class: "form-control col-sm-4" %>
         </div>
     <% end %>
+    <h4>Gastos/Contractos</h4>
+    <button class="btn btn-sm btn-success" id="gastos-add-button">Add +</button>
+    <div id="gastos-add"></div>
     <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-dark" %>
 <% end %>
