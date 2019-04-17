@@ -15,7 +15,7 @@ dateVal.value = date;
 $("#add-form").show();
 
 $("#gastos-add-button").on("touchend click", function(){
-    $("#gastos-add").append("<%= j (render 'blank_material_sub')%>")
+    $("#gastos-add").append($("#new_materials_form").html())
 })
 
 $(document).on("touchend click", ".close-x", function(){

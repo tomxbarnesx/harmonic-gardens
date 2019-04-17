@@ -1,8 +1,10 @@
 <div class="shift-card">
   <div class="shift-card-body align-middle">
     <div class="close-container"><a class="close-x">&times;</a></div>
-    <h4 class="card-title"><span class="date-code"><%= @material_date_client.last.date.strftime("%m/%d") %></span> <%= @material_date_client.last.client.full_name %></h4>
-    <p style="font-size: 75%"><%= @material_date_client.last.client.address %></p>
+    <div class="cal-card-header">
+        <h4 class="card-title"><span class="date-code"><%= @material_date_client.last.date.strftime("%m/%d") %></span> <%= @material_date_client.last.client.full_name %></h4>
+        <p style="font-size: 75%"><%= @material_date_client.last.client.address %></p>
+    </div>
     <table class="display table material-date-show-table" id="datatable2">
         <thead>
             <tr>
@@ -10,17 +12,22 @@
                 <th>#</th>
                 <th>Cost</th>
                 <th>Charge</th>
-                <th><%# link_to 'Add +', new_material_date_path, remote: true, class: "btn btn-sm btn-success float-right" %></th>
+                <th><%# link_to '+', new_material_date_path, remote: true, class: "btn btn-sm btn-success float-right" %></th>
             </tr>
         </thead>
         <tbody>
             <% @material_date_client.each do |m| %>
                 <tr id="material-date-client-row-<%=m.id%>">
-                    <td><%= m.material.name %></td>
+                    <% if m.material.name != "Misc" %>
+                        <td><%= m.material.name %></td>
+                    <% else %>
+                        <td><%= m.description %></td>
+                    <% end %>
                     <td><%= m.quantity %></td>
                     <td><%= number_to_currency(m.cost) %></td>
                     <td><%= number_to_currency(m.charge) %></td>
-                    <td><%= link_to 'X', material_date_path(m.id), method: :delete, remote:true, data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger double-btn" %></td>
+                    <td class="double-btn-edit-cell"><%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_material_date_path(m.id), remote: true, class: "btn btn-sm tablebtn btn-warning" %> | 
+                    <%= link_to 'X', material_date_path(m.id), method: :delete, remote:true, data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm btn-danger double-btn" %></td>
                 </tr>
             <% end %>
         </tbody>

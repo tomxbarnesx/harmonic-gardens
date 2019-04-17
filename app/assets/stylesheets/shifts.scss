@@ -16,11 +16,15 @@
 }
 
 .btn.tablebtn {
-    display: unset !important;
+    display: inline-block !important;
 }
 
 .double-btn {
     margin-left: 5%;
+}
+
+.double-btn-cell {
+    min-width: 5em;
 }
 
 .today {
@@ -149,6 +153,39 @@
 
     .table thead th {
         height: 1em;
+    }
+
+    .double-btn-cell {
+        min-width: 2em;
+    }    
+
+    .double-btn-edit-cell {
+        min-width: 5.4em;
+        max-width: none !important;
+    }
+
+    .table th, .table td {
+        max-width: none !important;
+    }
+
+    #add-form {
+        padding: 4% 0%;
+    }
+
+    .cal-card-header {
+        padding: 4% 3%; 
+    }
+
+    .edit_material_date{
+        padding: 4% 3%;
+    }
+
+    #active-material-date-add {
+        padding: 4% 3%;
+    }
+
+    #active-shift-add {
+        padding: 4% 3%;
     }
 }
 

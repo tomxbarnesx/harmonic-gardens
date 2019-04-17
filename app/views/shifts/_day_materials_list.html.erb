@@ -1,12 +1,12 @@
 <div class="pt-3">
-    <h3> Materials </h3>
+    <h3 class="pl-4"> Materials </h3>
     <table class="display table" id="datatable2">
         <thead>
             <tr>
                 <th>Client</th>
                 <th>Total Cost</th>
                 <th>Total Charge</th>
-                <th><%= link_to 'Add +', new_material_date_path, remote: true, class: "btn btn-sm btn-success float-right" %></th>
+                <th><%= link_to '+', new_material_date_path, remote: true, class: "btn btn-sm btn-success float-right" %></th>
             </tr>
         </thead>
         <tbody>
@@ -15,7 +15,7 @@
                     <td><%= m[:client_address] %></td>
                     <td><%= number_to_currency(m[:total_cost]) %></td>
                     <td><%= number_to_currency(m[:total_charge]) %></td>
-                    <td><%= link_to '<i class="far fa-eye"></i>'.html_safe, material_date_path(m[:client_id]), remote: true, class: "btn tablebtn btn-sm btn-dark" %>
+                    <td><%= link_to '<i class="far fa-eye"></i>'.html_safe, material_date_path(id: m[:client_id], date: m[:date]), remote: true, class: "btn tablebtn btn-sm btn-dark" %>
                 </tr>
             <% end %>
         </tbody>

@@ -1,0 +1,25 @@
+<div class="close-container"><a class="close-x">&times;</a></div>
+<%= form_for @material_date do |form|%>
+    <h2>Edit Expense</h2>
+    <div class="form-group">
+        <label>Client: </label>
+        <%= collection_select(:shift, :client_id, Client.all, :id, :address, {}, {:class=>'form-control form-control-sm'}) %>
+    </div>
+    <div class="form-group">
+        <label>Material: </label>
+        <%= collection_select(:material, :material_id, Material.all, :id, :name, {}, {:class=>'form-control form-control-sm'}) %>
+    </div>
+    <div class="form-group">
+        <label>Quantity: </label>
+        <%= form.number_field :quantity, placeholder: "Quantity", :id => 'quantity', class: "form-control form-control-sm" %>
+    </div>
+    <div class="form-group">
+        <label>Cost: </label>
+        <%= form.number_field :cost, placeholder: "Cost", :id => 'cost', class: "form-control form-control-sm" %>
+    </div>
+    <div class="form-group">
+        <label>Charge: </label>
+        <%= form.number_field :charge, placeholder: "Charge", :id => 'charge', class: "form-control form-control-sm" %>
+    </div>
+    <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-sm btn-dark" %>
+<% end %>

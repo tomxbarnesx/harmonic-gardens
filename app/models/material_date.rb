@@ -13,20 +13,36 @@ class MaterialDate < ApplicationRecord
         return (self.cost).to_f / (self.quantity).to_i
     end
 
-    def self.multi_create(sp, client, date)
-        self.multi(sp, client, date)
+    def self.multi_create(sp, client, date, misc)
+        self.multi(sp, client, date, misc)
     end
 
-    def self.client_tally(mats)
+    def self.client_tally(mats, date)
         client_set = []
         last_client = nil
         mats.each do |m|
             if last_client != m.client_id
-                client_set.push({"client_id": m.client_id, "client_address": m.client.address, "total_cost": (m.cost * m.quantity), "total_charge": (m.charge * m.quantity)})
+                if m.cost
+                    cost = m.cost * m.quantity
+                else
+                    cost = m.cost
+                end
+
+                if m.charge
+                    charge = m.charge * m.quantity
+                else 
+                    charge = m.charge
+                end
+
+                client_set.push({"client_id": m.client_id, "date": m.date, "client_address": m.client.address, "total_cost": cost, "total_charge": charge})
                 last_client = m.client_id
             else
+                if m.cost
                 client_set[-1][:total_cost] += (m.cost * m.quantity)
-                client_set[-1][:total_charge] += (m.charge * m.quantity)
+                end
+                if m.charge
+                    client_set[-1][:total_charge] += (m.charge * m.quantity)
+                end
                 last_client = m.client_id
             end 
         end
@@ -35,9 +51,12 @@ class MaterialDate < ApplicationRecord
     
     private
 
-    def self.multi(sp, client, date)
+    def self.multi(sp, client, date, misc)
         if sp["quantity"] != "" || sp["quantity"] != "0"
             sclone = sp.clone()
+            if sclone["material_id"] == ""
+                sclone["material_id"] = 4
+            end
             sclone["client_id"] = client
             sclone["date"] = date
             $material_date = MaterialDate.create(sclone)

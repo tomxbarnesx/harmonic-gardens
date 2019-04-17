@@ -1,23 +1,26 @@
 <%= form_for @material_date, remote: true do |form| %>
     <div class="form-group">
-        <label>Client</label>
-        <%= collection_select(:material_date, :client_id, client_shift_attach, :id, :address, {}, {:class=>'form-control'}) %>
+    <label><strong>Client</strong></label>
+    <%= collection_select(:material_date, :client_id, client_shift_attach, :id, :address, {}, {:class=>'form-control'}) %>
     </div>
     <%= form.hidden_field :date, id: "date-hidden" %>
     <%# render partial: "material_sub", collection: @materials, as: :material %>
     <div class="form-group row">
-        <h6 class="col-sm-3">Name</h6>
-        <h6 class="col-sm-3">Quantity</h6>
+        <h6 class="col-sm-3">Tipo</h6>
+        <h6 class="col-sm-3">#</h6>
     </div>
     <% @materials.each do |m| %>
         <div class="form-group row">
-            <label class="col-sm-3 col-form-label"><%= m.name %></label>
-            <input step="any" name="materials[<%=@materials.index(m)%>][quantity]" id="material-<%=m.id%>-quantity" class="form-control col-sm-2 mx-3">
-            <input type="hidden" name="materials[<%=@materials.index(m)%>][material_id]" id="material-<%=m.id%>-id" value="<%=m.id%>">
+            <label class="col-sm-3 col-form-label"><strong><%= m.name %></strong></label>
+            <input step="any" name="materials[][quantity]" id="material-<%=m.id%>-quantity" class="form-control col-sm-2 mx-3">
+            <input type="hidden" name="materials[][material_id]" id="material-<%=m.id%>-id" value="<%=m.id%>">
+            <input type="hidden" name="materials[][description]" id="material-<%=m.id%>-description" value="*Priority">
         </div>
     <% end %>
-    <h4>Gastos/Contractos</h4>
-    <button class="btn btn-sm btn-success" id="gastos-add-button">Add +</button>
+    <div>
+        <h4 class="d-inline-block">Gastos/Contractos</h4>
+        <div class="btn btn-sm btn-success float-right" id="gastos-add-button">+</div>
+    </div>
     <div id="gastos-add"></div>
     <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-dark" %>
 <% end %>
