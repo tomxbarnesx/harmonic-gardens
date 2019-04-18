@@ -6,13 +6,13 @@
     <%= form.hidden_field :date, id: "date-hidden" %>
     <%# render partial: "material_sub", collection: @materials, as: :material %>
     <div class="form-group row">
-        <h6 class="col-sm-3">Tipo</h6>
-        <h6 class="col-sm-3">#</h6>
+        <h6 class="col-sm-3 d-none d-sm-block">Tipo</h6>
+        <h6 class="col-sm-3 d-none d-sm-block">#</h6>
     </div>
     <% @materials.each do |m| %>
         <div class="form-group row">
             <label class="col-sm-3 col-form-label"><strong><%= m.name %></strong></label>
-            <input step="any" name="materials[][quantity]" id="material-<%=m.id%>-quantity" class="form-control col-sm-2 mx-3">
+            <input step="any" name="materials[][quantity]" placeholder="Quant." id="material-<%=m.id%>-quantity" class="form-control col-sm-2 mx-3">
             <input type="hidden" name="materials[][material_id]" id="material-<%=m.id%>-id" value="<%=m.id%>">
             <input type="hidden" name="materials[][description]" id="material-<%=m.id%>-description" value="*Priority">
         </div>
@@ -24,3 +24,7 @@
     <div id="gastos-add"></div>
     <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-dark" %>
 <% end %>
+
+<div class="d-none" id="new_materials_form">
+    <%= render partial: "blank_material_sub" %>
+</div>

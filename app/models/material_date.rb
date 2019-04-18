@@ -18,8 +18,10 @@ class MaterialDate < ApplicationRecord
     end
 
     def self.client_tally(mats, date)
+        #Create the client totals on the Material Dates / Shift view
         client_set = []
         last_client = nil
+        #Loop through the materials and bundle them
         mats.each do |m|
             if last_client != m.client_id
                 if m.cost
@@ -38,11 +40,19 @@ class MaterialDate < ApplicationRecord
                 last_client = m.client_id
             else
                 if m.cost
+                    if client_set[-1][:total_cost] == nil
+                        client_set[-1][:total_cost] = 0
+                    end
                 client_set[-1][:total_cost] += (m.cost * m.quantity)
                 end
+
                 if m.charge
+                    if client_set[-1][:total_charge] == nil
+                        client_set[-1][:total_charge] = 0
+                    end
                     client_set[-1][:total_charge] += (m.charge * m.quantity)
                 end
+
                 last_client = m.client_id
             end 
         end
