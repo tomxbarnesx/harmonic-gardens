@@ -11,10 +11,13 @@
             <%= form.number_field :cost, placeholder: "Cost per unit", step: 0.01, class: 'form-control form-control-sm' %>
         <% end %>
         <div class="form-row mb-2">
-            <label class="col-sm-1">Priority: </label>
+            <label class="col-sm-2">Foreman Priority: </label>
             <%= form.check_box :foreman_priority, class: 'form-control col-sm-1' %>
         </div>
-        
+        <div class="form-row mb-2">
+            <label class="col-sm-2">Designer Priority: </label>
+            <%= form.check_box :designer_priority, class: 'form-control col-sm-1' %>
+        </div>
         <%= form.submit "Submit", :id=>'materials-submit', class: "btn btn-dark" %>
     <% end %>
 </div>

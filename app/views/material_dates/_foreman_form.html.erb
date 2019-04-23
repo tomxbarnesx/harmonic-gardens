@@ -15,6 +15,7 @@
             <input step="any" name="materials[][quantity]" placeholder="Quant." id="material-<%=m.id%>-quantity" class="form-control col-sm-2 mx-3">
             <input type="hidden" name="materials[][material_id]" id="material-<%=m.id%>-id" value="<%=m.id%>">
             <input type="hidden" name="materials[][description]" id="material-<%=m.id%>-description" value="*Priority">
+            <input type="hidden" name="materials[][logging_id]" id="material-<%=m.id%>-logging" value="<%= current_user.id %>">
         </div>
     <% end %>
     <div>

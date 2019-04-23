@@ -7,7 +7,11 @@ class MaterialDatesController < ApplicationController
 
     def new
         @clients = Client.order(:address)
-        @materials = Material.where(foreman_priority: true).order('name ASC')
+        if current_user.role == "Admin" || current_user.role == "Foreman"
+            @materials = Material.where(foreman_priority: true).order('name ASC')
+        elsif current_user.role == "Designer"
+            @materials = Material.where(designer_priority: true).order('name ASC')
+        end
         @material_date = MaterialDate.new
     end
 
@@ -53,11 +57,11 @@ class MaterialDatesController < ApplicationController
 private
 
     def material_date_params
-        params.require(:material_date).permit(:description, :material_id, :client_id, :quantity, :date, :cost, :charge, :tax, :materials);
+        params.require(:material_date).permit(:description, :material_id, :client_id, :quantity, :date, :cost, :charge, :tax, :materials, :logging_id);
     end
 
     def nested_material_params(my_params)
-        my_params.permit(:quantity, :cost, :charge, :material_id, :description)
+        my_params.permit(:quantity, :cost, :charge, :material_id, :description, :logging_id)
     end
 
     # def blank_material_params(my_blank_params)

@@ -4,7 +4,7 @@ class ShiftsController < ApplicationController
         if current_user.role == "Admin" || current_user.role == "Foreman"
             @shifts = Shift.all
         else
-            @shifts = Shift.where(user_id: current_user.id)
+            @shifts = Shift.where(logging_id: current_user.id)
         end
     end
 
@@ -21,7 +21,9 @@ class ShiftsController < ApplicationController
             @material_dates = MaterialDate.where(date: date)
             @client_materials = MaterialDate.client_tally(@material_dates, date)
         else
-            @shifts = Shift.where(start_time: date.all_day).where(user_id: current_user.id)
+            @shifts = Shift.where(start_time: date.all_day).where(logging_id: current_user.id)
+            @material_dates = MaterialDate.where(date: date, logging_id: current_user.id)
+            @client_materials = MaterialDate.client_tally(@material_dates, date)
         end
     end
 
