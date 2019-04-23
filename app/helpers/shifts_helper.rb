@@ -7,6 +7,8 @@ module ShiftsHelper
     def shift_create_access
         if current_user.role == "Worker"
             render partial: 'shifts/worker_form'
+        elsif current_user.role == "Designer"
+            render partial: 'shifts/designer_form'
         else
             render partial: 'shifts/foreman_form'
         end

@@ -1,0 +1,17 @@
+<%= form_for @shift, remote: true do |form| %>
+    <div class="form-group">
+        <label>Client: </label>
+        <%= collection_select(:shift, :client_id, client_shift_attach, :id, :address, {}, {:class=>'form-control'}) %>
+    </div>
+    <div class="form-group">
+        <label>Start Time: </label>
+        <%= form.datetime_field :start_time, placeholder: "Start Time", :id => 'start_time', class: "form-control" %>
+    </div>
+    <%= form_group_for form, :end_time, label: false do %>
+        <label>End Time: </label>
+        <%= form.datetime_field :end_time, placeholder: "End Time", :id => 'end_time', class: "form-control" %>
+    <% end %>
+    <%= form.hidden_field :logging_id, value: "#{current_user.id}", class: "form-control" %>
+    <%= form.hidden_field :employee_count, value: 1, class: "form-control" %>
+    <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-dark" %>
+<% end %>

@@ -4,11 +4,13 @@
     <h4 class="card-title"><span class="date-code"><%= @shift.start_time.strftime("%m/%d") %></span> <%= @shift.client.full_name %></h4>
     <p style="font-size: 75%"><%= @shift.client.address %></p>
     <hr class="my-2">
+    <% if current_user.role != "Designer" %>
     <strong># of Employees: </strong><%= @shift.employee_count %><br>
+    <% end %>
     <strong>Start: </strong><%= @shift.start_time.strftime("%I:%M %p") %><br>
     <strong>End: </strong><%= @shift.end_time.strftime("%I:%M %p") %><br>
     <strong>Total Hours: </strong><%= @shift.time_elapsed %><br>
-    <strong>Total Cost: </strong><%= number_to_currency(@shift.earned) %></p>
+    <strong>Total Earnings: </strong><%= number_to_currency(@shift.earned) %></p>
 
     <% if policy(@shift).update? %>
       <%= link_to 'Edit', edit_shift_path, remote: true, class: "btn btn-sm btn-success" %>

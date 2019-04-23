@@ -4,7 +4,9 @@
         <thead>
             <tr>
                 <th>Client</th>
+                <% if current_user.role != "Designer" %>
                 <th>Employees</th>
+                <% end %>
                 <th>Hours</th>
                 <th><%= link_to '+', new_shift_path, remote: true, class: "btn btn-sm btn-success float-right" %></th>
             </tr>
@@ -13,7 +15,9 @@
             <% @shifts.each do |s| %>
                 <tr id='day-log-shift-<%= s.id %>'>
                     <td><%= s.client.address %></td>
+                    <% if current_user.role != "Designer" %>
                     <td><%= s.employee_count %></td>
+                    <% end %>
                     <td><%= s.time_elapsed %></td>
                     <td class="double-btn-cell"><%= link_to '<i class="far fa-eye"></i>'.html_safe, shift_path(s.id), remote: true, class: "btn btn-sm tablebtn btn-dark" %> | 
                     <%= link_to 'X', shift_path(s.id), method: :delete, data: { confirm: 'Are you sure? This cannot be reversed.' }, class: "btn btn-sm tablebtn btn-danger double-btn" %></td>
