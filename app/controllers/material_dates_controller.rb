@@ -18,7 +18,8 @@ class MaterialDatesController < ApplicationController
     def create
         @client = material_date_params["client_id"]
         @date = material_date_params["date"]
-        @misc = Material.find_by(name: "Misc")
+        @misc = Material.find_by(name: "Misc").id
+        @materials = Material.where(foreman_priority: true).order('name ASC')
 
         params["materials"].each do |m|
             @material_date = MaterialDate.multi_create(nested_material_params(m), @client, @date, @misc)
@@ -28,7 +29,6 @@ class MaterialDatesController < ApplicationController
             flash.now[:notice] = "Material added successfully"
         else
             flash.now[:error] = "Error adding some of your materials"
-            render 'new'
         end
     end
 

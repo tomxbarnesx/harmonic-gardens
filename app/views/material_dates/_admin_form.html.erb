@@ -14,8 +14,8 @@
     <% @materials.each do |m| %>
         <div class="form-group row">
             <label class="col-sm-3 col-form-label"><strong><%= m.name %></strong></label>
-            <input step="any" name="materials[][quantity]" placeholder="Quant." id="material-<%=m.id%>-quantity" class="form-control col-sm-2 col-3 mx-2">
-            <input step="any" name="materials[][cost]" placeholder="Cost" id="material-<%=m.id%>-cost" class="form-control col-sm-2 col-3 mx-2">
+            <input type="number" step="any" name="materials[][quantity]" placeholder="Quant." value="0" id="material-<%=m.id%>-quantity" class="form-control col-sm-2 col-3 mx-2">
+            <input step="any" name="materials[][cost]" placeholder="Cost" value="<%=m.cost%>" id="material-<%=m.id%>-cost" class="form-control col-sm-2 col-3 mx-2">
             <input step="any" name="materials[][charge]" placeholder="Charge" id="material-<%=m.id%>-charge" class="form-control col-3 mx-2">
             <input type="hidden" name="materials[][material_id]" id="material-<%=m.id%>-id" value="<%=m.id%>">
             <input type="hidden" name="materials[][description]" id="material-<%=m.id%>-description" value="*Priority">

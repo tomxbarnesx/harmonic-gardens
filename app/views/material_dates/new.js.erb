@@ -14,7 +14,9 @@ dateVal.value = date;
 
 $("#add-form").show();
 
-$("#gastos-add-button").on("touchend click", function(){
+$("#gastos-add-button").on("touchend click", function(event){
+    event.stopPropagation();
+    event.preventDefault();
     $("#gastos-add").append($("#new_materials_form").html())
 })
 

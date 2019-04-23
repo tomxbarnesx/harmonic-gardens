@@ -35,7 +35,7 @@
 
         <%= form_group_for form, :role, label: false  do %>
             <label>Access Level: </label>
-            <%= form.select(:role, ['Worker', 'Foreman'], {}, {class: "form-control form-control-sm"}) %>
+            <%= form.select(:role, ['Worker', 'Foreman', 'Designer'], {}, {class: "form-control form-control-sm"}) %>
         <% end %>
 
         <%= form_group_for form, :hourly_rate, label: false do %>

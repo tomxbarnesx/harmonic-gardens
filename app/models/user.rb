@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates_presence_of :username, message: "Enter a username."
   validates_numericality_of :hourly_rate, greater_than: 0, message: "Rate has to be greater than 0"
 
-  enum role: [:Worker, :Foreman, :Admin]
+  enum role: [:Worker, :Foreman, :Admin, :Designer]
 
   after_initialize do
     if self.new_record?

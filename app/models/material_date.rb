@@ -2,7 +2,7 @@ class MaterialDate < ApplicationRecord
     belongs_to :material
     belongs_to :client
 
-    validates_numericality_of :quantity, greater_than: 0, message: "- Must be a whole number greater than 0"
+    # validates_numericality_of :quantity, greater_than: 0, message: "- Must be a whole number greater than 0"
     # validates_uniqueness_of :material_id, scope: :invoice_date_id, message: "- Duplicate materials on same date - Update the quantity instead"
 
     def self.price_set_create(mdp)
@@ -62,10 +62,12 @@ class MaterialDate < ApplicationRecord
     private
 
     def self.multi(sp, client, date, misc)
-        if sp["quantity"] != "" || sp["quantity"] != "0"
+        if sp["quantity"] == 0 || sp["quantity"] == "0" || sp["quantity"] == nil || sp["description"] == ""
+            nil
+        elsif sp["quantity"] != "" || sp["quantity"] != 0 || sp["quantity"] != "0" || sp["quantity"] != nil
             sclone = sp.clone()
             if sclone["material_id"] == ""
-                sclone["material_id"] = 4
+                sclone["material_id"] = misc
             end
             sclone["client_id"] = client
             sclone["date"] = date

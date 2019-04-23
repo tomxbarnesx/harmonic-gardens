@@ -1,4 +1,4 @@
-$("#day-log-container").hide();
+$("#day-log-container").empty();
 $("#add-form").html("<%= j (render 'card') %>").show();
 
 $(document).on("touchend click", ".close-x", function(){

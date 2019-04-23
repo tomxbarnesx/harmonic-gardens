@@ -3,6 +3,8 @@ $('#flash').html('<%= j render partial: "layouts/flash_messages" %>');
 <%# Set and display the FORM %>
 
 var form = document.getElementById('add-form');
+
+$("#add-form").empty()
 $("#calendar-container").hide();
 $("#day-log-container").hide();
 $("#add-form").append("<%= j (render 'form') %>");
@@ -13,8 +15,8 @@ var startTime = document.getElementById('start_time');
 var endTime = document.getElementById('end_time');
 date = sessionStorage.getItem("date");
 
-startTime.value = `${date}T00:00`;
-endTime.value = `${date}T12:00`;
+startTime.value = `${date}T05:00`;
+endTime.value = `${date}T22:00`;
 form.style.display = "block";
 
 $(document).on("touchend click", ".close-x", function(){

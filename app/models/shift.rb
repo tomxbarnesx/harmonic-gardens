@@ -2,6 +2,8 @@ class Shift < ApplicationRecord
     belongs_to :client
     has_one :shift_date
     has_one :invoice_date, through: :shift_date
+
+    validates_numericality_of :employee_count, greater_than: 0, message: "Must be a whole number greater than 0"
     
     def time_elapsed
         return ((end_time - start_time)/60/60)
@@ -55,7 +57,7 @@ class Shift < ApplicationRecord
 
     def earned_up(sp)
         sclone = sp.clone()
-        sclone["earned"] = ((Time.zone.parse(sclone["end_time"]) - Time.zone.parse(sclone["start_time"]))/60/60) * self.user.hourly_rate
+        sclone["earned"] = ((Time.zone.parse(sclone["end_time"]) - Time.zone.parse(sclone["start_time"]))/60/60) * sclone["employee_count"].to_f * 25
         self.update(sclone)
     end
 
