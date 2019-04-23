@@ -3,6 +3,7 @@ class ShiftsController < ApplicationController
     def index
         if current_user.role == "Admin" || current_user.role == "Foreman"
             @shifts = Shift.all
+            $client_name_toggle = false
         else
             @shifts = Shift.where(logging_id: current_user.id)
         end

@@ -12,7 +12,13 @@
         <tbody>
             <% @client_materials.each do |m| %>
                 <tr>
+                
+                    <% if current_user.address_view %>
                     <td><%= m[:client_address] %></td>
+                    <% else %>
+                    <td><%= m[:client_full_name] %></td>
+                    <% end %>
+
                     <td><%= number_to_currency(m[:total_cost]) %></td>
                     <td><%= number_to_currency(m[:total_charge]) %></td>
                     <td><%= link_to '<i class="far fa-eye"></i>'.html_safe, material_date_path(id: m[:client_id], date: m[:date]), remote: true, class: "btn tablebtn btn-sm btn-dark" %>

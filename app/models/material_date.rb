@@ -36,7 +36,7 @@ class MaterialDate < ApplicationRecord
                     charge = m.charge
                 end
 
-                client_set.push({"client_id": m.client_id, "date": m.date, "client_address": m.client.address, "total_cost": cost, "total_charge": charge})
+                client_set.push({"client_id": m.client_id, "date": m.date, "client_address": m.client.address, "client_full_name": m.client.full_name, "total_cost": cost, "total_charge": charge})
                 last_client = m.client_id
             else
                 if m.cost

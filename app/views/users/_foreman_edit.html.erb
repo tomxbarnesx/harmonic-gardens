@@ -19,13 +19,24 @@
         <label>Primary Phone: </label>
         <%= form.text_field :phone_number, placeholder: "Primary Phone", class: "form-control form-control-sm" %>
     </div>
+
+    <% if current_user != @user %>
     <div class="form-group">
         <label>Access level: </label>
         <%= form.select(:role, ['Worker', 'Foreman'], {}, {class: "form-control form-control-sm"}) %>
     </div>
+    <% end %>
+    
     <div class="form-group">
         <label>Hourly Rate: </label>
         <%= form.number_field :hourly_rate, placeholder: "Hourly Rate", class: "form-control form-control-sm" %>
+    </div>
+    <div class="form-group">
+        <label>Address View: </label>
+        <label class="switch">
+        <%= form.check_box :address_view, { checked: @user.address_view }  %>
+        <span class="slider round"></span>
+        </label>
     </div>
     <%= form.submit "Submit", :id=>'hours-submit', class: "btn btn-dark" %>
 <% end %>

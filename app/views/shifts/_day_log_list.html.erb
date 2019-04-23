@@ -14,7 +14,13 @@
         <tbody>
             <% @shifts.each do |s| %>
                 <tr id='day-log-shift-<%= s.id %>'>
+                
+                    <% if current_user.address_view %>
                     <td><%= s.client.address %></td>
+                    <% else %>
+                    <td><%= s.client.full_name %></td>
+                    <% end %>
+
                     <% if current_user.role != "Designer" %>
                     <td><%= s.employee_count %></td>
                     <% end %>

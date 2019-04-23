@@ -119,6 +119,6 @@ private
     end
 
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :username, :role, :hourly_rate, :email, :phone_number, :is_active, :password);
+        params.require(:user).permit(:first_name, :last_name, :username, :role, :hourly_rate, :email, :phone_number, :is_active, :password, :address_view);
     end
 end
