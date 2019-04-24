@@ -10,7 +10,7 @@
                 <a class="nav-link ml-2" href="/users/<%= current_user.id %>">Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link ml-2" href="/shifts">Timesheets</a>
+                <a class="nav-link ml-2" href="/shifts">Shifts</a>
             </li>
         </ul>
         <div class="nav-item my-2 my-sm-0"><%= link_to('Logout', destroy_user_session_path, method: :delete, :class => "nav-link white-no-link btn btn-sm btn-primary logout-button") %></div>

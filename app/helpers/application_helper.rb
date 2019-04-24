@@ -15,7 +15,7 @@ module ApplicationHelper
     end
 
     def layout_switch
-        if current_user.role == "Worker"
+        if current_user.role == "Worker" || current_user.role == "Designer"
             render partial: "layouts/worker_nav"
         else 
             render partial: "layouts/foreman_nav"
