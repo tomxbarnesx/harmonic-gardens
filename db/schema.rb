@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_23_221116) do
+ActiveRecord::Schema.define(version: 2019_04_25_003651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 2019_04_23_221116) do
     t.string "last_name"
     t.string "address"
     t.string "email"
-    t.string "home_phone", limit: 10
-    t.string "cell_phone", limit: 10
+    t.string "home_phone", limit: 20
+    t.string "cell_phone", limit: 20
     t.boolean "is_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 2019_04_23_221116) do
     t.integer "hourly_rate"
     t.integer "role"
     t.boolean "is_active", default: true
-    t.string "phone_number", limit: 10
+    t.string "phone_number", limit: 20
     t.boolean "address_view", default: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true

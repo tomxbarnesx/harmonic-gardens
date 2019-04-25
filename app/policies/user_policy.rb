@@ -17,7 +17,7 @@ class UserPolicy < ApplicationPolicy
     end
 
     def admin_edit?
-        (user.role == 'Admin' && record.id == user.id) || (user.role == 'Admin' && (record.role == 'Foreman' || record.role == 'Worker')) || (user.role == 'Foreman' && record.role == 'Worker') 
+        (user.role == 'Admin' && record.id == user.id) || (user.role == 'Admin' && (record.role == 'Foreman' || record.role == 'Worker')) || (user.role == 'Foreman' && record.role == 'Worker') || (user.role == 'Designer' && record.id == user.id)
     end
 
 end

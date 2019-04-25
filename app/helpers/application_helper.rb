@@ -26,4 +26,8 @@ module ApplicationHelper
         Client.where(is_active: true).order('address ASC')
     end
 
+    def client_shift_attach_names
+        Client.where(is_active: true).order('first_name ASC')
+    end
+
 end

@@ -1,0 +1,19 @@
+<table id="datatable" data-turbolinks="false" class="display">
+    <thead>
+        <th>Date</th>
+        <th>Employees</th>
+        <th>Hours</th>
+        <th>Labor Cost</th>
+    </thead>
+    <tbody>
+        <% client.shifts.each do |i| %>
+            <tr id="invoice-<%= i.id %>">
+                <td><%= i.start_time.strftime("%m-%d-%Y") %></td>
+                <td><%= i.employee_count %></td>
+                <td><%= i.time_elapsed %></td>
+                <td><%= number_to_currency(i.earned) %></td>
+            </tr>
+        <% end %>
+    <tbody>
+</table>
+            

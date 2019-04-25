@@ -10,7 +10,7 @@ class ShiftsController < ApplicationController
     end
 
     def show
-        @shift = Shift.find(params[:id]) 
+        @shift = Shift.find(params[:id])
         authorize @shift
     end
 
