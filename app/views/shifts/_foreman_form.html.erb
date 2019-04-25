@@ -2,14 +2,14 @@
     <div class="form-group">
         <label>Client: </label>
         <% if current_user.address_view %>
-        <%= collection_select(:material_date, :client_id, client_shift_attach, :id, :address, {}, {:class=>'form-control'}) %>
+        <%= collection_select(:shift, :client_id, client_shift_attach, :id, :address, {}, {:class=>'form-control'}) %>
         <% else %>
-        <%= collection_select(:material_date, :client_id, client_shift_attach_names, :id, :full_name, {}, {:class=>'form-control'}) %>
+        <%= collection_select(:shift, :client_id, client_shift_attach_names, :id, :full_name, {}, {:class=>'form-control'}) %>
         <% end %>   
     </div>
     <div class="form-group">
         <label># of Employees: </label>
-        <%= form.number_field :employee_count, value: 1, class: "form-control" %>
+        <%= form.number_field :employee_count, class: "form-control" %>
     </div>
     <div class="form-group">
         <label>Start Time: </label>
