@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get 'users/archived', to: 'users#archived', as: :archived_users
   put 'users/archive/:id', to: 'users#archive', as: :archive_user
+  get 'users/:id/material/:material_id', to: 'users#material', as: :edit_user_material
+  patch 'users/:id/material/:material_id', to: 'users#update_user_material', as: :update_user_material
   resources :users
 
   resources :materials

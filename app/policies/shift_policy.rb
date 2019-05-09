@@ -13,6 +13,6 @@ class ShiftPolicy < ApplicationPolicy
     end
 
     def destroy?
-        user.role == 'Admin' || user.role == 'Foreman' || user.role == 'Designer' || record.logging_id == user
+        user.role == 'Admin' || user.role == 'Foreman' || user.role == 'Designer' || record.user_id == user
     end
 end

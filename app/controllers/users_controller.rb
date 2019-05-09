@@ -77,6 +77,24 @@ class UsersController < ApplicationController
         @users = User.where(is_active: false)
     end
 
+    def material
+        @user = User.find(params[:id])
+        @material_date = MaterialDate.find(params[:material_id])
+    end
+
+    def update_user_material
+        @user = User.find(params[:id])
+        @material_date = MaterialDate.find(params[:material_id])
+
+        if @material_date.update(material_date_params)
+            flash.now[:notice] = "User updated successfully."
+            redirect_to user_path(@user), notice: "Material updated successfully"
+        else 
+            flash.now[:error] = "Errors editting your user"
+            render "material", error: "Errors editting your material"
+        end
+    end
+
     def update
         @user = User.find(params[:id])
         authorize @user
@@ -120,5 +138,9 @@ private
 
     def user_params
         params.require(:user).permit(:first_name, :last_name, :username, :role, :hourly_rate, :email, :phone_number, :is_active, :password, :address_view);
+    end
+
+    def material_date_params
+        params.require(:material_date).permit(:description, :material_id, :client_id, :quantity, :date, :cost, :charge, :tax, :materials, :user_id);
     end
 end

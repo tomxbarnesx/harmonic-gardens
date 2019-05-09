@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :shifts
+  has_many :material_dates
   has_many :shift_dates, through: :shifts, dependent: :restrict_with_error
 
   # has_many :shift_dates, through: :shifts, dependent: :nullify

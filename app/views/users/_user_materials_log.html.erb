@@ -1,0 +1,18 @@
+<div id="user-shift-table" class="mt-4">
+    <h3 id="shift-header"><%= @user.first_name %>'s Material Logs</h3>
+    <table id="datatable2" data-turbolinks="false" class="display">
+        <thead>
+            <tr class="table-header">
+                <th>Date</th>
+                <th>Type</th>
+                <th>Client</th>
+                <th>Quantity</th>
+                <th>Cost</th>
+                <th>Charge</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%= render "user_material_rows" %>
+        </tbody>
+    </table>
+</div>

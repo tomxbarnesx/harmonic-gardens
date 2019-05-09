@@ -5,7 +5,7 @@ class ShiftsController < ApplicationController
             @shifts = Shift.all
             $client_name_toggle = false
         else
-            @shifts = Shift.where(logging_id: current_user.id)
+            @shifts = Shift.where(user_id: current_user.id)
         end
     end
 
@@ -22,8 +22,8 @@ class ShiftsController < ApplicationController
             @material_dates = MaterialDate.where(date: date)
             @client_materials = MaterialDate.client_tally(@material_dates, date)
         else
-            @shifts = Shift.where(start_time: date.all_day).where(logging_id: current_user.id)
-            @material_dates = MaterialDate.where(date: date, logging_id: current_user.id)
+            @shifts = Shift.where(start_time: date.all_day).where(user_id: current_user.id)
+            @material_dates = MaterialDate.where(date: date, user_id: current_user.id)
             @client_materials = MaterialDate.client_tally(@material_dates, date)
         end
     end
@@ -83,7 +83,7 @@ class ShiftsController < ApplicationController
 private
     
     def shift_params
-        params.require(:shift).permit(:start_time, :end_time, :earned, :client_id, :employee_count, :logging_id);
+        params.require(:shift).permit(:start_time, :end_time, :earned, :client_id, :employee_count, :user_id);
     end
 
 end

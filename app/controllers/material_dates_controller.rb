@@ -57,11 +57,11 @@ class MaterialDatesController < ApplicationController
 private
 
     def material_date_params
-        params.require(:material_date).permit(:description, :material_id, :client_id, :quantity, :date, :cost, :charge, :tax, :materials, :logging_id);
+        params.require(:material_date).permit(:description, :material_id, :client_id, :quantity, :date, :cost, :charge, :tax, :materials, :user_id);
     end
 
     def nested_material_params(my_params)
-        my_params.permit(:quantity, :cost, :charge, :material_id, :description, :logging_id)
+        my_params.permit(:quantity, :cost, :charge, :material_id, :description, :user_id)
     end
 
     # def blank_material_params(my_blank_params)

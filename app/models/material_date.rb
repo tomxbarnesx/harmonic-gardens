@@ -17,6 +17,14 @@ class MaterialDate < ApplicationRecord
         self.multi(sp, client, date, misc)
     end
 
+    def name_type
+        if self.description == "*Priority"
+            return self.material.name
+        else
+            return self.description
+        end
+    end
+
     def self.client_tally(mats, date)
         #Create the client totals on the Material Dates / Shift view
         client_set = []

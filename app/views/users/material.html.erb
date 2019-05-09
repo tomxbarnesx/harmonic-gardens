@@ -1,0 +1,30 @@
+<div class="col-md-5 col-12 mx-auto mt-4 bg-white p-5"
+    <%= form_for(@material_date, url: update_user_material_path(@material_date), method: :patch) do |form|%>
+        <h2>Edit Expense</h2>
+        <div class="form-group">
+            <label>Client: </label>
+            <%= collection_select(:material_date, :client_id, client_shift_attach, :id, :address, {}, {:class=>'form-control form-control-sm'}) %>
+        </div>
+        <div class="form-group">
+            <label>Material: </label>
+            <%= collection_select(:material_date, :material_id, Material.all, :id, :name, {}, {:class=>'form-control form-control-sm'}) %>
+        </div>
+        <div class="form-group">
+            <label>Description: </label>
+            <%= form.text_field :description, class: 'form-control form-control-sm' %>
+        </div>
+        <div class="form-group">
+            <label>Quantity: </label>
+            <%= form.number_field :quantity, placeholder: "Quantity", :id => 'quantity', class: "form-control form-control-sm" %>
+        </div>
+        <div class="form-group">
+            <label>Cost: </label>
+            <%= form.number_field :cost, placeholder: "Cost", :id => 'cost', class: "form-control form-control-sm" %>
+        </div>
+        <div class="form-group">
+            <label>Charge: </label>
+            <%= form.number_field :charge, placeholder: "Charge", :id => 'charge', class: "form-control form-control-sm" %>
+        </div>
+        <%= form.submit "Submit", class: "btn btn-sm btn-dark" %>
+    <% end %>
+</div>

@@ -25,7 +25,7 @@
             <input step="any" name="materials[][charge]" placeholder="Charge" value="<%=m.cost%>" id="material-<%=m.id%>-charge" class="form-control col-3 mx-2">
             <input type="hidden" name="materials[][material_id]" id="material-<%=m.id%>-id" value="<%=m.id%>">
             <input type="hidden" name="materials[][description]" id="material-<%=m.id%>-description" value="*Priority">
-            <input type="hidden" name="materials[][logging_id]" id="material-<%=m.id%>-logging" value="<%= current_user.id %>">
+            <input type="hidden" name="materials[][user_id]" id="material-<%=m.id%>-logging" value="<%= current_user.id %>">
         </div>
     <% end %>
     <div>

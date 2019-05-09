@@ -1,0 +1,11 @@
+<% @user.material_dates.each do |u| %>
+    <tr id="user-show-material-<%= u.id %>">
+        <td><%= u.date.strftime("%m/%d/%g") %></td>
+        <td><%= u.name_type %></td>
+        <td><%= u.client.full_name %></td>
+        <td><%= u.quantity %></td>
+        <td><%= number_to_currency(u.cost) %></td>
+        <td><%= number_to_currency(u.charge) %></td>
+        <%# link_to '<i class="far fa-eye"></i>'.html_safe, edit_user_material_path(u.user_id, u.id), class: 'btn btn-dark' %>
+    </tr>
+<% end %>
