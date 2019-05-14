@@ -86,13 +86,13 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @material_date = MaterialDate.find(params[:material_id])
 
-        if @material_date.update(material_date_params)
-            flash.now[:notice] = "User updated successfully."
-            redirect_to user_path(@user), notice: "Material updated successfully"
-        else 
-            flash.now[:error] = "Errors editting your user"
-            render "material", error: "Errors editting your material"
-        end
+        @material_date.update(material_date_params)
+        flash.now[:notice] = "User updated successfully."
+        #     redirect_to user_path(@user), notice: "Material updated successfully"
+        # else 
+        #     flash.now[:error] = "Errors editting your user"
+        #     render "material", error: "Errors editting your material"
+        # end
     end
 
     def update
